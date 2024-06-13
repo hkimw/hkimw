@@ -1,20 +1,16 @@
-### Hi there 👋
+# Hi there 👋  
 
+<br/>
+  
 
-![hwkim-dev GitHub stats](https://github-readme-stats.vercel.app/api?username=hwkim-dev)
+![hwkim-dev GitHub stats](https://github-readme-stats.vercel.app/api?username=hwkim-dev)   
+
+<br/>
+
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=hwkim-dev)
 
-<!--
-**hwkim-dev/hwkim-dev** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<br/>
+   
+- 🔭 I’m currently working on I am studying deep learning training acceleration with OpenCL and I am planning to build a library for it.
+- 🌱 I’m currently learning Parallel Programming & Operating Systems
+- 👯 I’m looking to collaborate on OpenCL parallel acceleration for deeplearning
