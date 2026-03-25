@@ -11,7 +11,7 @@
 
 <br/>
    
-* Studying: Deep learning training acceleration with Vulkan.
-* Building: A custom Vulkan library for AI acceleration.
+* Studying: Deep learning training acceleration with Vulkan, SystemVerilog
+* Building: AI acceleration for FPGA env & vulkan-supported devices
 * Learning: Parallel Programming & Operating Systems.
 * Collaborating: Vulkan, SIMD parallel optimization and Memory optimization projects.
