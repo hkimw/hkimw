@@ -11,6 +11,7 @@
 
 <br/>
    
-- 🔭 I’m currently working on I am studying deep learning training acceleration with OpenCL and I am planning to build a library for it.
-- 🌱 I’m currently learning Parallel Programming & Operating Systems
-- 👯 I’m looking to collaborate on OpenCL parallel acceleration for deeplearning
+* Studying: Deep learning training acceleration with Vulkan.
+* Building: A custom Vulkan library for AI acceleration.
+* Learning: Parallel Programming & Operating Systems.
+* Collaborating: Vulkan, SIMD parallel optimization and Memory optimization projects.
