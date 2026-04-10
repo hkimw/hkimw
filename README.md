@@ -15,3 +15,5 @@
 * Building: AI acceleration for FPGA env & vulkan-supported devices
 * Learning: Parallel Programming & Operating Systems.
 * Collaborating: Vulkan, SIMD parallel optimization and Memory optimization projects.
+
+📧: k1h6w4@gmail.com
