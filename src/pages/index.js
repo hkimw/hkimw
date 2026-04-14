@@ -15,7 +15,7 @@ export default function Home() {
         <section style={{marginTop: '2rem'}}>
           <h2>Contact</h2>
           <ul>
-            <li>Email: your-email@example.com</li>
+            <li>Email: k1h6w4@gmail.com</li>
             <li>GitHub: https://github.com/hwkim-dev</li>
             <li>기타: LinkedIn / Blog / Notion 링크 추가 예정</li>
           </ul>
