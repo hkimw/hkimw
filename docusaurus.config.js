@@ -4,7 +4,7 @@ const config = {
   title: 'hwkim-dev',
   tagline: '개인 기술 블로그 & 포트폴리오',
   url: 'https://hwkim-dev.github.io',
-  baseUrl: '/hwkim-dev/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   i18n: {
