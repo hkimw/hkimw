@@ -12,12 +12,12 @@ slug: /projects
 
 - 프로젝트 A
   - 설명: TODO
-  - Repo: https://github.com/hwkim-dev/<repo-name>
-  - Release: https://github.com/hwkim-dev/<repo-name>/releases
+  - Repo: https://github.com/hwkim-dev/repo-name
+  - Release: https://github.com/hwkim-dev/repo-name/releases
 - 프로젝트 B
   - 설명: TODO
-  - Repo: https://github.com/hwkim-dev/<repo-name>
-  - Release: https://github.com/hwkim-dev/<repo-name>/releases
+  - Repo: https://github.com/hwkim-dev/repo-name
+  - Release: https://github.com/hwkim-dev/repo-name/releases
 
 ## 정리 팁
 
