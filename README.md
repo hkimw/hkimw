@@ -17,3 +17,7 @@
 * Collaborating: Vulkan, SIMD parallel optimization and Memory optimization projects.
 
 📧: k1h6w4@gmail.com
+
+## Docusaurus build note
+
+- This repository pins `webpack` to `5.90.3` via `package.json > overrides` because newer webpack releases break Docusaurus build progress plugin options (`name/color/reporters`) in this environment.

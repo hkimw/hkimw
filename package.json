@@ -1,6 +1,7 @@
 {
   "name": "hwkim-dev-site",
   "version": "1.0.0",
+  "description": "Docusaurus site for hwkim-dev (webpack pinned for Docusaurus/webpackbar compatibility).",
   "private": true,
   "scripts": {
     "start": "docusaurus start",
