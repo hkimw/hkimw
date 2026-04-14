@@ -1,75 +1,101 @@
 import React, {useState} from 'react';
 import Layout from '@theme/Layout';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
+const T = {
+  en: {
+    pageTitle: 'Projects',
+    metaDesc: 'hwkim-dev GitHub repositories & releases showcase',
+    h1: '🛠️ Projects & Repositories',
+    subtitle: 'Open source repositories and releases I have built.',
+    githubBtn: '⭐ View full GitHub profile →',
+    emptyTitle: 'Projects coming soon',
+    emptyDesc: 'I will showcase my projects here once they are ready.',
+    githubDirectBtn: 'View on GitHub',
+    repoBtn: '📁 Repository',
+    releaseBtn: '🚀 Releases',
+    allFilter: 'All',
+    status: {
+      active: '🟢 Active',
+      wip: '🚧 WIP',
+      archived: '📦 Archived',
+    },
+  },
+  ko: {
+    pageTitle: '프로젝트',
+    metaDesc: 'hwkim-dev GitHub 저장소 & 릴리즈 쇼케이스',
+    h1: '🛠️ 프로젝트 & 저장소',
+    subtitle: '직접 만든 GitHub 저장소와 릴리즈를 소개합니다.',
+    githubBtn: '⭐ GitHub 프로필 전체 보기 →',
+    emptyTitle: '프로젝트를 추가할 예정입니다',
+    emptyDesc: '진행 중인 프로젝트가 정리되면 이곳에 소개하겠습니다.',
+    githubDirectBtn: 'GitHub에서 바로 보기',
+    repoBtn: '📁 Repository',
+    releaseBtn: '🚀 Releases',
+    allFilter: '전체',
+    status: {
+      active: '🟢 Active',
+      wip: '🚧 WIP',
+      archived: '📦 Archived',
+    },
+  },
+};
+
+const STATUS_COLOR = {
+  active: '#16a34a',
+  wip: '#d97706',
+  archived: '#94a3b8',
+};
 
 /**
- * 프로젝트 데이터를 여기에 추가하세요.
+ * Add your projects here.
  *
  * {
- *   name: '저장소 이름',
- *   description: '한 줄 설명',
+ *   name: 'repo-name',
+ *   description: 'One-line description',
  *   tags: ['Python', 'CUDA', 'PyTorch'],
  *   repo: 'https://github.com/hwkim-dev/repo-name',
- *   release: 'https://github.com/hwkim-dev/repo-name/releases',  // 없으면 생략
- *   language: 'Python',   // 주 언어
- *   stars: 0,             // 없으면 생략
+ *   release: 'https://github.com/hwkim-dev/repo-name/releases',  // optional
+ *   language: 'Python',   // primary language
+ *   stars: 0,             // optional
  *   status: 'active',     // 'active' | 'wip' | 'archived'
  * }
  */
-const PROJECTS = [
-  // 예시 — 실제 프로젝트로 교체하세요
-  // {
-  //   name: 'cuda-attention-kernel',
-  //   description: 'Transformer Attention을 위한 최적화된 CUDA 커널 구현체',
-  //   tags: ['CUDA', 'C++', 'PyTorch'],
-  //   repo: 'https://github.com/hwkim-dev/cuda-attention-kernel',
-  //   release: 'https://github.com/hwkim-dev/cuda-attention-kernel/releases',
-  //   language: 'CUDA C++',
-  //   stars: 0,
-  //   status: 'active',
-  // },
-];
-
-const STATUS_CONFIG = {
-  active: {label: '🟢 Active', color: '#16a34a'},
-  wip: {label: '🚧 WIP', color: '#d97706'},
-  archived: {label: '📦 Archived', color: '#94a3b8'},
-};
-
-const ALL_TAGS_LABEL = '전체';
+const PROJECTS = [];
 
 export default function Projects() {
-  const allTags = [
-    ALL_TAGS_LABEL,
-    ...Array.from(new Set(PROJECTS.flatMap((p) => p.tags || []))).sort(),
-  ];
-  const [activeTag, setActiveTag] = useState(ALL_TAGS_LABEL);
+  const {i18n: {currentLocale}} = useDocusaurusContext();
+  const t = T[currentLocale] ?? T.en;
+
+  const allTags = [t.allFilter, ...Array.from(new Set(PROJECTS.flatMap((p) => p.tags ?? []))).sort()];
+  const [activeTag, setActiveTag] = useState(t.allFilter);
 
   const filtered =
-    activeTag === ALL_TAGS_LABEL
+    activeTag === t.allFilter
       ? PROJECTS
       : PROJECTS.filter((p) => p.tags?.includes(activeTag));
 
   return (
-    <Layout title="Projects" description="hwkim-dev의 GitHub 저장소 & 릴리즈 쇼케이스">
+    <Layout title={t.pageTitle} description={t.metaDesc}>
       <main className="page-container">
         <div className="page-header">
-          <h1>🛠️ 프로젝트 &amp; 저장소</h1>
-          <p>직접 만든 GitHub 저장소와 릴리즈를 소개합니다.</p>
+          <h1>{t.h1}</h1>
+          <p>{t.subtitle}</p>
           <a
             href="https://github.com/hwkim-dev"
             target="_blank"
             rel="noopener noreferrer"
             className="button button--secondary button--sm"
           >
-            ⭐ GitHub 프로필 전체 보기 →
+            {t.githubBtn}
           </a>
         </div>
 
         {PROJECTS.length === 0 ? (
           <div className="empty-state">
             <div className="empty-state-icon">🔧</div>
-            <h3>프로젝트를 추가할 예정입니다</h3>
-            <p>진행 중인 프로젝트가 정리되면 이곳에 소개하겠습니다.</p>
+            <h3>{t.emptyTitle}</h3>
+            <p>{t.emptyDesc}</p>
             <a
               href="https://github.com/hwkim-dev"
               target="_blank"
@@ -77,12 +103,11 @@ export default function Projects() {
               className="button button--primary"
               style={{marginTop: '1.2rem', display: 'inline-block'}}
             >
-              GitHub에서 바로 보기
+              {t.githubDirectBtn}
             </a>
           </div>
         ) : (
           <>
-            {/* Tag Filter */}
             {allTags.length > 1 && (
               <div className="project-filters">
                 {allTags.map((tag) => (
@@ -96,10 +121,9 @@ export default function Projects() {
                 ))}
               </div>
             )}
-
             <div className="projects-grid">
               {filtered.map((project, idx) => (
-                <ProjectCard key={idx} project={project} />
+                <ProjectCard key={idx} project={project} t={t} />
               ))}
             </div>
           </>
@@ -109,8 +133,9 @@ export default function Projects() {
   );
 }
 
-function ProjectCard({project}) {
-  const status = STATUS_CONFIG[project.status] || STATUS_CONFIG.active;
+function ProjectCard({project, t}) {
+  const statusLabel = t.status[project.status] ?? t.status.active;
+  const statusColor = STATUS_COLOR[project.status] ?? STATUS_COLOR.active;
 
   return (
     <div className="project-card">
@@ -120,8 +145,8 @@ function ProjectCard({project}) {
             {project.name}
           </a>
         </h3>
-        <span className="project-status" style={{color: status.color}}>
-          {status.label}
+        <span className="project-status" style={{color: statusColor}}>
+          {statusLabel}
         </span>
       </div>
 
@@ -138,34 +163,20 @@ function ProjectCard({project}) {
       )}
 
       <div className="project-links">
-        <a
-          href={project.repo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-link"
-        >
-          📁 Repository
+        <a href={project.repo} target="_blank" rel="noopener noreferrer" className="project-link">
+          {t.repoBtn}
         </a>
         {project.release && (
-          <a
-            href={project.release}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link release"
-          >
-            🚀 Releases
+          <a href={project.release} target="_blank" rel="noopener noreferrer" className="project-link release">
+            {t.releaseBtn}
           </a>
         )}
       </div>
 
       {(project.language !== undefined || project.stars !== undefined) && (
         <div className="project-footer">
-          {project.language && (
-            <span className="project-language">● {project.language}</span>
-          )}
-          {project.stars !== undefined && (
-            <span className="project-stars">⭐ {project.stars}</span>
-          )}
+          {project.language && <span className="project-language">● {project.language}</span>}
+          {project.stars !== undefined && <span className="project-stars">⭐ {project.stars}</span>}
         </div>
       )}
     </div>

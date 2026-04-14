@@ -1,0 +1,42 @@
+{
+  "link.title.Pages": {
+    "message": "페이지",
+    "description": "Footer column title: Pages"
+  },
+  "link.item.label.Home": {
+    "message": "홈",
+    "description": "Footer link: Home"
+  },
+  "link.item.label.Blog": {
+    "message": "블로그",
+    "description": "Footer link: Blog"
+  },
+  "link.item.label.Papers": {
+    "message": "논문",
+    "description": "Footer link: Papers"
+  },
+  "link.item.label.Projects": {
+    "message": "프로젝트",
+    "description": "Footer link: Projects"
+  },
+  "link.item.label.Chatbot": {
+    "message": "챗봇",
+    "description": "Footer link: Chatbot"
+  },
+  "link.title.Connect": {
+    "message": "소셜 & 연락처",
+    "description": "Footer column title: Connect"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Footer link: GitHub"
+  },
+  "link.item.label.Email": {
+    "message": "이메일",
+    "description": "Footer link: Email"
+  },
+  "footer.copyright": {
+    "message": "© {year} hwkim-dev. Docusaurus로 만들어졌습니다.",
+    "description": "Footer copyright"
+  }
+}
