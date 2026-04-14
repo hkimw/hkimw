@@ -2,41 +2,136 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 
+const SKILLS = [
+  'Deep Learning',
+  'CUDA / GPU 프로그래밍',
+  '병렬 프로그래밍',
+  '시스템 최적화',
+  'PyTorch',
+  'C / C++',
+  'Python',
+  'HPC',
+  '딥러닝 추론 가속',
+];
+
+const NAV_CARDS = [
+  {
+    icon: '📝',
+    title: '블로그',
+    description:
+      '공부 기록, 일상, 뉴스 클리핑, 리뷰, 그리고 잡다한 생각들을 기록합니다.',
+    to: '/blog',
+    categories: ['공부', '잡도리', '일상', '리뷰', '뉴스'],
+  },
+  {
+    icon: '📄',
+    title: '논문',
+    description:
+      '작성 또는 기여한 논문, 포스터, 학회 발표를 정리하는 아카이브입니다.',
+    to: '/papers',
+    categories: [],
+  },
+  {
+    icon: '🛠️',
+    title: '프로젝트',
+    description:
+      '직접 만든 GitHub 저장소와 릴리즈를 소개합니다. 기술 스택과 링크를 확인하세요.',
+    to: '/projects',
+    categories: [],
+  },
+  {
+    icon: '🤖',
+    title: '챗봇',
+    description:
+      '저와 제 프로젝트에 대해 무엇이든 물어보세요. AI가 대신 답해드립니다.',
+    to: '/chatbot',
+    categories: [],
+  },
+];
+
 export default function Home() {
   return (
-    <Layout title="Home" description="hwkim-dev 개인 홈페이지">
-      <main style={{maxWidth: 960, margin: '0 auto', padding: '2rem 1rem'}}>
-        <h1>안녕하세요, hwkim-dev입니다 👋</h1>
-        <p>
-          딥러닝 가속, 병렬 프로그래밍, 시스템 최적화에 관심을 두고 공부하고 있습니다.
-          이 공간은 공부 기록, 프로젝트, 논문, 그리고 챗봇 연결 정보를 정리하는 개인 홈페이지입니다.
-        </p>
+    <Layout title="Home" description="hwkim-dev 개인 홈페이지 — 딥러닝, 병렬 프로그래밍, 시스템 최적화">
+      {/* Hero */}
+      <header className="hero-section">
+        <div className="hero-content">
+          <img
+            className="hero-avatar"
+            src="https://github.com/hwkim-dev.png"
+            alt="hwkim-dev avatar"
+          />
+          <div className="hero-text">
+            <h1 className="hero-name">hwkim-dev</h1>
+            <p className="hero-tagline">딥러닝 · 병렬 프로그래밍 · 시스템 최적화</p>
+            <p className="hero-bio">
+              GPU 가속, CUDA 프로그래밍, 딥러닝 추론 최적화에 관심을 두고 공부하고
+              있습니다. 연구와 개발을 병행하며 배운 것들을 이 공간에 기록하고
+              공유합니다.
+            </p>
+            <div className="hero-actions">
+              <Link className="button button--primary button--lg" to="/blog">
+                블로그 보기
+              </Link>
+              <Link className="button button--secondary button--lg" to="/projects">
+                프로젝트 보기
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
 
-        <section style={{marginTop: '2rem'}}>
-          <h2>Contact</h2>
-          <ul>
-            <li>Email: k1h6w4@gmail.com</li>
-            <li>GitHub: https://github.com/hwkim-dev</li>
-            <li>기타: LinkedIn / Blog / Notion 링크 추가 예정</li>
-          </ul>
+      <main className="home-main">
+        {/* Skills */}
+        <section className="skills-section">
+          <h2 className="section-title">⚙️ 관심 분야 &amp; 기술</h2>
+          <div className="skills-grid">
+            {SKILLS.map((skill) => (
+              <span key={skill} className="skill-tag">
+                {skill}
+              </span>
+            ))}
+          </div>
         </section>
 
-        <section style={{marginTop: '2rem'}}>
-          <h2>빠른 이동</h2>
-          <ul>
-            <li>
-              <Link to="/blog">Blog</Link>
-            </li>
-            <li>
-              <Link to="/docs/papers">Papers</Link>
-            </li>
-            <li>
-              <Link to="/docs/projects">Projects / Repositories</Link>
-            </li>
-            <li>
-              <Link to="/docs/chatbot">Chatbot</Link>
-            </li>
-          </ul>
+        {/* Nav Cards */}
+        <section className="nav-cards-section">
+          <h2 className="section-title">🗂️ 페이지 둘러보기</h2>
+          <div className="nav-cards-grid">
+            {NAV_CARDS.map((card) => (
+              <Link key={card.title} to={card.to} className="nav-card">
+                <div className="nav-card-icon">{card.icon}</div>
+                <h3 className="nav-card-title">{card.title}</h3>
+                <p className="nav-card-desc">{card.description}</p>
+                {card.categories.length > 0 && (
+                  <div className="nav-card-tags">
+                    {card.categories.map((cat) => (
+                      <span key={cat} className="nav-card-tag">
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section className="contact-section">
+          <h2 className="section-title">📬 연락하기</h2>
+          <div className="contact-links">
+            <a
+              className="contact-link github"
+              href="https://github.com/hwkim-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>⭐</span> GitHub
+            </a>
+            <a className="contact-link email" href="mailto:k1h6w4@gmail.com">
+              <span>✉️</span> k1h6w4@gmail.com
+            </a>
+          </div>
         </section>
       </main>
     </Layout>
