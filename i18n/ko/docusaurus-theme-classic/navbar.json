@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "hwkim-dev",
+    "description": "The title in the navbar"
+  },
+  "item.label.Home": {
+    "message": "홈",
+    "description": "Navbar item: Home"
+  },
+  "item.label.Blog": {
+    "message": "블로그",
+    "description": "Navbar item: Blog"
+  },
+  "item.label.Papers": {
+    "message": "논문",
+    "description": "Navbar item: Papers"
+  },
+  "item.label.Projects": {
+    "message": "프로젝트",
+    "description": "Navbar item: Projects"
+  },
+  "item.label.Chatbot": {
+    "message": "챗봇",
+    "description": "Navbar item: Chatbot"
+  }
+}
