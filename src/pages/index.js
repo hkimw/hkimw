@@ -11,7 +11,7 @@ const T = {
     bio: 'I am interested in GPU acceleration, CUDA programming, and deep learning inference optimization. I study and build things, and record what I learn here.',
     ctaBlog: 'Read Blog',
     ctaProjects: 'View Projects',
-    skillsTitle: '⚙️ Interests & Skills',
+    skillsTitle: 'Interests & Skills',
     skills: [
       'Deep Learning',
       'CUDA / GPU Programming',
@@ -23,8 +23,8 @@ const T = {
       'HPC',
       'DL Inference Acceleration',
     ],
-    navTitle: '🗂️ Explore',
-    contactTitle: '📬 Contact',
+    navTitle: 'Explore',
+    contactTitle: 'Contact',
     cards: [
       {
         icon: '📝',
@@ -65,7 +65,7 @@ const T = {
     bio: 'GPU 가속, CUDA 프로그래밍, 딥러닝 추론 최적화에 관심을 두고 공부하고 있습니다. 연구와 개발을 병행하며 배운 것들을 이 공간에 기록하고 공유합니다.',
     ctaBlog: '블로그 보기',
     ctaProjects: '프로젝트 보기',
-    skillsTitle: '⚙️ 관심 분야 & 기술',
+    skillsTitle: '관심 분야 & 기술',
     skills: [
       'Deep Learning',
       'CUDA / GPU 프로그래밍',
@@ -77,8 +77,8 @@ const T = {
       'HPC',
       '딥러닝 추론 가속',
     ],
-    navTitle: '🗂️ 페이지 둘러보기',
-    contactTitle: '📬 연락하기',
+    navTitle: '페이지 둘러보기',
+    contactTitle: '연락하기',
     cards: [
       {
         icon: '📝',

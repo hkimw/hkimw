@@ -6,7 +6,7 @@ const T = {
   en: {
     pageTitle: 'Papers',
     metaDesc: 'hwkim-dev paper archive — authored and contributed papers',
-    h1: '📄 Paper Archive',
+    h1: 'Paper Archive',
     subtitle: 'Papers, posters, and conference presentations I have authored or contributed to.',
     emptyTitle: 'Papers coming soon',
     emptyDesc: 'I will add my papers here as they are published.',
@@ -16,7 +16,7 @@ const T = {
   ko: {
     pageTitle: '논문',
     metaDesc: 'hwkim-dev 논문 아카이브 — 작성 및 기여한 논문',
-    h1: '📄 논문 아카이브',
+    h1: '논문 아카이브',
     subtitle: '작성 또는 기여한 논문, 포스터, 학회 발표를 정리하는 페이지입니다.',
     emptyTitle: '논문을 추가할 예정입니다',
     emptyDesc: '작성한 논문이 생기면 이곳에 정리하겠습니다.',

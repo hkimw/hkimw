@@ -141,7 +141,7 @@ module.exports = async function createConfig() {
         crossorigin: 'anonymous',
       },
       {
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap',
         rel: 'stylesheet',
       },
     ],
