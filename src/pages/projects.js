@@ -67,13 +67,13 @@ const PROJECTS = [
   {
     name: 'pccx',
     description: {
-      en: 'Practical C++ toolkit — utilities, patterns, and experiments for modern systems programming.',
-      ko: '실용적인 C++ 툴킷 — 모던 시스템 프로그래밍을 위한 유틸리티, 패턴, 실험.',
+      en: 'Full-stack hardware-software co-design framework for Edge FPGAs — custom NPU architecture, proprietary ISA, and CUDA-like driver/API to accelerate Transformers and neural networks.',
+      ko: 'Edge FPGA용 하드웨어/소프트웨어 풀스택 프레임워크 — 커스텀 NPU 아키텍처, 전용 ISA, CUDA 스타일 드라이버/API로 Transformer와 신경망을 가속합니다.',
     },
-    tags: ['C++', 'Systems', 'Toolkit'],
+    tags: ['FPGA', 'NPU', 'ISA', 'SystemVerilog', 'C/C++', 'LLM'],
     repo: 'https://github.com/hwkim-dev/pccx',
     release: 'https://github.com/hwkim-dev/pccx/releases',
-    language: 'C++',
+    language: 'SystemVerilog / C++',
     status: 'active',
   },
   {

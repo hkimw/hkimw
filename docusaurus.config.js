@@ -1,16 +1,51 @@
 // @ts-check
 
+const fs = require('fs');
+const path = require('path');
+const matter = require('gray-matter');
+
+function collectBlogTags(dir) {
+  const tagCount = {};
+  try {
+    for (const file of fs.readdirSync(dir)) {
+      if (!file.endsWith('.md') && !file.endsWith('.mdx')) continue;
+      const raw = fs.readFileSync(path.join(dir, file), 'utf8');
+      const {data} = matter(raw);
+      for (const tag of data.tags ?? []) {
+        tagCount[tag] = (tagCount[tag] ?? 0) + 1;
+      }
+    }
+  } catch {}
+  return Object.entries(tagCount)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([label, count]) => ({label, count}));
+}
+
 module.exports = async function createConfig() {
   const {default: math} = await import('remark-math');
   const {default: katex} = await import('rehype-katex');
+
+  const baseUrl = '/hwkim-dev/';
+
+  const blogCategoriesByLocale = {
+    en: collectBlogTags(path.join(__dirname, 'blog')),
+    ko: collectBlogTags(path.join(__dirname, 'i18n/ko/docusaurus-plugin-content-blog')),
+  };
 
   return {
     title: 'hwkim-dev',
     tagline: 'Deep Learning · Parallel Programming · Systems Optimization',
     url: 'https://hwkim-dev.github.io',
-    baseUrl: '/hwkim-dev/',
-    onBrokenLinks: 'throw',
+    baseUrl,
+    onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
+    markdown: {
+      mermaid: true,
+    },
+    themes: ['@docusaurus/theme-mermaid'],
+    customFields: {
+      blogCategories: blogCategoriesByLocale,
+    },
     i18n: {
       defaultLocale: 'en',
       locales: ['en', 'ko'],
@@ -43,7 +78,7 @@ module.exports = async function createConfig() {
     themeConfig: {
       colorMode: {
         defaultMode: 'light',
-        respectPrefersColorScheme: true,
+        respectPrefersColorScheme: false,
       },
       navbar: {
         title: 'hwkim-dev',
@@ -51,13 +86,19 @@ module.exports = async function createConfig() {
         items: [
           {to: '/', label: 'Home', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
-          {to: '/blog/tags', label: 'Categories', position: 'left'},
           {to: '/papers', label: 'Papers', position: 'left'},
           {to: '/projects', label: 'Projects', position: 'left'},
           {to: '/chatbot', label: 'Chatbot', position: 'left'},
           {
-            type: 'localeDropdown',
+            type: 'html',
             position: 'right',
+            value: `<div class="navbar__item dropdown dropdown--right dropdown--hoverable lang-switch">
+  <button class="navbar__link" aria-haspopup="true" aria-label="Language" type="button">🌐 Language</button>
+  <ul class="dropdown__menu">
+    <li><a class="dropdown__link" href="${baseUrl}" data-noBrokenLinkCheck="true">English</a></li>
+    <li><a class="dropdown__link" href="${baseUrl}ko/" data-noBrokenLinkCheck="true">한국어</a></li>
+  </ul>
+</div>`,
           },
           {
             href: 'https://github.com/hwkim-dev',
@@ -75,7 +116,6 @@ module.exports = async function createConfig() {
             items: [
               {label: 'Home', to: '/'},
               {label: 'Blog', to: '/blog'},
-              {label: 'Categories', to: '/blog/tags'},
               {label: 'Papers', to: '/papers'},
               {label: 'Projects', to: '/projects'},
               {label: 'Chatbot', to: '/chatbot'},
