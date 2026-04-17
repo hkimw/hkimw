@@ -24,7 +24,11 @@ export default function BlogLayout(props) {
             itemType="https://schema.org/Blog">
             {children}
           </main>
-          {hasRecentPosts && <BlogSidebar sidebar={sidebar} />}
+          {hasRecentPosts && (
+            <div className="blog-right-sidebar-col">
+              <BlogSidebar sidebar={sidebar} />
+            </div>
+          )}
           {toc && <div className="col col--2">{toc}</div>}
         </div>
       </div>
