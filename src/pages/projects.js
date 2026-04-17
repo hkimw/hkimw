@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const T = {
   en: {
+    locale: 'en',
     pageTitle: 'Projects',
     metaDesc: 'hwkim-dev GitHub repositories & releases showcase',
     h1: '🛠️ Projects & Repositories',
@@ -22,6 +23,7 @@ const T = {
     },
   },
   ko: {
+    locale: 'ko',
     pageTitle: '프로젝트',
     metaDesc: 'hwkim-dev GitHub 저장소 & 릴리즈 쇼케이스',
     h1: '🛠️ 프로젝트 & 저장소',
@@ -61,7 +63,56 @@ const STATUS_COLOR = {
  *   status: 'active',     // 'active' | 'wip' | 'archived'
  * }
  */
-const PROJECTS = [];
+const PROJECTS = [
+  {
+    name: 'pccx',
+    description: {
+      en: 'Practical C++ toolkit — utilities, patterns, and experiments for modern systems programming.',
+      ko: '실용적인 C++ 툴킷 — 모던 시스템 프로그래밍을 위한 유틸리티, 패턴, 실험.',
+    },
+    tags: ['C++', 'Systems', 'Toolkit'],
+    repo: 'https://github.com/hwkim-dev/pccx',
+    release: 'https://github.com/hwkim-dev/pccx/releases',
+    language: 'C++',
+    status: 'active',
+  },
+  {
+    name: 'llm-lite',
+    description: {
+      en: 'Lightweight LLM serving stack focused on low-latency inference and compact deployment.',
+      ko: '저지연 추론과 경량 배포에 초점을 맞춘 경량 LLM 서빙 스택.',
+    },
+    tags: ['LLM', 'Inference', 'Python', 'PyTorch'],
+    repo: 'https://github.com/hwkim-dev/llm-lite',
+    release: 'https://github.com/hwkim-dev/llm-lite/releases',
+    language: 'Python',
+    status: 'active',
+  },
+  {
+    name: 'NPU-FPGA-Transformer-Accelerator-KV260',
+    description: {
+      en: 'Transformer inference accelerator on AMD Kria KV260 — custom NPU IP on FPGA with Vitis HLS.',
+      ko: 'AMD Kria KV260 기반 Transformer 추론 가속기 — Vitis HLS로 구현한 커스텀 NPU IP.',
+    },
+    tags: ['FPGA', 'NPU', 'Transformer', 'Vitis HLS', 'Hardware'],
+    repo: 'https://github.com/hwkim-dev/NPU-FPGA-Transformer-Accelerator-KV260',
+    release: 'https://github.com/hwkim-dev/NPU-FPGA-Transformer-Accelerator-KV260/releases',
+    language: 'C++ / HLS',
+    status: 'wip',
+  },
+  {
+    name: 'Driver-drowsiness-detection',
+    description: {
+      en: 'Real-time driver drowsiness detection using computer vision and deep learning.',
+      ko: '컴퓨터 비전과 딥러닝을 활용한 실시간 운전자 졸음 감지 시스템.',
+    },
+    tags: ['Computer Vision', 'Deep Learning', 'Python', 'OpenCV'],
+    repo: 'https://github.com/hwkim-dev/Driver-drowsiness-detection',
+    release: 'https://github.com/hwkim-dev/Driver-drowsiness-detection/releases',
+    language: 'Python',
+    status: 'active',
+  },
+];
 
 export default function Projects() {
   const {i18n: {currentLocale}} = useDocusaurusContext();
@@ -137,6 +188,11 @@ function ProjectCard({project, t}) {
   const statusLabel = t.status[project.status] ?? t.status.active;
   const statusColor = STATUS_COLOR[project.status] ?? STATUS_COLOR.active;
 
+  const description =
+    typeof project.description === 'string'
+      ? project.description
+      : project.description?.[t.locale] ?? project.description?.en ?? '';
+
   return (
     <div className="project-card">
       <div className="project-card-header">
@@ -150,7 +206,7 @@ function ProjectCard({project, t}) {
         </span>
       </div>
 
-      <p className="project-description">{project.description}</p>
+      <p className="project-description">{description}</p>
 
       {project.tags && project.tags.length > 0 && (
         <div className="project-tags">

@@ -11,6 +11,10 @@
     "message": "블로그",
     "description": "Footer link: Blog"
   },
+  "link.item.label.Categories": {
+    "message": "카테고리",
+    "description": "Footer link: Categories"
+  },
   "link.item.label.Papers": {
     "message": "논문",
     "description": "Footer link: Papers"

@@ -31,7 +31,7 @@ const T = {
         title: 'Blog',
         description: 'Study notes, daily life, news clips, reviews, and random thoughts.',
         to: '/blog',
-        tags: ['Study', 'Misc', 'Daily', 'Review', 'News'],
+        tags: ['Paper', 'Study', 'Review', 'News', 'Daily'],
       },
       {
         icon: '📄',
@@ -85,7 +85,7 @@ const T = {
         title: '블로그',
         description: '공부 기록, 일상, 뉴스 클리핑, 리뷰, 그리고 잡다한 생각들을 기록합니다.',
         to: '/blog',
-        tags: ['공부', '잡도리', '일상', '리뷰', '뉴스'],
+        tags: ['논문', '공부', '리뷰', '뉴스', '일상'],
       },
       {
         icon: '📄',
