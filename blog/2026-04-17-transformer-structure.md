@@ -3,6 +3,7 @@ slug: transformer-structure
 title: "[공부] Transformer Language Model 구조"
 authors: [hwkim]
 tags: [공부, transformer, nlp, 딥러닝]
+unlisted: true
 ---
 
 ## 1. 인공지능이 텍스트를 처리하는 수학적 접근

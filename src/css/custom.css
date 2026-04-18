@@ -279,7 +279,14 @@ body {
 .lang-switch button.navbar__link {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.81rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
+
+/* Show EN label by default, swap to KR on Korean locale */
+.lang-label-ko { display: none; }
+html[lang="ko-KR"] .lang-label-en { display: none; }
+html[lang="ko-KR"] .lang-label-ko { display: inline; }
 
 /* =============================================================
    HERO SECTION

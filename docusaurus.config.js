@@ -93,7 +93,7 @@ module.exports = async function createConfig() {
             type: 'html',
             position: 'right',
             value: `<div class="navbar__item dropdown dropdown--right dropdown--hoverable lang-switch">
-  <button class="navbar__link" aria-haspopup="true" aria-label="Language" type="button">🌐 Language</button>
+  <button class="navbar__link" aria-haspopup="true" aria-label="Language" type="button"><span class="lang-label-en">EN</span><span class="lang-label-ko">KR</span></button>
   <ul class="dropdown__menu">
     <li><a class="dropdown__link" href="${baseUrl}" data-noBrokenLinkCheck="true">English</a></li>
     <li><a class="dropdown__link" href="${baseUrl}ko/" data-noBrokenLinkCheck="true">한국어</a></li>

@@ -3,6 +3,7 @@ slug: path-integral
 title: "[논문] Space-Time Approach to Non-Relativistic Quantum Mechanics"
 authors: [hwkim]
 tags: [논문, 물리, 양자역학]
+unlisted: true
 ---
 
 R.P. Feynman의 'Space-Time Approach to Non-Relativistic Quantum Mechanics' 논문 초록(Abstract) 정리 노트
