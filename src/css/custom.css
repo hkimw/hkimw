@@ -171,15 +171,17 @@
 ============================================================= */
 html {
   scroll-behavior: smooth;
+  min-height: 100%;
+  background-color: var(--bg-base);
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
   background-color: var(--bg-base);
   background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
   background-size: 24px 24px;
-  background-attachment: scroll;
 }
 
 ::selection {
@@ -1371,9 +1373,23 @@ a[href*='/blog/tags/']:hover {
 }
 
 /* =============================================================
-   BLOG CATEGORIES SIDEBAR (left panel)
+   BLOG 3-COLUMN LAYOUT
+   DOM order: categories | posts | recent
+   Visual order (via CSS order): posts(1,left) | categories(2,center) | recent(3,right)
+============================================================= */
+.blog-layout-row {
+  align-items: flex-start;
+}
+
+.blog-posts-main {
+  order: 1;
+}
+
+/* =============================================================
+   BLOG CATEGORIES SIDEBAR (visual center)
 ============================================================= */
 .blog-categories-col {
+  order: 2;
   position: sticky;
   top: calc(var(--ifm-navbar-height) + 1rem);
   align-self: flex-start;
@@ -1463,13 +1479,53 @@ a[href*='/blog/tags/']:hover {
   color: var(--ifm-color-primary);
 }
 
+.blog-right-sidebar-col {
+  order: 3;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+  align-self: flex-start;
+  max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+  overflow-y: auto;
+}
+
 @media (max-width: 996px) {
   .blog-categories-col {
-    display: none;
+    display: none !important;
   }
   .blog-right-sidebar-col {
-    display: none;
+    display: none !important;
   }
+  .blog-posts-main.col--6 {
+    --ifm-col-width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* =============================================================
+   MOBILE NAVBAR SIDEBAR (hamburger menu)
+============================================================= */
+.navbar-sidebar {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.navbar-sidebar__brand {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-sidebar__items {
+  background: var(--bg-surface);
+}
+
+.navbar-sidebar .navbar__link,
+.navbar-sidebar .menu__link {
+  color: var(--text-primary);
+}
+
+.navbar-sidebar__backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* =============================================================

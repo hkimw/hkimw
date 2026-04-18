@@ -11,21 +11,21 @@ export default function BlogLayout(props) {
   return (
     <Layout {...layoutProps}>
       <div className="container margin-vert--lg blog-layout-root">
-        <div className="row">
-          <aside className="col col--2 blog-categories-col">
+        <div className="row blog-layout-row">
+          <aside className="col col--3 blog-categories-col">
             <BlogCategoriesSidebar />
           </aside>
           <main
-            className={clsx('col', {
-              'col--7': hasRecentPosts,
-              'col--10': !hasRecentPosts,
+            className={clsx('col blog-posts-main', {
+              'col--6': hasRecentPosts,
+              'col--9': !hasRecentPosts,
             })}
             itemScope
             itemType="https://schema.org/Blog">
             {children}
           </main>
           {hasRecentPosts && (
-            <div className="blog-right-sidebar-col">
+            <div className="col col--3 blog-right-sidebar-col">
               <BlogSidebar sidebar={sidebar} />
             </div>
           )}
