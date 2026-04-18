@@ -1488,6 +1488,21 @@ a[href*='/blog/tags/']:hover {
   overflow-y: auto;
 }
 
+/* Docusaurus 3's default BlogSidebarDesktop wraps its <aside> in
+   ``className="col col--3"``. When it sits inside our own
+   ``.blog-right-sidebar-col`` (also ``.col--3``), the inner element
+   inherits ``--ifm-col-width: 25%`` and collapses to ~6% of the row,
+   which is what caused the "Re / ce / nt / Po / sts" vertical-wrap
+   glitch. Reset the inner col so it fills its outer wrapper. */
+.blog-right-sidebar-col > .col,
+.blog-right-sidebar-col > .col--3 {
+  --ifm-col-width: 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 @media (max-width: 996px) {
   .blog-categories-col {
     display: none !important;
