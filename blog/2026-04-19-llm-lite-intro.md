@@ -1,0 +1,50 @@
+---
+slug: llm-lite-intro
+title: "[프로젝트] llm-lite — Gemma 3N E4B 경량 추론 엔진"
+authors: [hwkim]
+tags: [llm-lite, gemma, llm, inference, vulkan, cpp]
+---
+
+**llm-lite** 는 저사양 로컬 환경에서 Gemma 3N E4B 를 **클라우드 없이** 돌리는 걸 목표로 만든
+멀티 백엔드 추론 엔진이다. 모델 구조는 그대로 두되 공격적인 양자화(INT4 weights + MMAP)와
+저수준 하드웨어 가속으로 성능을 끌어내는 방향을 택했다.
+
+<!-- truncate -->
+
+## 타겟 하드웨어
+
+1차 타겟은 **AMD Ryzen 5 4500U APU** (Renoir, 6C/6T, Radeon RX Vega 6 iGPU) 를 장착한
+리눅스 머신이다. 2차 타겟으로 macOS (Apple Silicon / Intel, MoltenVK 경유), Raspberry Pi 4/5
+(aarch64), 그리고 **Xilinx KV260 FPGA** 를 지원한다. KV260 에서는 별도 NPU 백엔드
+(uCA — micro Compute Architecture) 를 사용한다.
+
+## 아키텍처 요약
+
+| 레이어 | 기술 |
+|---|---|
+| 추론 엔진 | Python 3.12 + NumPy |
+| CPU 커널 | C++17 + SIMD / OpenMP |
+| GPU 커널 | Vulkan 1.2 Compute + GLSL |
+| 웹 GUI | Flask 3 + SSE 스트리밍 |
+| 네이티브 GUI | Dear ImGui 1.91 + Vulkan |
+| 양자화 | W4A32 기본 — INT4 weights, FP32 activations |
+| Weight 로딩 | safetensors + MMAP (zero-copy) |
+
+프리필 ~35 tokens/sec, 디코드 ~8-12 tokens/sec 수준으로, Ryzen 4500U 에서도 일상적
+대화가 가능한 속도다. 모델 RAM 은 INT4 MMAP 기준 약 2.8 GB.
+
+## 최근 업데이트
+
+- **양자화 모드 확장**: 기존 INT4 에 더해 INT8 / FP16 / FP32 weight 모드 추가.
+  특히 구형 iGPU (Vega 6 등) 는 정수 연산보다 부동소수점이 빠를 수 있어 모드 선택이 의미가 있다.
+- **모델 매니저**: GUI 에서 HuggingFace 모델 다운로드 → 양자화 → 기존 variant 삭제까지
+  한 흐름으로 가능.
+- **Speculative Decoding 준비**: Gemma 3N 의 MatFormer 구조를 이용해 E4B 에서 E2B 를
+  슬라이스하는 방향으로 draft model 을 만드는 연구를 시작했다. 현재는 scaffold 상태이고
+  실제 구현은 별도 이슈로 추적 중.
+
+## 관련 링크
+
+- GitHub: [hwkim-dev/llm-lite](https://github.com/hwkim-dev/llm-lite)
+- Reference manual: [Gemma3N_Reference_Manual.md](https://github.com/hwkim-dev/llm-lite/blob/main/docs/Gemma3N_Reference_Manual.md)
+- 관련 논문 글: [Gemma 3 4B 내부 처리 과정](/blog/gemma-3n-e4b)
