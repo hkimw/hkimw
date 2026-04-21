@@ -5,3 +5,5 @@ build/
 # Local tooling scratch
 .claude/
 .claudesignore
+CLAUDE.md
+AGENTS.md
