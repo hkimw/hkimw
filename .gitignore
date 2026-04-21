@@ -1,6 +1,7 @@
 node_modules/
 build/
 .docusaurus/
+.ai-publish/
 
 # Local tooling scratch
 .claude/

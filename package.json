@@ -6,7 +6,10 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "serve": "docusaurus serve",
-    "clear": "docusaurus clear"
+    "clear": "docusaurus clear",
+    "ai:publish:generate": "node scripts/ai-publish-blog.mjs generate",
+    "ai:publish:finalize": "node scripts/ai-publish-blog.mjs finalize",
+    "ai:publish:notify-published": "node scripts/ai-publish-blog.mjs notify-published"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",

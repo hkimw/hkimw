@@ -1,0 +1,118 @@
+name: AI Blog Publisher
+
+on:
+  schedule:
+    # 03:00 Asia/Seoul, expressed in UTC for broad GitHub Actions compatibility.
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+    inputs:
+      publish_mode:
+        description: 'dry-run creates preview files only; commit pushes generated posts.'
+        required: false
+        default: dry-run
+        type: choice
+        options:
+          - dry-run
+          - commit
+      document_id:
+        description: 'Optional single Google Docs document ID to process.'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-blog-publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      BLOG_AI_PUBLISH_MODE: ${{ github.event.inputs.publish_mode || vars.BLOG_AI_PUBLISH_MODE || 'dry-run' }}
+      BLOG_DOCUMENT_ID: ${{ github.event.inputs.document_id || '' }}
+      BLOG_POST_TIMEZONE: Asia/Seoul
+      BLOG_BASE_URL: https://hwkim-dev.github.io/hwkim-dev
+      BLOG_COMMIT_AUTHOR_NAME: ${{ vars.BLOG_COMMIT_AUTHOR_NAME || 'hwkim-dev' }}
+      BLOG_COMMIT_AUTHOR_EMAIL: ${{ secrets.BLOG_COMMIT_AUTHOR_EMAIL }}
+      BLOG_MAX_DOCS_PER_RUN: ${{ vars.BLOG_MAX_DOCS_PER_RUN || '1' }}
+      GDRIVE_DRAFTS_FOLDER_ID: ${{ secrets.GDRIVE_DRAFTS_FOLDER_ID }}
+      GDRIVE_READY_FOLDER_ID: ${{ secrets.GDRIVE_READY_FOLDER_ID }}
+      GDRIVE_VISUALIZE_FOLDER_ID: ${{ secrets.GDRIVE_VISUALIZE_FOLDER_ID }}
+      GDRIVE_PUBLISH_FOLDER_ID: ${{ secrets.GDRIVE_PUBLISH_FOLDER_ID }}
+      GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      GOOGLE_SERVICE_ACCOUNT_JSON_B64: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON_B64 }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_API_BASE_URL: ${{ vars.GEMINI_API_BASE_URL || 'https://generativelanguage.googleapis.com/v1beta' }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-pro' }}
+      GEMINI_MAX_OUTPUT_TOKENS: ${{ vars.GEMINI_MAX_OUTPUT_TOKENS || '65536' }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - name: Guard contributor identity
+        if: env.BLOG_AI_PUBLISH_MODE == 'commit'
+        env:
+          BLOG_PUBLISH_PAT: ${{ secrets.BLOG_PUBLISH_PAT }}
+        run: |
+          if [ -z "$BLOG_PUBLISH_PAT" ]; then
+            echo "BLOG_PUBLISH_PAT is required in commit mode so generated commits are pushed as the repository owner."
+            exit 1
+          fi
+          if [ -z "$BLOG_COMMIT_AUTHOR_EMAIL" ]; then
+            echo "BLOG_COMMIT_AUTHOR_EMAIL is required in commit mode so generated commits are authored by the repository owner."
+            exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.BLOG_PUBLISH_PAT || secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate posts from Google Docs
+        run: npm run ai:publish:generate
+
+      - name: Check generated state
+        id: state
+        run: |
+          node -e "const fs=require('fs'); const p='.ai-publish/state.json'; const s=fs.existsSync(p)?JSON.parse(fs.readFileSync(p,'utf8')):{entries:[]}; console.log('count='+(s.entries?.length||0)); require('fs').appendFileSync(process.env.GITHUB_OUTPUT, 'count='+(s.entries?.length||0)+'\n');"
+
+      - name: Build generated site
+        if: steps.state.outputs.count != '0'
+        run: npm run build
+
+      - name: Finalize Drive originals
+        if: steps.state.outputs.count != '0' && env.BLOG_AI_PUBLISH_MODE == 'commit'
+        run: npm run ai:publish:finalize
+
+      - name: Rebuild after final links
+        if: steps.state.outputs.count != '0' && env.BLOG_AI_PUBLISH_MODE == 'commit'
+        run: npm run build
+
+      - name: Commit generated posts
+        if: steps.state.outputs.count != '0' && env.BLOG_AI_PUBLISH_MODE == 'commit'
+        run: |
+          git config user.name "$BLOG_COMMIT_AUTHOR_NAME"
+          git config user.email "$BLOG_COMMIT_AUTHOR_EMAIL"
+          git add blog i18n/ko/docusaurus-plugin-content-blog
+          if git diff --cached --quiet; then
+            echo "No blog changes to commit."
+          else
+            git commit -m "chore(blog): publish AI-processed Google Docs posts"
+            git push
+          fi
+
+      - name: Dry-run summary
+        if: steps.state.outputs.count != '0' && env.BLOG_AI_PUBLISH_MODE != 'commit'
+        run: |
+          echo "Dry-run completed. Generated files were not committed."
