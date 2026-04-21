@@ -77,6 +77,18 @@ const PROJECTS = [
     status: 'active',
   },
   {
+    name: 'pccx-lab',
+    description: {
+      en: 'Visual performance profiler and pre-RTL simulator for the pccx NPU — Tauri + Rust + React shell with UVM co-simulation and LLM-driven testbench generation.',
+      ko: 'pccx NPU를 위한 시각적 성능 프로파일러 겸 pre-RTL 시뮬레이터 — Tauri + Rust + React 기반, UVM 공동 시뮬레이션과 LLM 테스트벤치 생성을 지원합니다.',
+    },
+    tags: ['Tauri', 'Rust', 'React', 'UVM', 'NPU', 'Profiler'],
+    repo: 'https://github.com/hwkim-dev/pccx-lab',
+    release: 'https://github.com/hwkim-dev/pccx-lab/releases',
+    language: 'Rust / TypeScript',
+    status: 'active',
+  },
+  {
     name: 'llm-lite',
     description: {
       en: 'Lightweight LLM serving stack focused on low-latency inference and compact deployment.',
