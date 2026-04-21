@@ -103,13 +103,13 @@ const PROJECTS = [
   {
     name: 'pccx-FPGA-NPU-LLM-kv260',
     description: {
-      en: 'LLM inference accelerator on AMD Kria KV260 — custom NPU IP on FPGA with Vitis HLS.',
-      ko: 'AMD Kria KV260 기반 LLM 추론 가속기 — Vitis HLS로 구현한 커스텀 NPU IP.',
+      en: 'LLM inference accelerator on AMD Kria KV260 (ZU5EV) — custom NPU IP written in SystemVerilog RTL, verified with Vivado xsim.',
+      ko: 'AMD Kria KV260 (ZU5EV) 기반 LLM 추론 가속기 — 순수 SystemVerilog RTL 로 작성한 커스텀 NPU IP, Vivado xsim 으로 검증.',
     },
-    tags: ['FPGA', 'NPU', 'LLM', 'Vitis HLS', 'Hardware'],
+    tags: ['FPGA', 'NPU', 'LLM', 'SystemVerilog', 'Vivado xsim', 'Hardware'],
     repo: 'https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260',
     release: 'https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260/releases',
-    language: 'C++ / HLS',
+    language: 'SystemVerilog',
     status: 'wip',
   },
   {
