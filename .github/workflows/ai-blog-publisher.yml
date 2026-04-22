@@ -2,8 +2,8 @@ name: AI Blog Publisher
 
 on:
   schedule:
-    # 03:00 Asia/Seoul, expressed in UTC for broad GitHub Actions compatibility.
-    - cron: '0 18 * * *'
+    # 09:00 Asia/Seoul, expressed in UTC for broad GitHub Actions compatibility.
+    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       publish_mode:
