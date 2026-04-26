@@ -1,88 +1,65 @@
-import React, {useState} from 'react';
+import React, {useState, useMemo} from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import EChartsBlock from '@site/src/components/visual/EChartsBlock';
 
 const T = {
   en: {
     locale: 'en',
     pageTitle: 'Projects',
     metaDesc: 'hwkim-dev GitHub repositories & releases showcase',
-    h1: 'Projects & Repositories',
-    subtitle: 'Open source repositories and releases I have built.',
-    githubBtn: '⭐ View full GitHub profile →',
-    emptyTitle: 'Projects coming soon',
-    emptyDesc: 'I will showcase my projects here once they are ready.',
-    githubDirectBtn: 'View on GitHub',
-    repoBtn: '📁 Repository',
-    releaseBtn: '🚀 Releases',
-    allFilter: 'All',
+    h1: 'Things I’m building',
+    subtitle: 'A short list. Mostly hardware/software boundary work.',
+    allFilter: 'all',
     status: {
-      active: '🟢 Active',
-      wip: '🚧 WIP',
-      archived: '📦 Archived',
+      active: 'active',
+      wip: 'wip',
+      archived: 'archived',
     },
   },
   ko: {
     locale: 'ko',
     pageTitle: '프로젝트',
     metaDesc: 'hwkim-dev GitHub 저장소 & 릴리즈 쇼케이스',
-    h1: '프로젝트 & 저장소',
-    subtitle: '직접 만든 GitHub 저장소와 릴리즈를 소개합니다.',
-    githubBtn: '⭐ GitHub 프로필 전체 보기 →',
-    emptyTitle: '프로젝트를 추가할 예정입니다',
-    emptyDesc: '진행 중인 프로젝트가 정리되면 이곳에 소개하겠습니다.',
-    githubDirectBtn: 'GitHub에서 바로 보기',
-    repoBtn: '📁 Repository',
-    releaseBtn: '🚀 Releases',
-    allFilter: '전체',
+    h1: 'Things I’m building',
+    subtitle: '하드웨어/소프트웨어 경계에서 작업 중인 프로젝트들입니다.',
+    allFilter: 'all',
     status: {
-      active: '🟢 Active',
-      wip: '🚧 WIP',
-      archived: '📦 Archived',
+      active: 'active',
+      wip: 'wip',
+      archived: 'archived',
     },
   },
 };
 
-const STATUS_COLOR = {
-  active: '#16a34a',
-  wip: '#d97706',
-  archived: '#94a3b8',
-};
-
-/**
- * Add your projects here.
- *
- * {
- *   name: 'repo-name',
- *   description: 'One-line description',
- *   tags: ['Python', 'CUDA', 'PyTorch'],
- *   repo: 'https://github.com/hwkim-dev/repo-name',
- *   release: 'https://github.com/hwkim-dev/repo-name/releases',  // optional
- *   language: 'Python',   // primary language
- *   stars: 0,             // optional
- *   status: 'active',     // 'active' | 'wip' | 'archived'
- * }
- */
 const PROJECTS = [
   {
     name: 'pccx',
     description: {
-      en: 'Full-stack hardware-software co-design framework for Edge FPGAs — custom NPU architecture, proprietary ISA, and CUDA-like driver/API to accelerate Transformers and neural networks.',
-      ko: 'Edge FPGA용 하드웨어/소프트웨어 풀스택 프레임워크 — 커스텀 NPU 아키텍처, 전용 ISA, CUDA 스타일 드라이버/API로 Transformer와 신경망을 가속합니다.',
+      en: 'A parallel compute core executor for edge FPGAs: custom ISA, INT8 systolic array, runtime queues, and a Python-facing driver stack.',
+      ko: 'Edge FPGA용 병렬 컴퓨팅 코어 프레임워크: 커스텀 ISA, INT8 시스톨릭 어레이, 런타임 큐, Python 드라이버 스택.',
+    },
+    why: {
+      en: 'It lets me study the real bottleneck of edge LLM inference: memory movement, kernel shape, and driver overhead rather than MAC count alone.',
+      ko: 'LLM 추론의 진짜 병목이 MAC 연산량이 아니라 메모리 이동, 커널 형태, 드라이버 오버헤드에 있음을 연구하기 위해 만들었습니다.',
     },
     tags: ['FPGA', 'NPU', 'ISA', 'SystemVerilog', 'C/C++', 'LLM'],
     repo: 'https://github.com/hwkim-dev/pccx',
     release: 'https://github.com/hwkim-dev/pccx/releases',
-    language: 'SystemVerilog / C++',
+    language: 'SystemVerilog / C++ / Python',
     status: 'active',
   },
   {
     name: 'pccx-lab',
     description: {
-      en: 'Visual performance profiler and pre-RTL simulator for the pccx NPU — Tauri + Rust + React shell with UVM co-simulation and LLM-driven testbench generation.',
-      ko: 'pccx NPU를 위한 시각적 성능 프로파일러 겸 pre-RTL 시뮬레이터 — Tauri + Rust + React 기반, UVM 공동 시뮬레이션과 LLM 테스트벤치 생성을 지원합니다.',
+      en: 'Visual performance profiler and pre-RTL simulator for the pccx NPU.',
+      ko: 'pccx NPU를 위한 시각적 성능 프로파일러 겸 pre-RTL 시뮬레이터.',
     },
-    tags: ['Tauri', 'Rust', 'React', 'UVM', 'NPU', 'Profiler'],
+    why: {
+      en: 'Hardware needs good software tooling to be debuggable. This bridges the gap between Verilog waveforms and high-level execution graphs.',
+      ko: '하드웨어를 디버깅하려면 좋은 소프트웨어 도구가 필요합니다. Verilog 파형과 고수준 실행 그래프 사이의 간극을 메우기 위한 도구입니다.',
+    },
+    tags: ['Tauri', 'Rust', 'React', 'Profiler'],
     repo: 'https://github.com/hwkim-dev/pccx-lab',
     release: 'https://github.com/hwkim-dev/pccx-lab/releases',
     language: 'Rust / TypeScript',
@@ -91,38 +68,50 @@ const PROJECTS = [
   {
     name: 'llm-lite',
     description: {
-      en: 'Lightweight LLM serving stack focused on low-latency inference and compact deployment.',
-      ko: '저지연 추론과 경량 배포에 초점을 맞춘 경량 LLM 서빙 스택.',
+      en: 'A compact LLM serving/reference stack with Python runtime pieces, C++ kernels, and KV-cache experiments.',
+      ko: 'Python 런타임과 C++ 커널, KV-cache 실험을 포함하는 경량 LLM 서빙 스택.',
+    },
+    why: {
+      en: 'It gives me a software baseline before moving an optimization down into FPGA kernels.',
+      ko: '최적화 아이디어를 FPGA 커널로 내리기 전에 소프트웨어 베이스라인을 빠르게 검증하기 위해 사용합니다.',
     },
     tags: ['LLM', 'Inference', 'Python', 'PyTorch'],
     repo: 'https://github.com/hwkim-dev/llm-lite',
     release: 'https://github.com/hwkim-dev/llm-lite/releases',
-    language: 'Python',
+    language: 'Python / C++',
     status: 'active',
   },
   {
-    name: 'pccx-FPGA-NPU-LLM-kv260',
+    name: 'NPU-FPGA-Transformer-Accelerator-KV260',
     description: {
-      en: 'LLM inference accelerator on AMD Kria KV260 (ZU5EV) — custom NPU IP written in SystemVerilog RTL, verified with Vivado xsim.',
-      ko: 'AMD Kria KV260 (ZU5EV) 기반 LLM 추론 가속기 — 순수 SystemVerilog RTL 로 작성한 커스텀 NPU IP, Vivado xsim 으로 검증.',
+      en: 'Transformer inference IP on AMD Kria KV260: systolic GEMM plus small special-function units for operations around attention and normalization.',
+      ko: 'AMD Kria KV260 기반 Transformer 추론 IP. 시스톨릭 GEMM과 Attention, Normalization을 위한 특수 연산 유닛을 포함합니다.',
     },
-    tags: ['FPGA', 'NPU', 'LLM', 'SystemVerilog', 'Vivado xsim', 'Hardware'],
-    repo: 'https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260',
-    release: 'https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260/releases',
+    why: {
+      en: 'It pushed me from "model acceleration" into memory hierarchy, scheduling, and runtime design.',
+      ko: '단순한 모델 가속을 넘어 메모리 계층 구조, 스케줄링, 런타임 설계의 중요성을 깨닫게 해준 프로젝트입니다.',
+    },
+    tags: ['FPGA', 'NPU', 'LLM', 'SystemVerilog', 'Hardware'],
+    repo: 'https://github.com/hwkim-dev/NPU-FPGA-Transformer-Accelerator-KV260',
+    release: 'https://github.com/hwkim-dev/NPU-FPGA-Transformer-Accelerator-KV260/releases',
     language: 'SystemVerilog',
     status: 'wip',
   },
   {
-    name: 'Driver-drowsiness-detection',
+    name: 'driver-drowsiness-detection',
     description: {
-      en: 'Real-time driver drowsiness detection using computer vision and deep learning.',
-      ko: '컴퓨터 비전과 딥러닝을 활용한 실시간 운전자 졸음 감지 시스템.',
+      en: 'An undergraduate latency-focused computer vision project using facial landmarks and a small model.',
+      ko: '얼굴 랜드마크와 경량 모델을 활용한 학부 시절 컴퓨터 비전 지연시간 최적화 프로젝트.',
     },
-    tags: ['Computer Vision', 'Deep Learning', 'Python', 'OpenCV'],
+    why: {
+      en: 'It was the first project that made me care more about end-to-end latency than benchmark accuracy.',
+      ko: '단순한 벤치마크 정확도보다 엔드투엔드 레이턴시에 더 신경 쓰게 된 첫 번째 프로젝트입니다.',
+    },
+    tags: ['Computer Vision', 'Deep Learning', 'Python'],
     repo: 'https://github.com/hwkim-dev/Driver-drowsiness-detection',
     release: 'https://github.com/hwkim-dev/Driver-drowsiness-detection/releases',
     language: 'Python',
-    status: 'active',
+    status: 'archived',
   },
 ];
 
@@ -130,123 +119,101 @@ export default function Projects() {
   const {i18n: {currentLocale}} = useDocusaurusContext();
   const t = T[currentLocale] ?? T.en;
 
-  const allTags = [t.allFilter, ...Array.from(new Set(PROJECTS.flatMap((p) => p.tags ?? []))).sort()];
-  const [activeTag, setActiveTag] = useState(t.allFilter);
+  const allTags = useMemo(() => 
+    Array.from(new Set(PROJECTS.flatMap((p) => p.tags ?? []))).sort()
+  , []);
 
-  const filtered =
-    activeTag === t.allFilter
+  const [activeTag, setActiveTag] = useState(null);
+
+  const filtered = useMemo(() => {
+    let list = activeTag === null
       ? PROJECTS
       : PROJECTS.filter((p) => p.tags?.includes(activeTag));
+    return list.filter((p) => !p.localeOnly || p.localeOnly === t.locale);
+  }, [activeTag, t.locale]);
 
   return (
     <Layout title={t.pageTitle} description={t.metaDesc}>
-      <main className="page-container">
-        <div className="page-header">
-          <h1>{t.h1}</h1>
-          <p>{t.subtitle}</p>
-          <a
-            href="https://github.com/hwkim-dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="button button--secondary button--sm"
-          >
-            {t.githubBtn}
-          </a>
-        </div>
+      <main id="main">
+        <section className="hk-section hk-page" style={{marginTop: 'var(--hk-s-10)'}}>
+          <span className="hk-section__idx"><span className="num">01</span>work</span>
+          <h2 className="hk-section__h">{t.h1}</h2>
+          <p className="hk-section__sub">{t.subtitle}</p>
 
-        {PROJECTS.length === 0 ? (
-          <div className="empty-state">
-            <div className="empty-state-icon">🔧</div>
-            <h3>{t.emptyTitle}</h3>
-            <p>{t.emptyDesc}</p>
-            <a
-              href="https://github.com/hwkim-dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button button--primary"
-              style={{marginTop: '1.2rem', display: 'inline-block'}}
+          <EChartsBlock type="latency" />
+
+          <div className="hk-tagbar" role="group" aria-label="Project filters">
+            <button 
+              className={activeTag === null ? 'is-active' : ''} 
+              onClick={() => setActiveTag(null)}
+              data-tag="all"
             >
-              {t.githubDirectBtn}
-            </a>
+              {t.allFilter}
+            </button>
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                className={activeTag === tag ? 'is-active' : ''}
+                onClick={() => setActiveTag(tag)}
+                data-tag={tag}
+              >
+                {tag.toLowerCase()}
+              </button>
+            ))}
           </div>
-        ) : (
-          <>
-            {allTags.length > 1 && (
-              <div className="project-filters">
-                {allTags.map((tag) => (
-                  <button
-                    key={tag}
-                    className={`filter-btn${activeTag === tag ? ' active' : ''}`}
-                    onClick={() => setActiveTag(tag)}
-                  >
-                    {tag}
-                  </button>
-                ))}
-              </div>
-            )}
-            <div className="projects-grid">
-              {filtered.map((project, idx) => (
-                <ProjectCard key={idx} project={project} t={t} />
-              ))}
-            </div>
-          </>
-        )}
+
+          <ul className="hk-proj-list">
+            {filtered.map((project, idx) => (
+              <ProjectRow key={idx} p={project} t={t} />
+            ))}
+          </ul>
+        </section>
       </main>
     </Layout>
   );
 }
 
-function ProjectCard({project, t}) {
-  const statusLabel = t.status[project.status] ?? t.status.active;
-  const statusColor = STATUS_COLOR[project.status] ?? STATUS_COLOR.active;
+function ProjectRow({p, t}) {
+  const statusLabel = t.status[p.status] ?? t.status.active;
+  const statusClass =
+    p.status === 'active' ? 'hk-status--live' :
+    p.status === 'wip'    ? 'hk-status--wip'  :
+                            'hk-status--arch';
 
-  const description =
-    typeof project.description === 'string'
-      ? project.description
-      : project.description?.[t.locale] ?? project.description?.en ?? '';
+  const description = useMemo(() => 
+    typeof p.description === 'string'
+      ? p.description
+      : p.description?.[t.locale] ?? p.description?.en ?? ''
+  , [p.description, t.locale]);
+
+  const why = useMemo(() => 
+    typeof p.why === 'string'
+      ? p.why
+      : p.why?.[t.locale] ?? p.why?.en ?? ''
+  , [p.why, t.locale]);
 
   return (
-    <div className="project-card">
-      <div className="project-card-header">
-        <h3 className="project-name">
-          <a href={project.repo} target="_blank" rel="noopener noreferrer">
-            {project.name}
-          </a>
-        </h3>
-        <span className="project-status" style={{color: statusColor}}>
-          {statusLabel}
-        </span>
-      </div>
-
-      <p className="project-description">{description}</p>
-
-      {project.tags && project.tags.length > 0 && (
-        <div className="project-tags">
-          {project.tags.map((tag) => (
-            <span key={tag} className="project-tag">
-              {tag}
-            </span>
-          ))}
+    <li className="hk-proj">
+      <a className="hk-proj__link" href={p.repo} target="_blank" rel="noopener noreferrer">
+        <div className="hk-proj__top">
+          <span className="hk-proj__name">{p.name}</span>
+          <span className={`hk-status ${statusClass}`}>{statusLabel}</span>
+          {p.language && <span className="hk-proj__meta">· {p.language}</span>}
         </div>
-      )}
-
-      <div className="project-links">
-        <a href={project.repo} target="_blank" rel="noopener noreferrer" className="project-link">
-          {t.repoBtn}
-        </a>
-        {project.release && (
-          <a href={project.release} target="_blank" rel="noopener noreferrer" className="project-link release">
-            {t.releaseBtn}
-          </a>
+        <p className="hk-proj__desc">{description}</p>
+        {why && (
+          <p className="hk-proj__why"><strong>why it matters</strong> · {why}</p>
+        )}
+      </a>
+      <div className="hk-proj__links">
+        <a href={p.repo} target="_blank" rel="noopener noreferrer">source</a>
+        {p.release && (
+          <>
+            <span className="sep">·</span>
+            <a href={p.release} target="_blank" rel="noopener noreferrer">releases</a>
+          </>
         )}
       </div>
-
-      {(project.language !== undefined || project.stars !== undefined) && (
-        <div className="project-footer">
-          {project.language && <span className="project-language">● {project.language}</span>}
-          {project.stars !== undefined && <span className="project-stars">⭐ {project.stars}</span>}
-        </div>
-      )}
-    </div>
+    </li>
   );
 }
