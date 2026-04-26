@@ -64,10 +64,6 @@ const T = {
   },
 };
 
-/**
- * Set this to your chatbot's deployed URL to activate the iframe.
- * e.g. 'https://your-chatbot.streamlit.app'
- */
 const CHATBOT_URL = null;
 
 export default function Chatbot() {
@@ -76,67 +72,58 @@ export default function Chatbot() {
 
   return (
     <Layout title={t.pageTitle} description={t.metaDesc}>
-      <main className="page-container">
-        <div className="page-header">
-          <h1>{t.h1}</h1>
-          <p>
-            {t.subtitle.split('\n').map((line, i) => (
-              <span key={i}>
-                {line}
-                {i === 0 && <br />}
-              </span>
-            ))}
+      <main id="main" className="hk-wrap">
+        <section className="hk-section" style={{borderTop: 'none', marginTop: 0, paddingTop: 12}}>
+          <h2 className="hk-section__h">{t.h1}</h2>
+          <p className="hk-section__sub">
+            {t.subtitle.split('\n').join(' ')}
           </p>
-        </div>
 
-        <div className="chatbot-layout">
-          {/* Left: Info Panel */}
-          <aside className="chatbot-info">
-            <div className="chatbot-card">
-              <h3>{t.infoTitle}</h3>
-              <p>{t.infoDesc}</p>
-              <ul>
-                {t.infoItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+          <div className="hk-prose" style={{marginBottom: 24}}>
+            <p>{t.infoDesc}</p>
+          </div>
 
-            <div className="chatbot-card">
-              <h3>{t.questionsTitle}</h3>
-              <div className="sample-questions">
-                {t.questions.map((q, i) => (
-                  <div key={i} className="sample-question">
-                    &ldquo;{q}&rdquo;
-                  </div>
-                ))}
-              </div>
-            </div>
-          </aside>
+          <div className="hk-aside" style={{marginBottom: 32}}>
+            <strong>{t.infoTitle}</strong>
+            <ul style={{marginTop: '8px', marginBottom: 0}}>
+              {t.infoItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Right: Chat Area */}
           <div className="chatbot-area">
             {CHATBOT_URL ? (
               <iframe
                 src={CHATBOT_URL}
                 title="hwkim-dev Chatbot"
-                className="chatbot-iframe"
+                style={{width: '100%', height: '600px', border: '1px solid var(--rule)', borderRadius: '4px'}}
                 allow="microphone"
               />
             ) : (
-              <div className="chatbot-coming-soon">
-                <div className="chatbot-icon">🤖</div>
-                <h3>{t.comingSoonTitle}</h3>
-                <p>{t.comingSoonDesc}</p>
-                <p className="chatbot-note">{t.comingSoonNote}</p>
-                <div className="chatbot-status">
-                  <span className="status-dot wip" />
+              <div className="hk-paper-item" style={{textAlign: 'center', padding: '48px 24px', background: 'var(--paper-2)', border: '1px dashed var(--rule)'}}>
+                <div style={{fontSize: '32px', marginBottom: '16px'}}>🤖</div>
+                <h3 className="hk-section__h">{t.comingSoonTitle}</h3>
+                <p style={{fontSize: '14px', color: 'var(--muted)', margin: '8px 0'}}>{t.comingSoonDesc}</p>
+                <div style={{marginTop: '16px', display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '12px', fontFamily: 'var(--mono)', color: 'var(--wip)'}}>
+                  <span style={{width: '8px', height: '8px', borderRadius: '50%', background: 'currentColor'}} />
                   {t.statusLabel}
                 </div>
               </div>
             )}
           </div>
-        </div>
+
+          <section className="hk-section">
+            <h3 className="hk-section__h" style={{fontSize: '18px'}}>{t.questionsTitle}</h3>
+            <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px 16px', marginTop: '12px'}}>
+              {t.questions.map((q, i) => (
+                <span key={i} style={{color: 'var(--muted)', fontSize: '13px', fontStyle: 'italic'}}>
+                  &ldquo;{q}&rdquo;
+                </span>
+              ))}
+            </div>
+          </section>
+        </section>
       </main>
     </Layout>
   );
