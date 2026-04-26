@@ -492,16 +492,22 @@ code, kbd {
   gap: var(--hk-s-2);
   margin-bottom: var(--hk-s-1);
 }
+.hk-proj__link {
+  display: block;
+  text-decoration: none !important;
+  background: none !important;
+  color: inherit;
+  cursor: pointer;
+}
+.hk-proj__link:hover { text-decoration: none !important; }
+.hk-proj__link:hover .hk-proj__name { color: var(--hk-link); }
 .hk-proj__name {
   font-family: var(--hk-mono);
   font-size: 16px;
   font-weight: 600;
   color: var(--hk-ink);
   transition: color .18s var(--hk-ease);
-  text-decoration: none !important;
-  background: none !important;
 }
-.hk-proj__name:hover { color: var(--hk-link); }
 .hk-proj__meta { font-family: var(--hk-mono); font-size: 12.5px; color: var(--hk-muted); }
 .hk-proj__desc,
 .hk-proj__why {
@@ -790,6 +796,9 @@ body.hk-animations-enabled .hk-reveal-init.hk-revealed {
 }
 
 /* Blog avatar dark/light mode swap */
+.avatar__photo {
+  object-fit: cover;
+}
 .avatar__photo-link {
   position: relative;
   display: inline-block;
