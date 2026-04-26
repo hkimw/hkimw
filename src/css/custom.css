@@ -171,6 +171,9 @@ body::before {
   min-height: calc(100vh - 200px);
   padding-bottom: var(--hk-s-16);
 }
+html.blog-wrapper .main-wrapper {
+  max-width: 860px;
+}
 
 .container {
   padding-left: var(--hk-s-6);
