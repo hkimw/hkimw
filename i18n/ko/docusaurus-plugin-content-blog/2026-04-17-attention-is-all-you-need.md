@@ -1,4 +1,5 @@
 ---
+draft: false
 slug: attention-is-all-you-need
 title: "[논문] Attention Is All You Need"
 authors: [hwkim]

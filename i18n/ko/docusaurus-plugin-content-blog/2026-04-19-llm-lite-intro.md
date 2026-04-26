@@ -1,9 +1,12 @@
 ---
+draft: false
+
 slug: llm-lite-intro
 title: "[프로젝트] llm-lite — Gemma 3N E4B 경량 추론 엔진"
 authors: [hwkim]
 tags: [llm-lite, gemma, llm, inference, vulkan, cpp]
 ---
+
 
 **llm-lite** 는 저사양 로컬 환경에서 Gemma 3N E4B 를 **클라우드 없이** 돌리는 걸 목표로 만든
 멀티 백엔드 추론 엔진이다. 모델 구조는 그대로 두되 공격적인 양자화(INT4 weights + MMAP)와

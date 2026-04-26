@@ -88,6 +88,7 @@ module.exports = async function createConfig() {
           {to: '/blog', label: 'Blog', position: 'left'},
           {to: '/papers', label: 'Papers', position: 'left'},
           {to: '/projects', label: 'Projects', position: 'left'},
+          {to: '/now', label: 'Now', position: 'left'},
           {to: '/chatbot', label: 'Chatbot', position: 'left'},
           {
             type: 'html',
@@ -109,7 +110,7 @@ module.exports = async function createConfig() {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: 'Pages',
@@ -118,6 +119,7 @@ module.exports = async function createConfig() {
               {label: 'Blog', to: '/blog'},
               {label: 'Papers', to: '/papers'},
               {label: 'Projects', to: '/projects'},
+              {label: 'Now', to: '/now'},
               {label: 'Chatbot', to: '/chatbot'},
             ],
           },
@@ -129,7 +131,7 @@ module.exports = async function createConfig() {
             ],
           },
         ],
-        copyright: `© ${new Date().getFullYear()} hwkim-dev. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} Hyunwoo Kim · Seoul. Built with Docusaurus.`,
       },
     },
     stylesheets: [
@@ -141,7 +143,7 @@ module.exports = async function createConfig() {
         crossorigin: 'anonymous',
       },
       {
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;500;600&display=swap',
         rel: 'stylesheet',
       },
     ],

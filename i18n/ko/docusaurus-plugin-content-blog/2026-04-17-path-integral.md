@@ -1,4 +1,5 @@
 ---
+draft: false
 slug: path-integral
 title: "[논문] Space-Time Approach to Non-Relativistic Quantum Mechanics"
 authors: [hwkim]
