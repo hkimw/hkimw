@@ -1,114 +1,57 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import TechNetwork from '@site/src/components/visual/TechNetwork';
 
 const T = {
   en: {
-    pageTitle: 'Home',
-    metaDesc: 'hwkim-dev — Deep Learning, Parallel Programming, Systems Optimization',
-    tagline: 'Deep Learning · Parallel Programming · Systems Optimization',
-    bio: 'I am interested in GPU acceleration, CUDA programming, and deep learning inference optimization. I study and build things, and record what I learn here.',
-    ctaBlog: 'Read Blog',
-    ctaProjects: 'View Projects',
-    skillsTitle: 'Interests & Skills',
-    skills: [
-      'Deep Learning',
-      'CUDA / GPU Programming',
-      'Parallel Programming',
-      'Systems Optimization',
-      'PyTorch',
-      'C / C++',
-      'Python',
-      'HPC',
-      'DL Inference Acceleration',
+    metaDesc: 'AI systems · FPGA acceleration · LLM inference',
+    tag: 'AI systems · FPGA acceleration · LLM inference · Seoul, KR',
+    pitch: [
+      <>I work on the hardware/software boundary of AI systems: <strong>FPGA-based NPUs</strong>, LLM inference kernels, memory-bound workloads, and the runtimes that connect models to silicon.</>,
+      <>My main project is <strong>pccx</strong> — a small research stack around a custom 64-bit ISA, an INT8 systolic array, runtime queues, and a Python-facing driver for edge FPGA inference. I care about the uncomfortable last mile of deployment: where the model graph finally meets memory bandwidth, queues, and hardware limits.</>,
     ],
-    navTitle: 'Explore',
-    contactTitle: 'Contact',
-    cards: [
-      {
-        icon: '📝',
-        title: 'Blog',
-        description: 'Study notes, daily life, news clips, reviews, and random thoughts.',
-        to: '/blog',
-        tags: ['Paper', 'Study', 'Review', 'News', 'Daily'],
-      },
-      {
-        icon: '📄',
-        title: 'Papers',
-        description:
-          'Archive of papers, posters, and conference presentations I have authored or contributed to.',
-        to: '/papers',
-        tags: [],
-      },
-      {
-        icon: '🛠️',
-        title: 'Projects',
-        description:
-          'GitHub repositories and releases I have built. Check out the tech stack and links.',
-        to: '/projects',
-        tags: [],
-      },
-      {
-        icon: '🤖',
-        title: 'Chatbot',
-        description: 'Ask anything about me and my projects. An AI assistant will answer.',
-        to: '/chatbot',
-        tags: [],
-      },
+    threadsTitle: 'Research threads',
+    threadsSub: 'The topics I keep returning to when I read papers or build systems.',
+    threads: [
+      {kicker: 'memory-bound inference', title: "When bandwidth becomes the model's real batch size", desc: 'Decode-phase LLM inference often feels less like "more MACs" and more like carefully shaped data movement.'},
+      {kicker: 'gemm / gemv', title: 'The kernel shape matters more than the operation name', desc: <>GEMV is not merely GEMM with <code>N = 1</code>; the memory access pattern changes the whole optimization target.</>},
+      {kicker: 'runtime', title: 'A driver is part of the accelerator', desc: 'Queues, synchronization, scratchpads, and transfer overlap decide whether the hardware feels fast or broken.'},
+      {kicker: 'low-bit systems', title: 'Quantization is a system design problem', desc: 'Weight precision, activation precision, packing, and hardware datapaths have to be reasoned about together.'},
+    ],
+    toolboxTitle: 'Toolbox',
+    toolboxSub: 'A compact snapshot. This is not meant to be a resume table.',
+    toolbox: [
+      {k: 'hardware', v: 'SystemVerilog, Vitis HLS, FPGA bring-up, systolic-array datapaths'},
+      {k: 'systems', v: 'C/C++, Python runtimes, queues, memory layout, profiling, small kernels'},
+      {k: 'ai inference', v: 'Transformer inference, KV-cache, GEMM/GEMV, quantization, roofline-style analysis'},
+      {k: 'writing', v: 'paper notes, architecture diagrams, reproducible experiment logs'},
     ],
   },
   ko: {
-    pageTitle: '홈',
-    metaDesc: 'hwkim-dev — 딥러닝, 병렬 프로그래밍, 시스템 최적화',
-    tagline: '딥러닝 · 병렬 프로그래밍 · 시스템 최적화',
-    bio: 'GPU 가속, CUDA 프로그래밍, 딥러닝 추론 최적화에 관심을 두고 공부하고 있습니다. 연구와 개발을 병행하며 배운 것들을 이 공간에 기록하고 공유합니다.',
-    ctaBlog: '블로그 보기',
-    ctaProjects: '프로젝트 보기',
-    skillsTitle: '관심 분야 & 기술',
-    skills: [
-      'Deep Learning',
-      'CUDA / GPU 프로그래밍',
-      '병렬 프로그래밍',
-      '시스템 최적화',
-      'PyTorch',
-      'C / C++',
-      'Python',
-      'HPC',
-      '딥러닝 추론 가속',
+    metaDesc: 'AI 시스템 · FPGA 가속 · LLM 추론',
+    tag: 'AI 시스템 · FPGA 가속 · LLM 추론 · 서울',
+    pitch: [
+      <>AI 시스템의 하드웨어/소프트웨어 경계에서 작업합니다: <strong>FPGA 기반 NPU</strong>, LLM 추론 커널, 메모리 바운드 워크로드, 그리고 모델을 실리콘에 연결하는 런타임.</>,
+      <>주요 프로젝트인 <strong>pccx</strong>는 커스텀 64비트 ISA, INT8 시스톨릭 어레이, 런타임 큐, Python 드라이버 스택으로 구성된 엣지 FPGA 추론 연구 스택입니다. 모델 그래프가 메모리 대역폭, 큐, 하드웨어 한계와 만나는 마지막 구간을 연구합니다.</>,
+      <>지능형반도체학과 학부생으로, FPGA 기반 NPU와 LLM 추론 최적화를 하드웨어부터 런타임까지 연결해 공부하고 있습니다.</>,
     ],
-    navTitle: '페이지 둘러보기',
-    contactTitle: '연락하기',
-    cards: [
-      {
-        icon: '📝',
-        title: '블로그',
-        description: '공부 기록, 일상, 뉴스 클리핑, 리뷰, 그리고 잡다한 생각들을 기록합니다.',
-        to: '/blog',
-        tags: ['논문', '공부', '리뷰', '뉴스', '일상'],
-      },
-      {
-        icon: '📄',
-        title: '논문',
-        description: '작성 또는 기여한 논문, 포스터, 학회 발표를 정리하는 아카이브입니다.',
-        to: '/papers',
-        tags: [],
-      },
-      {
-        icon: '🛠️',
-        title: '프로젝트',
-        description:
-          '직접 만든 GitHub 저장소와 릴리즈를 소개합니다. 기술 스택과 링크를 확인하세요.',
-        to: '/projects',
-        tags: [],
-      },
-      {
-        icon: '🤖',
-        title: '챗봇',
-        description: '저와 제 프로젝트에 대해 무엇이든 물어보세요. AI가 대신 답해드립니다.',
-        to: '/chatbot',
-        tags: [],
-      },
+    threadsTitle: '연구 주제',
+    threadsSub: '논문을 읽거나 시스템을 만들 때 계속 돌아오게 되는 주제들.',
+    threads: [
+      {kicker: 'memory-bound inference', title: '대역폭이 모델의 실질 배치 크기가 될 때', desc: '디코드 단계 LLM 추론은 "더 많은 MAC"보다는 신중하게 설계된 데이터 이동에 가깝습니다.'},
+      {kicker: 'gemm / gemv', title: '커널의 형태가 연산 이름보다 중요하다', desc: <>GEMV는 단순히 <code>N = 1</code>인 GEMM이 아닙니다. 메모리 접근 패턴이 최적화 목표 전체를 바꿉니다.</>},
+      {kicker: 'runtime', title: '드라이버도 가속기의 일부', desc: '큐, 동기화, 스크래치패드, 전송 오버랩이 하드웨어를 빠르게 느끼게 할지, 고장난 것처럼 느끼게 할지를 결정합니다.'},
+      {kicker: 'low-bit systems', title: '양자화는 시스템 설계 문제', desc: '가중치 정밀도, 활성화 정밀도, 패킹, 하드웨어 데이터패스를 함께 고려해야 합니다.'},
+    ],
+    toolboxTitle: '기술 스택',
+    toolboxSub: '간략한 스냅샷입니다.',
+    toolbox: [
+      {k: 'hardware', v: 'SystemVerilog, Vitis HLS, FPGA bring-up, systolic-array datapaths'},
+      {k: 'systems', v: 'C/C++, Python runtimes, queues, memory layout, profiling, small kernels'},
+      {k: 'ai inference', v: 'Transformer inference, KV-cache, GEMM/GEMV, quantization, roofline-style analysis'},
+      {k: 'writing', v: 'paper notes, architecture diagrams, reproducible experiment logs'},
     ],
   },
 };
@@ -118,84 +61,70 @@ export default function Home() {
   const t = T[currentLocale] ?? T.en;
 
   return (
-    <Layout title={t.pageTitle} description={t.metaDesc}>
-      {/* Hero */}
-      <header className="hero-section">
-        <div className="hero-content">
-          <img
-            className="hero-avatar"
-            src="https://github.com/hwkim-dev.png"
-            alt="hwkim-dev avatar"
-          />
-          <div className="hero-text">
-            <h1 className="hero-name">hwkim-dev</h1>
-            <p className="hero-tagline">{t.tagline}</p>
-            <p className="hero-bio">{t.bio}</p>
-            <div className="hero-actions">
-              <Link className="button button--primary button--lg" to="/blog">
-                {t.ctaBlog}
-              </Link>
-              <Link className="button button--secondary button--lg" to="/projects">
-                {t.ctaProjects}
-              </Link>
+    <Layout title="Home" description={t.metaDesc}>
+      <main id="main">
+        <section id="top" className="hk-hero" aria-labelledby="home-title">
+          <div className="hk-page">
+            <div className="hk-hero__row">
+              <div>
+                <h1 id="home-title" className="hk-hero__h">Hyunwoo KIM<span className="kor">김현우</span></h1>
+                <p className="hk-hero__tag">{t.tag}</p>
+
+                <div className="hk-hero__pitch hk-prose">
+                  {t.pitch.map((p, i) => <p key={i}>{p}</p>)}
+                </div>
+
+                <div className="hk-contacts" aria-label="Contact and profile links">
+                  <a href="mailto:k1h6w4@gmail.com">email<span className="arrow">↗</span></a>
+                  <a href="https://github.com/hwkim-dev" target="_blank" rel="noopener noreferrer">github<span className="arrow">↗</span></a>
+                  <a href="/papers">papers</a>
+                  <a href="/projects">projects</a>
+                  <a href="/now">now</a>
+                </div>
+              </div>
+
+              <div className="hk-avatar" aria-hidden="true">
+                <img src={useBaseUrl('/img/me_light.jpg')} alt="Profile (Light)" className="hk-avatar-img-light" />
+                <img src={useBaseUrl('/img/me_dark.jpg')} alt="Profile (Dark)" className="hk-avatar-img-dark" />
+              </div>
             </div>
-          </div>
-        </div>
-      </header>
 
-      <main className="home-main">
-        {/* Skills */}
-        <section className="skills-section">
-          <h2 className="section-title">{t.skillsTitle}</h2>
-          <div className="skills-grid">
-            {t.skills.map((skill) => (
-              <span key={skill} className="skill-tag">
-                {skill}
-              </span>
-            ))}
+            <TechNetwork />
           </div>
         </section>
 
-        {/* Nav Cards */}
-        <section className="nav-cards-section">
-          <h2 className="section-title">{t.navTitle}</h2>
-          <div className="nav-cards-grid">
-            {t.cards.map((card) => (
-              <Link key={card.title} to={card.to} className="nav-card">
-                <div className="nav-card-icon">{card.icon}</div>
-                <h3 className="nav-card-title">{card.title}</h3>
-                <p className="nav-card-desc">{card.description}</p>
-                {card.tags.length > 0 && (
-                  <div className="nav-card-tags">
-                    {card.tags.map((tag) => (
-                      <span key={tag} className="nav-card-tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </Link>
-            ))}
+        <section id="threads" className="hk-section" aria-labelledby="threads-title">
+          <div className="hk-page">
+            <span className="hk-section__idx"><span className="num">01</span>threads</span>
+            <h2 id="threads-title" className="hk-section__h">{t.threadsTitle}</h2>
+            <p className="hk-section__sub">{t.threadsSub}</p>
+
+            <ul className="hk-thread-grid" style={{display: 'grid', gridTemplateColumns: '1fr', gap: 'var(--hk-s-4)'}}>
+              {t.threads.map((thread, i) => (
+                <li key={i} className="hk-thread">
+                  <div className="hk-thread__kicker">{thread.kicker}</div>
+                  <div className="hk-thread__title">{thread.title}</div>
+                  <p className="hk-thread__desc">{thread.desc}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
-        {/* Contact */}
-        <section className="contact-section">
-          <h2 className="section-title">{t.contactTitle}</h2>
-          <div className="contact-links">
-            <a
-              className="contact-link github"
-              href="https://github.com/hwkim-dev"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>⭐</span> GitHub
-            </a>
-            <a className="contact-link email" href="mailto:k1h6w4@gmail.com">
-              <span>✉️</span> k1h6w4@gmail.com
-            </a>
+        <section id="toolbox" className="hk-section" aria-labelledby="toolbox-title">
+          <div className="hk-page">
+            <span className="hk-section__idx"><span className="num">02</span>toolbox</span>
+            <h2 id="toolbox-title" className="hk-section__h">{t.toolboxTitle}</h2>
+            <p className="hk-section__sub">{t.toolboxSub}</p>
+
+            <ul className="hk-toolbox">
+              {t.toolbox.map((item, i) => (
+                <li key={i}><span className="k">{item.k}</span><span className="v">{item.v}</span></li>
+              ))}
+            </ul>
           </div>
         </section>
+
       </main>
     </Layout>
   );
