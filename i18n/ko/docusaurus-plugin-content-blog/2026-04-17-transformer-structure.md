@@ -1,4 +1,5 @@
 ---
+draft: false
 slug: transformer-structure
 title: "[공부] Transformer Language Model 구조"
 authors: [hwkim]

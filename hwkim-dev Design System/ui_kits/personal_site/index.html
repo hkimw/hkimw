@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hyunwoo KIM — hwkim-dev</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>:root { --serif: 'Source Serif 4', Georgia, serif; --mono: 'JetBrains Mono', ui-monospace, monospace; --sans: 'Inter', sans-serif; }</style>
+<link rel="stylesheet" href="kit.css?v=5">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="hk-skip" href="#main">Skip to content</a>
+<div id="root"></div>
+
+<script type="text/babel">
+
+const PROJECTS = [
+  {
+    name: 'pccx',
+    tag: 'active',
+    lang: 'SystemVerilog / C++ / Python',
+    href: 'https://github.com/hwkim-dev/pccx',
+    blurb: 'A parallel compute core executor for edge FPGAs — custom 64-bit ISA, 16×16 INT8 systolic array, and a CUDA-like driver. The whole stack, from RTL up to the Python runtime. Runs small transformers and CNNs on a $300 KV260 board at about 20 tok/s.',
+    links: [
+      ['source', 'https://github.com/hwkim-dev/pccx'],
+      ['releases', 'https://github.com/hwkim-dev/pccx/releases'],
+      ['notes on the ISA', '#'],
+    ],
+  },
+  {
+    name: 'NPU-FPGA-Transformer-Accelerator',
+    tag: 'wip',
+    lang: 'SystemVerilog / Vitis HLS',
+    href: 'https://github.com/hwkim-dev/NPU-FPGA-Transformer-Accelerator-KV260',
+    blurb: 'Transformer inference IP on AMD Kria KV260. Systolic GEMM plus a small SFU for softmax, GELU, and LayerNorm. Was a workshop paper; now the engine underneath pccx.',
+    links: [
+      ['source', 'https://github.com/hwkim-dev/NPU-FPGA-Transformer-Accelerator-KV260'],
+      ['workshop paper (ko)', '#'],
+    ],
+  },
+  {
+    name: 'llm-lite',
+    tag: 'active',
+    lang: 'Python / C++',
+    href: 'https://github.com/hwkim-dev/llm-lite',
+    blurb: 'A small LLM serving stack — Python runtime, C++ kernels, paged KV cache. I use it as a reference implementation when benchmarking pccx: if a change makes llm-lite faster but pccx slower, something is wrong.',
+    links: [
+      ['source', 'https://github.com/hwkim-dev/llm-lite'],
+    ],
+  },
+  {
+    name: 'driver-drowsiness-detection',
+    tag: 'archived',
+    lang: 'Python',
+    href: 'https://github.com/hwkim-dev/Driver-drowsiness-detection',
+    blurb: 'An undergrad project. MediaPipe landmarks into a small MLP, 30 fps on CPU. Not groundbreaking, but it taught me to care about latency before I cared about anything else.',
+    links: [
+      ['source', 'https://github.com/hwkim-dev/Driver-drowsiness-detection'],
+    ],
+  },
+];
+
+const POSTS = [
+  { date: '2026-02-13', title: 'W4A8 bit-packing on DSP48E2: two MACs in one cycle', tags: ['fpga','quant'] },
+  { date: '2026-02-02', title: 'GEMV is not GEMM with N = 1', tags: ['llm','systems'] },
+  { date: '2026-01-21', title: 'Re-reading "Attention Is All You Need" after a year of FPGA work', tags: ['paper'] },
+  { date: '2025-12-04', title: 'Building a CUDA-like driver from scratch for a 7-instruction NPU', tags: ['systems','fpga'] },
+  { date: '2025-11-12', title: 'Some honest numbers from my first silicon tapeout (it was an FPGA)', tags: ['fpga'] },
+  { date: '2025-10-01', title: 'Why I stopped reading model-release papers', tags: ['opinion'] },
+  { date: '2025-09-08', title: 'A small note on double-buffered weight loads', tags: ['fpga','notes'] },
+];
+
+const PAPERS = [
+  { year: 2025, title: 'W4A8 Dynamic Precision Promotion for Transformer Inference on Edge FPGAs',
+    authors: 'Hyunwoo Kim, Co-Author', venue: 'FPGA \u201925 — under submission',
+    links: [['pdf','#'], ['arxiv','#'], ['code','#']] },
+  { year: 2024, title: 'A Systolic NPU with a 64-bit ISA for Compact Transformer Workloads',
+    authors: 'Hyunwoo Kim', venue: 'Domestic HW Workshop, KR',
+    links: [['pdf (ko)','#'], ['slides','#']] },
+];
+
+function Topbar({route, onNav}) {
+  const link = (r, lbl) => (
+    <a key={r} className={route === r ? 'active' : ''} onClick={() => onNav(r)}>{lbl}</a>
+  );
+  return (
+    <nav className="hk-topbar" aria-label="primary">
+      <div className="hk-topbar__inner">
+        <a className="hk-topbar__brand" onClick={() => onNav('home')}>
+          hwkim<span className="slash">/</span>dev
+        </a>
+        <div className="hk-topbar__links">
+          {link('home', 'home')}
+          {link('projects', 'projects')}
+          {link('writing', 'writing')}
+          {link('papers', 'papers')}
+          {link('now', 'now')}
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+function ProjectRow({p}) {
+  const statusClass =
+    p.tag === 'active' ? 'hk-proj__status--live' :
+    p.tag === 'wip'    ? 'hk-proj__status--wip'  :
+                         'hk-proj__status--arch';
+  return (
+    <li className="hk-proj">
+      <div className="hk-proj__top">
+        <a className="hk-proj__name" href={p.href} target="_blank" rel="noopener noreferrer">{p.name}</a>
+        <span className={'hk-proj__status ' + statusClass}>{p.tag}</span>
+        <span className="hk-proj__meta">· {p.lang}</span>
+      </div>
+      <p className="hk-proj__desc">{p.blurb}</p>
+      <div className="hk-proj__links">
+        {p.links.map(([lbl, href], i) => (
+          <React.Fragment key={lbl}>
+            {i > 0 && <span className="sep">·</span>}
+            <a href={href} target="_blank" rel="noopener noreferrer">{lbl}</a>
+          </React.Fragment>
+        ))}
+      </div>
+    </li>
+  );
+}
+
+function PostRow({post}) {
+  return (
+    <li className="hk-post-row">
+      <span className="hk-post-row__date">{post.date}</span>
+      <div>
+        <a className="hk-post-row__title">{post.title}</a>
+        <span className="hk-post-row__tags">
+          {post.tags.map(t => <span key={t}>{t}</span>)}
+        </span>
+      </div>
+    </li>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="hk-footer">
+      <span>© 2026 Hyunwoo Kim · Seoul</span>
+      <span>
+        <a href="#" onClick={e => { e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); }}>↑ top</a>
+        {'  '}·{'  '}
+        <a href="#">rss</a>
+      </span>
+    </footer>
+  );
+}
+
+function Home({onNav}) {
+  return (
+    <main id="main" className="hk-wrap">
+      <header className="hk-header">
+        <h1 className="hk-header__name">
+          Hyunwoo KIM<span className="kor">김현우</span>
+        </h1>
+        <p className="hk-header__tag">지능형반도체학과 학부 졸업 예정 · Seoul, KR</p>
+        <div className="hk-header__pitch">
+          <p>
+            I build small NPUs on FPGAs and the software that drives them.
+            Most of my time goes into <strong>pccx</strong> — a custom 64-bit
+            ISA, a 16×16 INT8 systolic array, and a CUDA-like driver that lets
+            me run a small LLaMA on a <mark>$300 KV260 board at about 20
+            tok/s</mark>.
+          </p>
+          <p>
+            I got into this the unglamorous way: I wanted to understand why
+            inference was slow, kept reading downward, and never quite came
+            back up. These days I care about the last 30% of model deployment
+            — where the graph actually meets silicon.
+          </p>
+        </div>
+        <div className="hk-quicklinks">
+          <a href="mailto:k1h6w4@gmail.com">k1h6w4@gmail.com</a>
+          <a href="https://github.com/hwkim-dev" target="_blank" rel="noopener noreferrer">github</a>
+          <a href="#">scholar</a>
+          <a href="#">résumé (pdf)</a>
+          <a href="#">rss</a>
+        </div>
+      </header>
+
+      <section className="hk-section">
+        <h2 className="hk-section__h">Things I&rsquo;m building</h2>
+        <p className="hk-section__sub">
+          A short list. <a onClick={() => onNav('projects')}>Full list →</a>
+        </p>
+        <ul className="hk-proj-list">
+          {PROJECTS.slice(0, 3).map(p => <ProjectRow key={p.name} p={p} />)}
+        </ul>
+      </section>
+
+      <section className="hk-section">
+        <h2 className="hk-section__h">Writing</h2>
+        <p className="hk-section__sub">
+          Mostly notes to my future self. <a onClick={() => onNav('writing')}>Archive →</a>
+        </p>
+        <ul className="hk-posts">
+          {POSTS.slice(0, 4).map(p => <PostRow key={p.title} post={p} />)}
+        </ul>
+      </section>
+
+      <section className="hk-section">
+        <h2 className="hk-section__h">A few things I believe</h2>
+        <div className="hk-prose">
+          <p>
+            Most &ldquo;NPU speedups&rdquo; you read about are movement along
+            the bandwidth line, not breaking through the peak. Design the DRAM
+            path first. The MACs are the easy part.
+          </p>
+          <p>
+            Decode-phase GEMV is <em>not</em> GEMM with <em>N = 1</em>. If
+            your kernel treats them the same, you are leaving about 3× on the
+            table for edge LLM inference.
+          </p>
+          <p>
+            A driver is not an afterthought. The place where async queues meet
+            a scratchpad is where a chip either feels fast or feels broken.
+          </p>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function Projects() {
+  return (
+    <main id="main" className="hk-wrap">
+      <section className="hk-section" style={{borderTop:'none', marginTop:0, paddingTop: 12}}>
+        <h2 className="hk-section__h">Projects</h2>
+        <p className="hk-section__sub">Everything open source. No product pages, no pitches.</p>
+        <div className="hk-prose">
+          <p>
+            Most of these live somewhere on the hardware / software boundary.
+            Click a name for the source on GitHub. Some have workshop papers
+            or write-ups attached.
+          </p>
+        </div>
+        <ul className="hk-proj-list" style={{marginTop: 16}}>
+          {PROJECTS.map(p => <ProjectRow key={p.name} p={p} />)}
+        </ul>
+      </section>
+      <Footer />
+    </main>
+  );
+}
+
+function Writing() {
+  const [tag, setTag] = React.useState(null);
+  const allTags = Array.from(new Set(POSTS.flatMap(p => p.tags))).sort();
+  const filtered = tag ? POSTS.filter(p => p.tags.includes(tag)) : POSTS;
+  const byYear = filtered.reduce((m, p) => {
+    const y = p.date.slice(0, 4);
+    (m[y] = m[y] || []).push(p);
+    return m;
+  }, {});
+  const years = Object.keys(byYear).sort().reverse();
+
+  return (
+    <main id="main" className="hk-wrap">
+      <section className="hk-section" style={{borderTop:'none', marginTop:0, paddingTop: 12}}>
+        <h2 className="hk-section__h">Writing</h2>
+        <p className="hk-section__sub">{POSTS.length} posts · mostly notes to my future self. No newsletter.</p>
+
+        <div className="hk-tagbar">
+          <button className={'all ' + (tag === null ? 'active' : '')} onClick={() => setTag(null)}>all</button>
+          {allTags.map(t => (
+            <button key={t} className={tag === t ? 'active' : ''} onClick={() => setTag(t)}>{t}</button>
+          ))}
+        </div>
+
+        {years.map(y => (
+          <div key={y} style={{marginBottom: 20}}>
+            <h3 style={{fontFamily:'var(--mono)', fontSize:13, color:'var(--muted)', letterSpacing:'0.04em', margin:'16px 0 6px'}}>{y}</h3>
+            <ul className="hk-posts">
+              {byYear[y].map(p => <PostRow key={p.title} post={p} />)}
+            </ul>
+          </div>
+        ))}
+      </section>
+      <Footer />
+    </main>
+  );
+}
+
+function Papers() {
+  return (
+    <main id="main" className="hk-wrap">
+      <section className="hk-section" style={{borderTop:'none', marginTop:0, paddingTop: 12}}>
+        <h2 className="hk-section__h">Papers &amp; talks</h2>
+        <p className="hk-section__sub">Mostly on FPGA-based NPUs and low-bit transformer inference.</p>
+        <div>
+          {PAPERS.map((p, i) => (
+            <article key={i} className="hk-paper-item">
+              <h3 className="hk-paper-item__title">{p.title}</h3>
+              <div className="hk-paper-item__meta">
+                {p.authors} · <span className="venue">{p.venue}</span> · {p.year}
+              </div>
+              <div className="hk-paper-item__links">
+                {p.links.map(([lbl, href]) => (
+                  <a key={lbl} href={href} target="_blank" rel="noopener noreferrer">{lbl}</a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="hk-aside" style={{marginTop: 28}}>
+          If you&rsquo;d like to cite any of these, email me — I&rsquo;m happy
+          to send the canonical BibTeX so we don&rsquo;t end up with three
+          slightly different versions floating around.
+        </div>
+      </section>
+      <Footer />
+    </main>
+  );
+}
+
+function Now() {
+  return (
+    <main id="main" className="hk-wrap">
+      <section className="hk-section" style={{borderTop:'none', marginTop:0, paddingTop: 12}}>
+        <h2 className="hk-section__h">Now</h2>
+        <p className="hk-section__sub">
+          What I&rsquo;m working on this week. <span style={{color:'var(--muted-2)'}}>Last updated 2026-04-22.</span>
+        </p>
+        <div className="hk-now">
+          <p>
+            <span className="now-when">this week</span>
+            Bring-up of <strong>pccx 0.3.2</strong> on a second KV260 — mostly
+            to make sure the clocking work I did for prefill wasn&rsquo;t
+            accidentally specific to one board revision.
+          </p>
+          <p><span className="now-when">reading</span></p>
+          <ul>
+            <li><em>Computer Architecture: A Quantitative Approach</em>, 6e. Slowly.</li>
+            <li>The AMD CDNA3 whitepaper — the memory-hierarchy choices there are clearer than most edge parts.</li>
+            <li>Re-reading Dan Luu on latency. Always.</li>
+          </ul>
+          <p>
+            <span className="now-when">writing</span>
+            A long post on roofline analysis for edge LLM inference, which I
+            keep rewriting because every draft makes a different mistake.
+          </p>
+          <p>
+            <span className="now-when">not doing</span>
+            Anything involving &ldquo;agents&rdquo;, generative frontends, or
+            LinkedIn.
+          </p>
+        </div>
+        <div className="hk-aside" style={{marginTop: 24}}>
+          If you want to reach me about hardware / inference work, email is
+          best: <a href="mailto:k1h6w4@gmail.com">k1h6w4@gmail.com</a>. I
+          usually reply within a day or two.
+        </div>
+      </section>
+      <Footer />
+    </main>
+  );
+}
+
+function App() {
+  const [route, setRoute] = React.useState(() => localStorage.getItem('hk_route_v5') || 'home');
+  React.useEffect(() => { localStorage.setItem('hk_route_v5', route); }, [route]);
+  React.useEffect(() => { window.scrollTo({top: 0}); }, [route]);
+  const nav = (r) => setRoute(r);
+  return (
+    <React.Fragment>
+      <Topbar route={route} onNav={nav} />
+      {route === 'home' && <Home onNav={nav} />}
+      {route === 'projects' && <Projects />}
+      {route === 'writing' && <Writing />}
+      {route === 'papers' && <Papers />}
+      {route === 'now' && <Now />}
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
