@@ -51,10 +51,10 @@
     OPEN TECHNICAL HOMEPAGE →
   </text>
 
-  <text x="795" y="367"
+  <text x="770" y="367"
         font-family="IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
         font-size="14"
         fill="#6B7280">
-    MEMORY-BOUND INFERENCE / GEMM / GEMV / KV-CACHE
+    SYSTEMVERILOG / FPGA / C++ / PYTHON
   </text>
 </svg>
