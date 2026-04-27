@@ -9,7 +9,7 @@ This repository can publish Docusaurus blog posts from Google Docs without using
 3. The scheduled GitHub Action reads the Google Docs document structure with the Docs API.
 4. AI checks Korean grammar and content consistency.
 5. AI translates to English, reviews it, revises it, and reviews it again.
-6. AI creates Docusaurus Markdown from zero base with visual elements such as Mermaid diagrams.
+6. Script generates Docusaurus MDX files and drafts basic Mermaid diagrams where appropriate.
 7. The workflow builds the site.
 8. In `commit` mode, public `[kr]` and `[en]` Google Docs are created under `to publish visualize`, source files are archived, and blog Markdown is committed.
 9. The existing Docusaurus deploy workflow publishes the site and sends a Telegram notification.

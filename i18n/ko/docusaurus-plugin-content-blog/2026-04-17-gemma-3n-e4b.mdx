@@ -10,14 +10,9 @@ tags: [논문, gemma, llm, 딥러닝]
 
 <!-- truncate -->
 
-```mermaid
-graph LR
-    A["안녕하세요"] -->|1. Tokenization| B("[4512, 8931]")
-    B -->|2. Embedding| C("Dense Vectors\n(3072 dim)")
-    C -->|3. RoPE| D("Positional Vectors\n(Rotated)")
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
-```
+import GemmaArchitectureDiagram from '@site/src/components/diagrams/GemmaArchitectureDiagram';
+
+<GemmaArchitectureDiagram />
 
 **1단계: 토큰화 (Tokenization) - "단어 쪼개기"**
 우리가 "안녕하세요"라고 치면, AI는 한글을 못 읽어. 그래서 자기가 아는 숫자(ID) 번호표로 바꿔야 해.
@@ -77,20 +72,6 @@ $$
 ---
 
 ## Phase 2: 진짜 생각하기 (Transformer Block 40번 반복)
-
-```mermaid
-graph TD
-    Input["Input Vector"] --> Norm1["4. RMSNorm"]
-    Norm1 --> QKV["5. Q, K, V Projection"]
-    QKV --> Attn["6. GQA & KV Cache"]
-    Attn --> Add1["7. Residual Add"]
-    Input --> Add1
-    Add1 --> Norm2["RMSNorm"]
-    Norm2 --> MLP["8. GeGLU MLP"]
-    MLP --> Add2["9. Residual Add"]
-    Add1 --> Add2
-    Add2 --> Output["Next Layer\n(Repeat 40x)"]
-```
 
 자, 이제 이 스탯창들이 Gemma의 '뇌'에 해당하는 Transformer Layer를 통과해. 이 층이 보통 40개 정도 겹쳐 있어. 한 층을 지날 때마다 아래 과정이 똑같이 반복돼.
 
@@ -230,16 +211,6 @@ $$
 ---
 
 ## Phase 3: 대답 내놓기
-
-```mermaid
-graph LR
-    Layer40["Layer 40 Output"] --> Norm["10. Final RMSNorm"]
-    Norm --> LMHead["11. LM Head\n(Vocabulary Projection)"]
-    LMHead --> Logits["Logits"]
-    Logits --> Softmax["12. Softmax & Sampling"]
-    Softmax --> Token["Next Token: '반'"]
-    Token -.->|13. Autoregressive Loop| Layer40
-```
 
 **10단계: 최종 RMSNorm**
 40번의 레이어를 뚫고 나온 최종 벡터를 마지막으로 깔끔하게 정돈해.

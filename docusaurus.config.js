@@ -76,6 +76,9 @@ module.exports = async function createConfig() {
       ],
     ],
     themeConfig: {
+      mermaid: {
+        theme: {light: 'neutral', dark: 'neutral'},
+      },
       colorMode: {
         defaultMode: 'light',
         respectPrefersColorScheme: false,
