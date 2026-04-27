@@ -5,6 +5,8 @@ authors: [hwkim]
 tags: [paper, gpt, nlp, llm, deep-learning]
 ---
 
+import { GPT1Stages, GPT1MultipleChoice, GPT1LossMath } from '@site/src/components/diagrams/GPT1';
+
 This document is a note organizing the architecture and training process of the GPT-1 paper by combining mathematical definitions with intuitive interpretations.
 
 <!-- truncate -->
@@ -34,34 +36,7 @@ Originally, the Transformer published by Google consisted of an Encoder (underst
 
 ## 3. GPT-1's Two-Stage Learning Pipeline
 
-```mermaid
-flowchart LR
-    subgraph Stage1["Stage 1: Unsupervised Pre-training"]
-        direction TB
-        Data1(["Unlabeled Text Corpus\n(e.g., BooksCorpus)"]) --> TF1["12-Layer Transformer Decoder\n(Masked Self-Attention)"]
-        TF1 --> Obj1{"Objective (L1)\nMaximize Log-Likelihood"}
-        Obj1 --> Out1(["Next Token Prediction"])
-    end
-
-    subgraph Stage2["Stage 2: Supervised Fine-tuning"]
-        direction TB
-        Data2(["Labeled Task Data\n(Input x, Label y)"]) --> TF2["Pre-trained Transformer\n(Weights Transferred)"]
-        TF2 --> Lin["Added Linear Layer\n(W_y)"]
-        Lin --> Obj2{"Objective (L3)\nL2 + λ * L1"}
-        Obj2 --> Out2(["Target Label Prediction"])
-    end
-
-    Stage1 == "Transfer Pre-trained Weights" ===> Stage2
-
-    classDef stage1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000
-    classDef stage2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000
-    classDef tf fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
-    classDef obj fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
-    class Data1,Out1 stage1;
-    class Data2,Out2 stage2;
-    class TF1,TF2,Lin tf;
-    class Obj1,Obj2 obj;
-```  
+<GPT1Stages />
 
 ### Stage 1: Unsupervised Pre-training
 
@@ -187,41 +162,7 @@ It prevents the phenomenon where the smart brain (weights), built with hard work
 
 The core of this technique is **not altering the well-structured 12-layer decoder architecture**. Without changing the architecture, it performs various tasks by manipulating only the shape of the text input using special tokens.
 
-```mermaid
-flowchart LR
-    subgraph Multiple_Choice["Task-aware Input Transformations (Multiple Choice)"]
-        direction TB
-        P(["Premise"])
-
-        S1[/"<S> Start"/] --> P
-        P --> D1[/"$ Delim"/]
-        D1 --> O1(["Option 1"])
-        O1 --> E1[/"<E> Extract"/]
-        E1 --> TF1["Transformer"]
-        TF1 --> L1["Linear"]
-
-        S2[/"<S> Start"/] --> P
-        P --> D2[/"$ Delim"/]
-        D2 --> O2(["Option 2"])
-        O2 --> E2[/"<E> Extract"/]
-        E2 --> TF2["Transformer"]
-        TF2 --> L2["Linear"]
-
-        L1 --> Softmax{"Softmax"}
-        L2 --> Softmax
-
-        Softmax --> Final(["Final Output Probabilities"])
-    end
-
-    classDef token fill:#ffcc80,stroke:#e65100,stroke-width:2px,color:#000
-    classDef text fill:#e1bee7,stroke:#8e24aa,stroke-width:2px,color:#000
-    classDef model fill:#bbdefb,stroke:#1976d2,stroke-width:2px,color:#000
-
-    class S1,D1,E1,S2,D2,E2 token;
-    class P,O1,O2 text;
-    class TF1,L1,TF2,L2,Softmax model;
-    class Final fill:#c8e6c9,stroke:#388e3c,stroke-width:2px,color:black;
-```
+<GPT1MultipleChoice />
 
 ### 1) The Role of Special Tokens
 
@@ -251,27 +192,7 @@ This is the process assuming we are solving a multiple-choice question (1 premis
 
 This is the essential mathematical process to update (train) parameters by comparing the arbitrary scores spit out by the model with the actual answer.
 
-```mermaid
-flowchart TB
-    Logit(["Model Output (Logits)\n[e.g., 10, 5, 1, -2]"]) --> SM{"Softmax Function\nσ(z)"}
-    SM --> Pred(["Predicted Probabilities (q)\n[70%, 20%, 8%, 2%]"])
-
-    Label(["True Label (c=1)"]) --> OHE{"One-hot Encoding"}
-    OHE --> Target(["Target Probabilities (p)\n[100%, 0%, 0%, 0%]"])
-
-    Pred --> CE{"Cross-Entropy Loss\nH(p, q)"}
-    Target --> CE
-
-    CE --> Backprop(["Update Parameters\n(Backpropagation)"])
-
-    classDef data fill:#f5f5f5,stroke:#9e9e9e,stroke-width:2px,color:#000
-    classDef func fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,color:#000
-    classDef loss fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px,color:#000
-
-    class Logit,Pred,Label,Target,Backprop data;
-    class SM,OHE func;
-    class CE loss;
-```
+<GPT1LossMath />
 
 ### 1) Softmax Function
 

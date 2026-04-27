@@ -5,6 +5,9 @@ authors: [hwkim]
 tags: [paper, transformer, nlp, deep-learning]
 ---
 
+import { TransformerEncoderDecoder, QKVAttentionMath, MultiHeadAttention } from '@site/src/components/diagrams/Attention';
+import MarkmapBlock from '@site/src/components/MarkmapBlock';
+
 This text contains the core concepts and mathematical principles of the Transformer model architecture.
 
 <!-- truncate -->
@@ -25,65 +28,7 @@ The Transformer originated from the idea: "Instead of inputting words sequential
 
 The Transformer adopts an **Encoder-Decoder** structure optimized for Sequence Transduction tasks like machine translation.
 
-```mermaid
-flowchart TB
-    subgraph Encoder["Encoder (N=6)"]
-        direction TB
-        E_In(["Input Sequence"]) --> E_Emb["Input Embedding\n(d_model=512)"]
-        E_Emb --> E_PE["Positional Encoding\n(sin/cos)"]
-        E_PE --> E_Add["+"]
-
-        E_Add -->|Generate Q, K, V| E_MHA["Multi-Head Self-Attention\n(h=8, d_k=64)"]
-        E_Add -->|Residual Connection| E_AddNorm1
-
-        E_MHA --> E_AddNorm1["Add & LayerNorm"]
-
-        E_AddNorm1 --> E_FFN["Position-wise FFN\n(d_ff=2048)"]
-        E_AddNorm1 -->|Residual Connection| E_AddNorm2
-
-        E_FFN --> E_AddNorm2["Add & LayerNorm"]
-    end
-
-    subgraph Decoder["Decoder (N=6)"]
-        direction TB
-        D_In(["Target Sequence"]) --> D_Emb["Output Embedding\n(Shifted Right)"]
-        D_Emb --> D_PE["Positional Encoding\n(sin/cos)"]
-        D_PE --> D_Add["+"]
-
-        D_Add -->|Generate Q, K, V| D_MMHA["Masked Multi-Head\nSelf-Attention"]
-        D_Add -->|Residual Connection| D_AddNorm1
-
-        D_MMHA --> D_AddNorm1["Add & LayerNorm"]
-
-        D_AddNorm1 -->|Provide Q| D_ED_MHA["Encoder-Decoder\nMulti-Head Attention"]
-        D_AddNorm1 -->|Residual Connection| D_AddNorm2
-
-        D_ED_MHA --> D_AddNorm2["Add & LayerNorm"]
-
-        D_AddNorm2 --> D_FFN["Position-wise FFN\n(d_ff=2048)"]
-        D_AddNorm2 -->|Residual Connection| D_AddNorm3
-
-        D_FFN --> D_AddNorm3["Add & LayerNorm"]
-
-        D_AddNorm3 --> D_Linear["Linear Projection"]
-        D_Linear --> D_Softmax["Softmax"]
-        D_Softmax --> D_Out(["Output Probabilities"])
-    end
-
-    %% Information transfer from Encoder to Decoder
-    E_AddNorm2 == "Provide K, V" ===> D_ED_MHA
-
-    %% Styling
-    classDef input fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,color:black
-    classDef norm fill:#e0f7fa,stroke:#00838f,stroke-width:2px,color:black
-    classDef att fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:black
-    classDef ffn fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:black
-
-    class E_In,D_In,D_Out input
-    class E_AddNorm1,E_AddNorm2,D_AddNorm1,D_AddNorm2,D_AddNorm3 norm
-    class E_MHA,D_MMHA,D_ED_MHA att
-    class E_FFN,D_FFN ffn
-```  
+<TransformerEncoderDecoder />
 
 * **Auto-regressive property:** When generating an output, the model uses the previously generated output symbols as additional input for the next step. In other words, it predicts the 1st word, and then predicts the 2nd word by including that 1st word.
 
@@ -138,23 +83,20 @@ The Decoder generates the target sentence (e.g., a translated English sentence) 
 
 The Attention mechanism is the core of the Transformer. The Attention function can be described as mapping a Query and a set of Key-Value pairs to an output.
 
-```mermaid
-flowchart LR
-    User(["Search Query\n(Query: Q)"]) --> Match{"Similarity Match\n(Dot Product)"}
-    Index["Book Index/Label\n(Key: K)"] --> Match
-    Match -->|Ordered by relevance| Content["Actual Book Content\n(Value: V)"]
-    Content --> Out(["Desired Info\n(Attention Output)"])
 
-    classDef query fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#000
-    classDef key fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
-    classDef value fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000
-    classDef func fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000
-    
-    class User query;
-    class Index key;
-    class Content,Out value;
-    class Match func;
-```
+<MarkmapBlock content={`
+# Information Retrieval Analogy
+## Query (Q)
+- The search term entered by the user
+- The target word currently being analyzed
+## Key (K)
+- The index or label of books in the library
+- Tags used for similarity matching
+## Value (V)
+- The actual content of the book
+- The final extracted meaning
+`} height="250px" />
+
 
 To use an analogy, it is like the process of finding information in a library.
 
@@ -170,30 +112,7 @@ To use an analogy, it is like the process of finding information in a library.
 
 The paper proposes a method called 'Scaled Dot-Product Attention' to compute attention. The computation formula is as follows:
 
-```mermaid
-flowchart TB
-    Q(["Query Matrix (Q)"]) --> MatMul1
-    K(["Key Matrix (K)"]) --> Transpose["Transpose (K^T)"]
-    Transpose --> MatMul1{"Matrix Multiplication\nQ × K^T"}
-
-    MatMul1 -->|Compute Similarity Scores| Scale["Scaling\n÷ √d_k"]
-    Scale -->|Prevent Vanishing Gradients| Softmax["Softmax Function"]
-    
-    Softmax -->|0~1 Probability Weights| MatMul2{"Matrix Multiplication\nWeights × V"}
-    V(["Value Matrix (V)"]) --> MatMul2
-    
-    MatMul2 --> Out(["Final Attention Value"])
-
-    classDef input fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,color:#000
-    classDef op fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
-    classDef func fill:#e0f7fa,stroke:#00838f,stroke-width:2px,color:#000
-    classDef result fill:#ffcc80,stroke:#ef6c00,stroke-width:2px,color:#000
-
-    class Q,K,V input;
-    class MatMul1,MatMul2 op;
-    class Transpose,Scale,Softmax func;
-    class Out result;
-```
+<QKVAttentionMath />
 
 $$
 Attention(Q, K, V) = softmax(\frac{QK^T}{\sqrt{d_k}})V
@@ -231,37 +150,7 @@ $$
 
 The Transformer does not perform the above single Attention just once; it splits the dimensions into multiple parts and performs several Attentions in parallel. This is called Multi-Head Attention.
 
-```mermaid
-flowchart TB
-    In(["Input Q, K, V\n(d_model=512)"]) --> Split
-
-    Split{"Linear Projections &\nSplit into h=8 Heads"} --> Head1["Head 1\n(d_k=64)"]
-    Split --> Head2["Head 2\n(d_k=64)"]
-    Split --> HeadDOT["..."]
-    Split --> Head8["Head 8\n(d_k=64)"]
-
-    Head1 --> SDPA1["Scaled Dot-Product"]
-    Head2 --> SDPA2["Scaled Dot-Product"]
-    HeadDOT -.-> SDPADOT["Scaled Dot-Product"]
-    Head8 --> SDPA8["Scaled Dot-Product"]
-
-    SDPA1 --> Concat
-    SDPA2 --> Concat
-    SDPADOT -.-> Concat
-    SDPA8 --> Concat
-
-    Concat{"Concatenate\n(8 × 64 = 512 dims)"} --> Linear["Final Linear Projection"]
-    Linear --> Out(["Multi-Head Attention Output"])
-
-    classDef core fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000
-    classDef head fill:#ffe0b2,stroke:#ef6c00,stroke-width:2px,color:#000
-    classDef op fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#000
-
-    class In core;
-    class Split,Concat,Linear op;
-    class Head1,Head2,HeadDOT,Head8,SDPA1,SDPA2,SDPADOT,SDPA8 head;
-    class Out fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,color:black;
-```  
+<MultiHeadAttention />
 
 In the paper, the $d_{model} = 512$ dimension is split into $h = 8$ Heads. Therefore, each Head handles a vector of $d_k = d_v = 512 / 8 = 64$ dimensions.
 
@@ -277,20 +166,23 @@ The 8 resulting matrices calculated from each Head are concatenated together at 
 
 The data that has passed through the Attention sub-layer goes through a Fully Connected Feed-Forward Network (FFN) included in each layer.
 
-```mermaid
-flowchart LR
-    In(["Input Vector (x)\n[512 dims]"]) --> W1["Linear (W1, b1)\nDimensional Expansion"]
-    W1 --> Mid["Hidden Layer\n[2048 dims]"]
-    Mid --> ReLU{"ReLU Activation\n(Filter negatives)"}
-    ReLU --> W2["Linear (W2, b2)\nDimensional Compression"]
-    W2 --> Out(["Output Vector\n[512 dims]"])
 
-    classDef dim fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000
-    classDef op fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000
-    
-    class In,Mid,Out dim;
-    class W1,ReLU,W2 op;
-```
+<MarkmapBlock content={`
+# Position-wise Feed-Forward Network
+## Input Vector (x)
+- Dimension: 512
+- Independent for each position
+## Linear 1 (W1, b1)
+- Dimensional Expansion
+- Hidden Layer: 2048 dims
+## ReLU Activation
+- Filter out negative values
+- Introduce non-linearity
+## Linear 2 (W2, b2)
+- Dimensional Compression
+- Output Vector: 512 dims
+`} height="300px" />
+
 
 "Position-wise" means that the exact same Neural Network is applied independently to each individual word position that makes up the sentence.
 
@@ -320,24 +212,19 @@ If Attention is the process of collecting 'relationships' between words, the FFN
 
 The Transformer abandoned the RNN structure and opted for parallel processing through matrix multiplication. However, this creates a inherent limitation. Because the Attention operation treats a set of words like an unordered 'Bag of words', it can mathematically perceive "I eat rice" and "Rice eat I" as identical.
 
-```mermaid
-flowchart TB
-    Word["Input Word"] --> Emb["Word Embedding\n(Semantic Meaning)"]
-    Pos["Word Position (pos)\nDimension Index (i)"] --> PE["Positional Encoding\n(sin/cos wave patterns)"]
 
-    Emb --> Add{"+ Element-wise Addition"}
-    PE --> Add
+<MarkmapBlock content={`
+# Positional Encoding Mechanism
+## Input Word
+- Word Embedding (Semantic Meaning)
+## Word Position
+- Dimension Index (i)
+- Positional Encoding (sin/cos wave patterns)
+## Integration
+- Element-wise Addition
+- Final Input Vector (Meaning + Position)
+`} height="250px" />
 
-    Add --> Out(["Final Input Vector\n(Meaning + Position)"])
-
-    classDef emb fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
-    classDef pe fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#000
-    classDef out fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000
-    
-    class Word,Emb emb;
-    class Pos,PE pe;
-    class Add,Out out;
-```  
 
 To solve this, the process of adding a vector containing position information to the inputted word's Embedding vector so the model can know the relative or absolute 'position (order)' information of words within a Sequence is called **Positional Encoding**.
 
