@@ -1,0 +1,60 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="420" fill="#FBF8F3"/>
+
+  <rect x="36" y="36" width="1128" height="348" fill="#FBF8F3" stroke="#111827" stroke-width="1.25"/>
+
+  <line x1="76" y1="92" x2="1124" y2="92" stroke="#111827" stroke-width="1"/>
+  <line x1="76" y1="322" x2="1124" y2="322" stroke="#111827" stroke-width="1"/>
+
+  <text x="76" y="76"
+        font-family="IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="15"
+        letter-spacing="2.5"
+        fill="#6B7280">
+    HWKIM-DEV / ENGINEER NOTEBOOK
+  </text>
+
+  <text x="76" y="162"
+        font-family="Georgia, Times New Roman, serif"
+        font-size="56"
+        font-weight="600"
+        fill="#111827">
+    Hyunwoo KIM 김현우
+  </text>
+
+  <text x="76" y="211"
+        font-family="Inter, Pretendard, Arial, sans-serif"
+        font-size="24"
+        fill="#374151">
+    AI systems · FPGA acceleration · LLM inference · Seoul, KR
+  </text>
+
+  <text x="76" y="262"
+        font-family="Inter, Pretendard, Arial, sans-serif"
+        font-size="19"
+        fill="#374151">
+    I work on the hardware/software boundary of AI systems:
+  </text>
+
+  <text x="76" y="292"
+        font-family="Inter, Pretendard, Arial, sans-serif"
+        font-size="19"
+        fill="#374151">
+    FPGA-based NPUs, Transformer inference kernels, memory-bound workloads, and runtimes.
+  </text>
+
+  <rect x="76" y="342" width="284" height="38" fill="#111827"/>
+  <text x="96" y="367"
+        font-family="IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="15"
+        fill="#FBF8F3">
+    OPEN TECHNICAL HOMEPAGE →
+  </text>
+
+  <text x="795" y="367"
+        font-family="IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="14"
+        fill="#6B7280">
+    MEMORY-BOUND INFERENCE / GEMM / GEMV / KV-CACHE
+  </text>
+</svg>
