@@ -40,8 +40,8 @@ const PROJECTS = [
       ko: 'Edge FPGA용 병렬 컴퓨팅 코어 프레임워크: 커스텀 ISA, INT8 시스톨릭 어레이, 런타임 큐, Python 드라이버 스택.',
     },
     why: {
-      en: 'It lets me study the real bottleneck of edge LLM inference: memory movement, kernel shape, and driver overhead rather than MAC count alone.',
-      ko: 'LLM 추론의 진짜 병목이 MAC 연산량이 아니라 메모리 이동, 커널 형태, 드라이버 오버헤드에 있음을 연구하기 위해 만들었습니다.',
+      en: 'It lets me study edge LLM inference behavior: memory movement, kernel shape, and driver overhead rather than MAC count alone.',
+      ko: 'LLM 추론 과정에서 MAC 연산량 외에도 메모리 이동, 커널 형태, 드라이버 오버헤드가 어떤 영향을 주는지 연구하기 위해 만들었습니다.',
     },
     tags: ['FPGA', 'NPU', 'ISA', 'SystemVerilog', 'C/C++', 'LLM'],
     repo: 'https://github.com/hwkim-dev/pccx',

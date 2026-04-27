@@ -211,38 +211,9 @@ GQA 구조의 우수성이 입증되자, 컴퓨터 공학자들은 이미 막대
 
 ---
 
-```mermaid
-graph TD
-    subgraph MHA [Multi-Head Attention]
-        Q1_MHA[Q1] --> K1_MHA[K1]
-        Q1_MHA --> V1_MHA[V1]
-        Q2_MHA[Q2] --> K2_MHA[K2]
-        Q2_MHA --> V2_MHA[V2]
-        Qn_MHA[Qn] --> Kn_MHA[Kn]
-        Qn_MHA --> Vn_MHA[Vn]
-    end
-    
-    subgraph MQA [Multi-Query Attention]
-        Q1_MQA[Q1] --> K_MQA[K Shared]
-        Q1_MQA --> V_MQA[V Shared]
-        Q2_MQA[Q2] --> K_MQA
-        Q2_MQA --> V_MQA
-        Qn_MQA[Qn] --> K_MQA
-        Qn_MQA --> V_MQA
-    end
-    
-    subgraph GQA [Grouped-Query Attention]
-        Q1_GQA[Q1] --> K1_GQA[K Group 1]
-        Q2_GQA[Q2] --> K1_GQA
-        Q1_GQA --> V1_GQA[V Group 1]
-        Q2_GQA --> V1_GQA
+import GqaKvSharingDiagram from '@site/src/components/diagrams/GqaKvSharingDiagram';
 
-        Q3_GQA[Q3] --> K2_GQA[K Group 2]
-        Q4_GQA[Q4] --> K2_GQA
-        Q3_GQA --> V2_GQA[V Group 2]
-        Q4_GQA --> V2_GQA
-    end
-```
+<GqaKvSharingDiagram />
 
 ## 8. MHA, MQA, GQA의 종합 비교 분석
 이상의 수학적 원리와 구조적 특징을 한눈에 명확하게 비교하기 위해 세 가지 어텐션 메커니즘을 종합적으로 대조해 보겠습니다.
