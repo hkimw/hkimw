@@ -42,40 +42,23 @@
 
 ## Featured work
 
-<table>
-<tr>
-<td width="50%">
+<p align="center">
+  <a href="https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260">
+    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=pccx-FPGA-NPU-LLM-kv260&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="pccx-FPGA-NPU-LLM-kv260" />
+  </a>
+  <a href="https://github.com/hwkim-dev/llm-lite">
+    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=llm-lite&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="llm-lite" />
+  </a>
+</p>
 
-<a href="https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=pccx-FPGA-NPU-LLM-kv260&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="pccx-FPGA-NPU-LLM-kv260" />
-</a>
-
-</td>
-<td width="50%">
-
-<a href="https://github.com/hwkim-dev/llm-lite">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=llm-lite&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="llm-lite" />
-</a>
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-<a href="https://github.com/hwkim-dev/pccx-lab">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=pccx-lab&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="pccx-lab" />
-</a>
-
-</td>
-<td width="50%">
-
-<a href="https://github.com/hwkim-dev/pccx">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=pccx&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="pccx" />
-</a>
-
-</td>
-</tr>
-</table>
+<p align="center">
+  <a href="https://github.com/hwkim-dev/pccx-lab">
+    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=pccx-lab&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="pccx-lab" />
+  </a>
+  <a href="https://github.com/hwkim-dev/pccx">
+    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=pccx&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="pccx" />
+  </a>
+</p>
 
 ---
 
@@ -99,19 +82,6 @@
   <img src="https://img.shields.io/badge/CUDA%20/%20SIMD-Kernel%20Optimization-76B900?style=flat-square&labelColor=FBF8F3&logo=nvidia&logoColor=111827" />
   <img src="https://img.shields.io/badge/React%20/%20Tauri-Visualization%20Tools-61DAFB?style=flat-square&labelColor=FBF8F3&logo=react&logoColor=111827" />
   <img src="https://img.shields.io/badge/Docusaurus-Research%20Notebook-3ECC5F?style=flat-square&labelColor=FBF8F3&logo=docusaurus&logoColor=111827" />
-</p>
-
----
-
-## Research keywords
-
-<p>
-  <img src="https://img.shields.io/badge/Memory--bound%20Inference-111827?style=flat-square&labelColor=FBF8F3" />
-  <img src="https://img.shields.io/badge/KV--cache-111827?style=flat-square&labelColor=FBF8F3" />
-  <img src="https://img.shields.io/badge/GEMM%20/%20GEMV-111827?style=flat-square&labelColor=FBF8F3" />
-  <img src="https://img.shields.io/badge/Quantization-111827?style=flat-square&labelColor=FBF8F3" />
-  <img src="https://img.shields.io/badge/FPGA%20NPU-111827?style=flat-square&labelColor=FBF8F3" />
-  <img src="https://img.shields.io/badge/Runtime%20Profiling-111827?style=flat-square&labelColor=FBF8F3" />
 </p>
 
 ---
