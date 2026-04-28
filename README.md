@@ -42,23 +42,60 @@
 
 ## Featured work
 
-<p align="center">
-  <a href="https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=pccx-FPGA-NPU-LLM-kv260&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="pccx-FPGA-NPU-LLM-kv260" />
-  </a>
-  <a href="https://github.com/hwkim-dev/llm-lite">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=llm-lite&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="llm-lite" />
-  </a>
-</p>
+<table>
+<tr>
+<td width="50%" valign="top">
 
-<p align="center">
-  <a href="https://github.com/hwkim-dev/pccx-lab">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=pccx-lab&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="pccx-lab" />
-  </a>
-  <a href="https://github.com/hwkim-dev/pccx">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=hwkim-dev&repo=pccx&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="pccx" />
-  </a>
-</p>
+#### [pccx-FPGA-NPU-LLM-kv260](https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260)
+
+INT4 quantized FPGA NPU for LLM inference on Xilinx KV260.
+
+<a href="https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260/stargazers"><img src="https://img.shields.io/github/stars/hwkim-dev/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=github&logoColor=111827" alt="Stars" /></a>
+<a href="https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260/network/members"><img src="https://img.shields.io/github/forks/hwkim-dev/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=git&logoColor=111827" alt="Forks" /></a>
+<a href="https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260/issues"><img src="https://img.shields.io/github/issues/hwkim-dev/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=7c3aed&labelColor=FBF8F3" alt="Issues" /></a>
+<a href="https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260/commits"><img src="https://img.shields.io/github/last-commit/hwkim-dev/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=374151&labelColor=FBF8F3" alt="Last commit" /></a>
+
+</td>
+<td width="50%" valign="top">
+
+#### [llm-lite](https://github.com/hwkim-dev/llm-lite)
+
+Lightweight LLM inference engine with INT4 / INT16 quantization.
+
+<a href="https://github.com/hwkim-dev/llm-lite/stargazers"><img src="https://img.shields.io/github/stars/hwkim-dev/llm-lite?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=github&logoColor=111827" alt="Stars" /></a>
+<a href="https://github.com/hwkim-dev/llm-lite/network/members"><img src="https://img.shields.io/github/forks/hwkim-dev/llm-lite?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=git&logoColor=111827" alt="Forks" /></a>
+<a href="https://github.com/hwkim-dev/llm-lite/issues"><img src="https://img.shields.io/github/issues/hwkim-dev/llm-lite?style=flat-square&color=7c3aed&labelColor=FBF8F3" alt="Issues" /></a>
+<a href="https://github.com/hwkim-dev/llm-lite/commits"><img src="https://img.shields.io/github/last-commit/hwkim-dev/llm-lite?style=flat-square&color=374151&labelColor=FBF8F3" alt="Last commit" /></a>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### [pccx-lab](https://github.com/hwkim-dev/pccx-lab)
+
+Tauri + React inference visualization and trace inspector.
+
+<a href="https://github.com/hwkim-dev/pccx-lab/stargazers"><img src="https://img.shields.io/github/stars/hwkim-dev/pccx-lab?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=github&logoColor=111827" alt="Stars" /></a>
+<a href="https://github.com/hwkim-dev/pccx-lab/network/members"><img src="https://img.shields.io/github/forks/hwkim-dev/pccx-lab?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=git&logoColor=111827" alt="Forks" /></a>
+<a href="https://github.com/hwkim-dev/pccx-lab/issues"><img src="https://img.shields.io/github/issues/hwkim-dev/pccx-lab?style=flat-square&color=7c3aed&labelColor=FBF8F3" alt="Issues" /></a>
+<a href="https://github.com/hwkim-dev/pccx-lab/commits"><img src="https://img.shields.io/github/last-commit/hwkim-dev/pccx-lab?style=flat-square&color=374151&labelColor=FBF8F3" alt="Last commit" /></a>
+
+</td>
+<td width="50%" valign="top">
+
+#### [pccx](https://github.com/hwkim-dev/pccx)
+
+Research notebook and ISA documentation for the pccx project family.
+
+<a href="https://github.com/hwkim-dev/pccx/stargazers"><img src="https://img.shields.io/github/stars/hwkim-dev/pccx?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=github&logoColor=111827" alt="Stars" /></a>
+<a href="https://github.com/hwkim-dev/pccx/network/members"><img src="https://img.shields.io/github/forks/hwkim-dev/pccx?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=git&logoColor=111827" alt="Forks" /></a>
+<a href="https://github.com/hwkim-dev/pccx/issues"><img src="https://img.shields.io/github/issues/hwkim-dev/pccx?style=flat-square&color=7c3aed&labelColor=FBF8F3" alt="Issues" /></a>
+<a href="https://github.com/hwkim-dev/pccx/commits"><img src="https://img.shields.io/github/last-commit/hwkim-dev/pccx?style=flat-square&color=374151&labelColor=FBF8F3" alt="Last commit" /></a>
+
+</td>
+</tr>
+</table>
 
 ---
 
