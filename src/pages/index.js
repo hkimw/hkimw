@@ -76,7 +76,7 @@ export default function Home() {
 
                 <div className="hk-contacts" aria-label="Contact and profile links">
                   <a href="mailto:k1h6w4@gmail.com">email<span className="arrow">↗</span></a>
-                  <a href="https://github.com/hwkim-dev" target="_blank" rel="noopener noreferrer">github<span className="arrow">↗</span></a>
+                  <a href="https://github.com/hkimw" target="_blank" rel="noopener noreferrer">github<span className="arrow">↗</span></a>
                   <a href="/papers">papers</a>
                   <a href="/projects">projects</a>
                   <a href="/now">now</a>

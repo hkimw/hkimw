@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Hyunwoo KIM — hwkim-dev</title>
+<title>Hyunwoo KIM — hkimw</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,11 +24,11 @@ const PROJECTS = [
     name: 'pccx',
     tag: 'active',
     lang: 'SystemVerilog / C++ / Python',
-    href: 'https://github.com/hwkim-dev/pccx',
+    href: 'https://github.com/hkimw/pccx',
     blurb: 'A parallel compute core executor for edge FPGAs — custom 64-bit ISA, 16×16 INT8 systolic array, and a CUDA-like driver. The whole stack, from RTL up to the Python runtime. Runs small transformers and CNNs on a $300 KV260 board at about 20 tok/s.',
     links: [
-      ['source', 'https://github.com/hwkim-dev/pccx'],
-      ['releases', 'https://github.com/hwkim-dev/pccx/releases'],
+      ['source', 'https://github.com/hkimw/pccx'],
+      ['releases', 'https://github.com/hkimw/pccx/releases'],
       ['notes on the ISA', '#'],
     ],
   },
@@ -36,10 +36,10 @@ const PROJECTS = [
     name: 'NPU-FPGA-Transformer-Accelerator',
     tag: 'wip',
     lang: 'SystemVerilog / Vitis HLS',
-    href: 'https://github.com/hwkim-dev/NPU-FPGA-Transformer-Accelerator-KV260',
+    href: 'https://github.com/hkimw/NPU-FPGA-Transformer-Accelerator-KV260',
     blurb: 'Transformer inference IP on AMD Kria KV260. Systolic GEMM plus a small SFU for softmax, GELU, and LayerNorm. Was a workshop paper; now the engine underneath pccx.',
     links: [
-      ['source', 'https://github.com/hwkim-dev/NPU-FPGA-Transformer-Accelerator-KV260'],
+      ['source', 'https://github.com/hkimw/NPU-FPGA-Transformer-Accelerator-KV260'],
       ['workshop paper (ko)', '#'],
     ],
   },
@@ -47,20 +47,20 @@ const PROJECTS = [
     name: 'llm-lite',
     tag: 'active',
     lang: 'Python / C++',
-    href: 'https://github.com/hwkim-dev/llm-lite',
+    href: 'https://github.com/hkimw/llm-lite',
     blurb: 'A small LLM serving stack — Python runtime, C++ kernels, paged KV cache. I use it as a reference implementation when benchmarking pccx: if a change makes llm-lite faster but pccx slower, something is wrong.',
     links: [
-      ['source', 'https://github.com/hwkim-dev/llm-lite'],
+      ['source', 'https://github.com/hkimw/llm-lite'],
     ],
   },
   {
     name: 'driver-drowsiness-detection',
     tag: 'archived',
     lang: 'Python',
-    href: 'https://github.com/hwkim-dev/Driver-drowsiness-detection',
+    href: 'https://github.com/hkimw/Driver-drowsiness-detection',
     blurb: 'An undergrad project. MediaPipe landmarks into a small MLP, 30 fps on CPU. Not groundbreaking, but it taught me to care about latency before I cared about anything else.',
     links: [
-      ['source', 'https://github.com/hwkim-dev/Driver-drowsiness-detection'],
+      ['source', 'https://github.com/hkimw/Driver-drowsiness-detection'],
     ],
   },
 ];
@@ -92,7 +92,7 @@ function Topbar({route, onNav}) {
     <nav className="hk-topbar" aria-label="primary">
       <div className="hk-topbar__inner">
         <a className="hk-topbar__brand" onClick={() => onNav('home')}>
-          hwkim<span className="slash">/</span>dev
+          hkimw
         </a>
         <div className="hk-topbar__links">
           {link('home', 'home')}
@@ -183,7 +183,7 @@ function Home({onNav}) {
         </div>
         <div className="hk-quicklinks">
           <a href="mailto:k1h6w4@gmail.com">k1h6w4@gmail.com</a>
-          <a href="https://github.com/hwkim-dev" target="_blank" rel="noopener noreferrer">github</a>
+          <a href="https://github.com/hkimw" target="_blank" rel="noopener noreferrer">github</a>
           <a href="#">scholar</a>
           <a href="#">résumé (pdf)</a>
           <a href="#">rss</a>

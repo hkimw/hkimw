@@ -40,7 +40,7 @@
     "description": "Footer link: Email"
   },
   "footer.copyright": {
-    "message": "© {year} hwkim-dev. Docusaurus로 만들어졌습니다.",
+    "message": "© {year} hkimw. Docusaurus로 만들어졌습니다.",
     "description": "Footer copyright"
   }
 }

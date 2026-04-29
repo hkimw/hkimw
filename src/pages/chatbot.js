@@ -5,13 +5,13 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 const T = {
   en: {
     pageTitle: 'Chatbot',
-    metaDesc: 'Ask hwkim-dev anything — AI chatbot for bio & project Q&A',
+    metaDesc: 'Ask hkimw anything — AI chatbot for bio & project Q&A',
     h1: '🤖 AI Chatbot',
     subtitle:
       'Ask anything about me and my projects.\nAn AI assistant will answer — from bio to repository Q&A.',
     infoTitle: '💡 About This Chatbot',
     infoDesc:
-      "This chatbot helps you learn about hwkim-dev's profile, projects, and papers.",
+      "This chatbot helps you learn about hkimw's profile, projects, and papers.",
     infoItems: [
       'Bio & interests',
       'Project introductions & recommendations',
@@ -21,7 +21,7 @@ const T = {
     ],
     questionsTitle: '💬 Try asking',
     questions: [
-      'What does hwkim-dev study or work on?',
+      'What does hkimw study or work on?',
       'Recommend 3 of the best projects',
       'Are there any research-related repositories?',
       'What was the most recent release?',
@@ -35,12 +35,12 @@ const T = {
   },
   ko: {
     pageTitle: '챗봇',
-    metaDesc: 'hwkim-dev에 대해 무엇이든 물어보세요 — AI 챗봇',
+    metaDesc: 'hkimw에 대해 무엇이든 물어보세요 — AI 챗봇',
     h1: '🤖 AI 챗봇',
     subtitle:
       '저와 제 프로젝트에 대해 무엇이든 물어보세요.\n자기소개부터 저장소 Q&A까지 AI가 답해드립니다.',
     infoTitle: '💡 챗봇 소개',
-    infoDesc: '이 챗봇은 hwkim-dev의 프로필, 프로젝트, 논문에 대한 질의응답을 도와줍니다.',
+    infoDesc: '이 챗봇은 hkimw의 프로필, 프로젝트, 논문에 대한 질의응답을 도와줍니다.',
     infoItems: [
       '자기소개 및 관심 분야',
       '프로젝트 소개 & 추천',
@@ -50,7 +50,7 @@ const T = {
     ],
     questionsTitle: '💬 이렇게 물어보세요',
     questions: [
-      'hwkim-dev는 어떤 분야를 공부하나요?',
+      'hkimw는 어떤 분야를 공부하나요?',
       '대표 프로젝트 3개를 추천해줘',
       '논문 또는 연구 관련 저장소가 있나요?',
       '최근 릴리즈된 프로젝트는 뭐야?',
@@ -96,7 +96,7 @@ export default function Chatbot() {
             {CHATBOT_URL ? (
               <iframe
                 src={CHATBOT_URL}
-                title="hwkim-dev Chatbot"
+                title="hkimw Chatbot"
                 style={{width: '100%', height: '600px', border: '1px solid var(--rule)', borderRadius: '4px'}}
                 allow="microphone"
               />

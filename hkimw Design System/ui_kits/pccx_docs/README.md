@@ -1,6 +1,6 @@
 # UI Kit — pccx documentation
 
-Lower-fidelity reference for the Sphinx (PyData theme) pccx NPU documentation at https://github.com/hwkim-dev/pccx.
+Lower-fidelity reference for the Sphinx (PyData theme) pccx NPU documentation at https://github.com/hkimw/pccx.
 
 The source is plain Sphinx HTML — not React — so this kit focuses on the visual rules so new pccx-flavored artifacts stay on-brand:
 

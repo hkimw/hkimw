@@ -5,7 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 const T = {
   en: {
     pageTitle: 'Papers & talks',
-    metaDesc: 'hwkim-dev paper archive — authored and contributed papers',
+    metaDesc: 'hkimw paper archive — authored and contributed papers',
     h1: 'Papers & talks',
     subtitle: 'Mostly on FPGA-based NPUs and low-bit transformer inference.',
     emptyTitle: 'Papers coming soon',
@@ -15,7 +15,7 @@ const T = {
   },
   ko: {
     pageTitle: '논문 및 발표',
-    metaDesc: 'hwkim-dev 논문 아카이브 — 작성 및 기여한 논문',
+    metaDesc: 'hkimw 논문 아카이브 — 작성 및 기여한 논문',
     h1: 'Papers & talks',
     subtitle: '주로 FPGA 기반 NPU와 저정밀도 Transformer 추론에 관한 내용입니다.',
     emptyTitle: '논문을 추가할 예정입니다',
