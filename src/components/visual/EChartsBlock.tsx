@@ -9,7 +9,7 @@ export default function EChartsBlock({ option, type, height = '300px' }) {
         tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
         grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
         xAxis: { type: 'value', name: 'Latency (ms)', nameLocation: 'middle', nameGap: 30, splitLine: { lineStyle: { color: 'var(--hk-wire-faint)' } } },
-        yAxis: { type: 'category', data: ['pccx (FPGA)', 'llm-lite (CPU)', 'GPU Baseline'], axisLine: { lineStyle: { color: 'var(--hk-wire-ink)' } } },
+        yAxis: { type: 'category', data: ['pccx (FPGA)', 'llm-bottleneck-lab (CPU)', 'GPU Baseline'], axisLine: { lineStyle: { color: 'var(--hk-wire-ink)' } } },
         series: [
           {
             name: 'Prefill',

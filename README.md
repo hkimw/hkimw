@@ -7,7 +7,7 @@
 <br/>
 
 <a href="https://hkimw.github.io/hkimw/">
-  <img src="https://img.shields.io/badge/open%20technical%20homepage-hwkim--dev.github.io-111827?style=flat-square&labelColor=FBF8F3&logo=githubpages&logoColor=111827" alt="Open technical homepage" />
+  <img src="https://img.shields.io/badge/open%20technical%20homepage-hkimw.github.io-111827?style=flat-square&labelColor=FBF8F3&logo=githubpages&logoColor=111827" alt="Open technical homepage" />
 </a>
 <a href="https://hkimw.github.io/hkimw/projects">
   <img src="https://img.shields.io/badge/projects-AI%20systems%20portfolio-0f766e?style=flat-square&labelColor=FBF8F3&logo=readthedocs&logoColor=111827" alt="Projects" />
@@ -58,14 +58,14 @@ INT4 quantized FPGA NPU for LLM inference on Xilinx KV260.
 </td>
 <td width="50%" valign="top">
 
-#### [llm-lite](https://github.com/hkimw/llm-lite)
+#### [llm-bottleneck-lab](https://github.com/hkimw/llm-bottleneck-lab)
 
 Lightweight LLM inference engine with INT4 / INT16 quantization.
 
-<a href="https://github.com/hkimw/llm-lite/stargazers"><img src="https://img.shields.io/github/stars/hkimw/llm-lite?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=github&logoColor=111827" alt="Stars" /></a>
-<a href="https://github.com/hkimw/llm-lite/network/members"><img src="https://img.shields.io/github/forks/hkimw/llm-lite?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=git&logoColor=111827" alt="Forks" /></a>
-<a href="https://github.com/hkimw/llm-lite/issues"><img src="https://img.shields.io/github/issues/hkimw/llm-lite?style=flat-square&color=7c3aed&labelColor=FBF8F3" alt="Issues" /></a>
-<a href="https://github.com/hkimw/llm-lite/commits"><img src="https://img.shields.io/github/last-commit/hkimw/llm-lite?style=flat-square&color=374151&labelColor=FBF8F3" alt="Last commit" /></a>
+<a href="https://github.com/hkimw/llm-bottleneck-lab/stargazers"><img src="https://img.shields.io/github/stars/hkimw/llm-bottleneck-lab?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=github&logoColor=111827" alt="Stars" /></a>
+<a href="https://github.com/hkimw/llm-bottleneck-lab/network/members"><img src="https://img.shields.io/github/forks/hkimw/llm-bottleneck-lab?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=git&logoColor=111827" alt="Forks" /></a>
+<a href="https://github.com/hkimw/llm-bottleneck-lab/issues"><img src="https://img.shields.io/github/issues/hkimw/llm-bottleneck-lab?style=flat-square&color=7c3aed&labelColor=FBF8F3" alt="Issues" /></a>
+<a href="https://github.com/hkimw/llm-bottleneck-lab/commits"><img src="https://img.shields.io/github/last-commit/hkimw/llm-bottleneck-lab?style=flat-square&color=374151&labelColor=FBF8F3" alt="Last commit" /></a>
 
 </td>
 </tr>
@@ -105,7 +105,7 @@ Research notebook and ISA documentation for the pccx project family.
 
 - Main stack: **SystemVerilog / FPGA / C++ / Python / TypeScript**
 - Main research theme: **memory-bound Transformer inference**
-- Main project family: **pccx / pccx-lab / llm-lite**
+- Main project family: **pccx / pccx-lab / llm-bottleneck-lab**
 - Homepage: **technical notebook + project portfolio + paper notes**
 
 ---
@@ -116,7 +116,7 @@ Research notebook and ISA documentation for the pccx project family.
   <img src="https://img.shields.io/badge/SystemVerilog-FPGA%20NPU-3b82f6?style=flat-square&labelColor=FBF8F3" />
   <img src="https://img.shields.io/badge/C++-Inference%20Runtime-00599C?style=flat-square&labelColor=FBF8F3&logo=cplusplus&logoColor=111827" />
   <img src="https://img.shields.io/badge/Python-Experiment%20Tools-3776AB?style=flat-square&labelColor=FBF8F3&logo=python&logoColor=111827" />
-  <img src="https://img.shields.io/badge/CUDA%20/%20SIMD-Kernel%20Optimization-76B900?style=flat-square&labelColor=FBF8F3&logo=nvidia&logoColor=111827" />
+  <img src="https://img.shields.io/badge/CUDA%20/%20SIMD-Kernel%20Optimization-76B900?style=flat-square&labelColor=FBF8F3" />
   <img src="https://img.shields.io/badge/React%20/%20Tauri-Visualization%20Tools-61DAFB?style=flat-square&labelColor=FBF8F3&logo=react&logoColor=111827" />
   <img src="https://img.shields.io/badge/Docusaurus-Research%20Notebook-3ECC5F?style=flat-square&labelColor=FBF8F3&logo=docusaurus&logoColor=111827" />
 </p>

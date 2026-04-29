@@ -66,7 +66,7 @@ const PROJECTS = [
     status: 'active',
   },
   {
-    name: 'llm-lite',
+    name: 'llm-bottleneck-lab',
     description: {
       en: 'A compact LLM serving/reference stack with Python runtime pieces, C++ kernels, and KV-cache experiments.',
       ko: 'Python 런타임과 C++ 커널, KV-cache 실험을 포함하는 경량 LLM 서빙 스택.',
@@ -76,8 +76,8 @@ const PROJECTS = [
       ko: '최적화 아이디어를 FPGA 커널로 내리기 전에 소프트웨어 베이스라인을 빠르게 검증하기 위해 사용합니다.',
     },
     tags: ['LLM', 'Inference', 'Python', 'PyTorch'],
-    repo: 'https://github.com/hkimw/llm-lite',
-    release: 'https://github.com/hkimw/llm-lite/releases',
+    repo: 'https://github.com/hkimw/llm-bottleneck-lab',
+    release: 'https://github.com/hkimw/llm-bottleneck-lab/releases',
     language: 'Python / C++',
     status: 'active',
   },
