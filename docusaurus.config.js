@@ -25,7 +25,7 @@ module.exports = async function createConfig() {
   const {default: math} = await import('remark-math');
   const {default: katex} = await import('rehype-katex');
 
-  const baseUrl = '/hwkim-dev/';
+  const baseUrl = '/hkimw/';
 
   const blogCategoriesByLocale = {
     en: collectBlogTags(path.join(__dirname, 'blog')),
@@ -33,9 +33,9 @@ module.exports = async function createConfig() {
   };
 
   return {
-    title: 'hwkim-dev',
+    title: 'hkimw',
     tagline: 'Deep Learning · Parallel Programming · Systems Optimization',
-    url: 'https://hwkim-dev.github.io',
+    url: 'https://hkimw.github.io',
     baseUrl,
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
@@ -84,7 +84,7 @@ module.exports = async function createConfig() {
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'hwkim-dev',
+        title: 'hkimw',
         hideOnScroll: true,
         items: [
           {to: '/', label: 'Home', position: 'left'},
@@ -105,7 +105,7 @@ module.exports = async function createConfig() {
 </div>`,
           },
           {
-            href: 'https://github.com/hwkim-dev',
+            href: 'https://github.com/hkimw',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub',
@@ -129,7 +129,7 @@ module.exports = async function createConfig() {
           {
             title: 'Connect',
             items: [
-              {label: 'GitHub', href: 'https://github.com/hwkim-dev'},
+              {label: 'GitHub', href: 'https://github.com/hkimw'},
               {label: 'Email', href: 'mailto:k1h6w4@gmail.com'},
             ],
           },
