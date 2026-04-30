@@ -6,12 +6,18 @@ import TechNetwork from '@site/src/components/visual/TechNetwork';
 
 const T = {
   en: {
-    metaDesc: 'AI systems · FPGA acceleration · LLM inference',
-    tag: 'AI systems · FPGA acceleration · LLM inference · Seoul, KR',
+    metaDesc: 'AI systems · FPGA acceleration · LLM inference · PCCX AI',
+    tag: 'AI systems · FPGA acceleration · LLM inference · PCCX AI',
     pitch: [
       <>I work on the hardware/software boundary of AI systems: <strong>FPGA-based NPUs</strong>, LLM inference kernels, memory-bound workloads, and the runtimes that connect models to silicon.</>,
-      <>My main project is <strong>pccx</strong> — a small research stack around a custom 64-bit ISA, an INT8 systolic array, runtime queues, and a Python-facing driver for edge FPGA inference. I care about the uncomfortable last mile of deployment: where the model graph finally meets memory bandwidth, queues, and hardware limits.</>,
+      <>My main project is <strong>pccx</strong>, now organized under <a href="https://github.com/pccxai" target="_blank" rel="noopener noreferrer">PCCX AI</a>: a research stack around a custom 64-bit ISA, an INT8 systolic array, runtime queues, and a Python-facing driver for edge FPGA inference.</>,
     ],
+    org: {
+      eyebrow: 'PCCX AI',
+      body: 'Open NPU architecture, FPGA implementation, and verification tooling now live in the organization.',
+      label: 'github.com/pccxai',
+      href: 'https://github.com/pccxai',
+    },
     threadsTitle: 'Research threads',
     threadsSub: 'The topics I keep returning to when I read papers or build systems.',
     threads: [
@@ -30,13 +36,19 @@ const T = {
     ],
   },
   ko: {
-    metaDesc: 'AI 시스템 · FPGA 가속 · LLM 추론',
-    tag: 'AI 시스템 · FPGA 가속 · LLM 추론 · 서울',
+    metaDesc: 'AI 시스템 · FPGA 가속 · LLM 추론 · PCCX AI',
+    tag: 'AI 시스템 · FPGA 가속 · LLM 추론 · PCCX AI',
     pitch: [
       <>AI 시스템의 하드웨어/소프트웨어 경계에서 작업합니다: <strong>FPGA 기반 NPU</strong>, LLM 추론 커널, 메모리 바운드 워크로드, 그리고 모델을 실리콘에 연결하는 런타임.</>,
-      <>주요 프로젝트인 <strong>pccx</strong>는 커스텀 64비트 ISA, INT8 시스톨릭 어레이, 런타임 큐, Python 드라이버 스택으로 구성된 엣지 FPGA 추론 연구 스택입니다. 모델 그래프가 메모리 대역폭, 큐, 하드웨어 한계와 만나는 마지막 구간을 연구합니다.</>,
+      <>주요 프로젝트인 <strong>pccx</strong>는 이제 <a href="https://github.com/pccxai" target="_blank" rel="noopener noreferrer">PCCX AI</a> 조직에서 관리합니다. 커스텀 64비트 ISA, INT8 시스톨릭 어레이, 런타임 큐, Python 드라이버 스택으로 구성된 엣지 FPGA 추론 연구 스택입니다.</>,
       <>지능형반도체학과 학부생으로, FPGA 기반 NPU와 LLM 추론 최적화를 하드웨어부터 런타임까지 연결해 공부하고 있습니다.</>,
     ],
+    org: {
+      eyebrow: 'PCCX AI',
+      body: '오픈 NPU 아키텍처, FPGA 구현, 검증 도구는 이제 GitHub 조직에서 관리합니다.',
+      label: 'github.com/pccxai',
+      href: 'https://github.com/pccxai',
+    },
     threadsTitle: '연구 주제',
     threadsSub: '논문을 읽거나 시스템을 만들 때 계속 돌아오게 되는 주제들.',
     threads: [
@@ -59,6 +71,11 @@ const T = {
 export default function Home() {
   const {i18n: {currentLocale}} = useDocusaurusContext();
   const t = T[currentLocale] ?? T.en;
+  const papersUrl = useBaseUrl('/papers');
+  const projectsUrl = useBaseUrl('/projects');
+  const nowUrl = useBaseUrl('/now');
+  const lightAvatarUrl = useBaseUrl('/img/me_light.jpg');
+  const darkAvatarUrl = useBaseUrl('/img/me_dark.jpg');
 
   return (
     <Layout title="Home" description={t.metaDesc}>
@@ -76,16 +93,25 @@ export default function Home() {
 
                 <div className="hk-contacts" aria-label="Contact and profile links">
                   <a href="mailto:k1h6w4@gmail.com">email<span className="arrow">↗</span></a>
+                  <a href="https://github.com/pccxai" target="_blank" rel="noopener noreferrer">pccx ai<span className="arrow">↗</span></a>
                   <a href="https://github.com/hkimw" target="_blank" rel="noopener noreferrer">github<span className="arrow">↗</span></a>
-                  <a href="/papers">papers</a>
-                  <a href="/projects">projects</a>
-                  <a href="/now">now</a>
+                  <a href={papersUrl}>papers</a>
+                  <a href={projectsUrl}>projects</a>
+                  <a href={nowUrl}>now</a>
+                </div>
+
+                <div className="hk-org-callout">
+                  <span className="hk-org-callout__eyebrow">{t.org.eyebrow}</span>
+                  <p>{t.org.body}</p>
+                  <a href={t.org.href} target="_blank" rel="noopener noreferrer">
+                    {t.org.label}<span className="arrow">↗</span>
+                  </a>
                 </div>
               </div>
 
               <div className="hk-avatar" aria-hidden="true">
-                <img src={useBaseUrl('/img/me_light.jpg')} alt="Profile (Light)" className="hk-avatar-img-light" />
-                <img src={useBaseUrl('/img/me_dark.jpg')} alt="Profile (Dark)" className="hk-avatar-img-dark" />
+                <img src={lightAvatarUrl} alt="Profile (Light)" className="hk-avatar-img-light" />
+                <img src={darkAvatarUrl} alt="Profile (Dark)" className="hk-avatar-img-dark" />
               </div>
             </div>
 

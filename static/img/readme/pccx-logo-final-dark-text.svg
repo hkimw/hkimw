@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="64" viewBox="0 0 240 64" fill="none" role="img" aria-label="pccx logo" shape-rendering="crispEdges">
+  <style>
+    .ink { fill: #000000; }
+    .line { stroke: #000000; }
+    .mono {
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #FFFFFF; }
+      .line { stroke: #FFFFFF; }
+    }
+  </style>
+  <polyline points="13,24 13,13 51,13 51,24" class="line" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/>
+  <polyline points="13,40 13,51 51,51 51,40" class="line" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/>
+  <rect class="ink" x="28" y="4" width="8" height="56"/>
+  <rect class="ink" x="26" y="4" width="12" height="3"/>
+  <rect class="ink" x="26" y="57" width="12" height="3"/>
+  <text class="ink mono" x="80" y="42" font-size="30" font-weight="700">pccx</text>
+  <rect class="ink" x="80" y="48" width="14" height="2"/>
+</svg>

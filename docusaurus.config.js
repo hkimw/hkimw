@@ -93,6 +93,7 @@ module.exports = async function createConfig() {
           {to: '/projects', label: 'Projects', position: 'left'},
           {to: '/now', label: 'Now', position: 'left'},
           {to: '/chatbot', label: 'Chatbot', position: 'left'},
+          {href: 'https://github.com/pccxai', label: 'PCCX AI', position: 'right'},
           {
             type: 'html',
             position: 'right',
@@ -129,7 +130,8 @@ module.exports = async function createConfig() {
           {
             title: 'Connect',
             items: [
-              {label: 'GitHub', href: 'https://github.com/hkimw'},
+              {label: 'PCCX AI', href: 'https://github.com/pccxai'},
+              {label: 'Personal GitHub', href: 'https://github.com/hkimw'},
               {label: 'Email', href: 'mailto:k1h6w4@gmail.com'},
             ],
           },

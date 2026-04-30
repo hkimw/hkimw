@@ -35,6 +35,14 @@
     "message": "GitHub",
     "description": "Footer link: GitHub"
   },
+  "link.item.label.PCCX AI": {
+    "message": "PCCX AI",
+    "description": "Footer link: PCCX AI"
+  },
+  "link.item.label.Personal GitHub": {
+    "message": "개인 GitHub",
+    "description": "Footer link: Personal GitHub"
+  },
   "link.item.label.Email": {
     "message": "이메일",
     "description": "Footer link: Email"

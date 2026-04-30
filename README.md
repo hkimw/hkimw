@@ -1,138 +1,174 @@
 <div align="center">
 
-<a href="https://hkimw.github.io/hkimw/">
-  <img src="./static/img/github-profile-hero.svg" alt="Hyunwoo Kim technical homepage" width="100%" />
-</a>
-
-<br/>
-
-<a href="https://hkimw.github.io/hkimw/">
-  <img src="https://img.shields.io/badge/open%20technical%20homepage-hkimw.github.io-111827?style=flat-square&labelColor=FBF8F3&logo=githubpages&logoColor=111827" alt="Open technical homepage" />
-</a>
-<a href="https://hkimw.github.io/hkimw/projects">
-  <img src="https://img.shields.io/badge/projects-AI%20systems%20portfolio-0f766e?style=flat-square&labelColor=FBF8F3&logo=readthedocs&logoColor=111827" alt="Projects" />
-</a>
-<a href="https://hkimw.github.io/hkimw/blog">
-  <img src="https://img.shields.io/badge/notes-engineer's%20notebook-7c3aed?style=flat-square&labelColor=FBF8F3&logo=markdown&logoColor=111827" alt="Technical blog" />
+<a href="https://github.com/pccxai">
+  <img src="./static/img/github-profile-hero.svg" alt="hkimw · PCCX AI" width="100%" />
 </a>
 
 <br/><br/>
 
-<a href="https://github.com/hkimw">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=hkimw&show_icons=true&include_all_commits=true&rank_icon=github&bg_color=FBF8F3&title_color=111827&text_color=374151&icon_color=0f766e&border_color=E7E0D6" alt="hkimw GitHub stats" />
-</a>
-<a href="https://github.com/hkimw">
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hkimw&layout=compact&langs_count=8&bg_color=FBF8F3&title_color=111827&text_color=374151&border_color=E7E0D6" alt="Top languages" />
-</a>
+<a href="https://github.com/pccxai"><img src="https://img.shields.io/badge/PCCX_AI-Organization-2f80ed?style=flat-square&logo=github&logoColor=white&labelColor=1e2533" alt="PCCX AI org" /></a>
+<a href="https://github.com/pccxai/pccx"><img src="https://img.shields.io/badge/PCCX-NPU_Project-2f80ed?style=flat-square&logo=apache&logoColor=white&labelColor=1e2533" alt="pccx project" /></a>
+<a href="https://hkimw.github.io/hkimw/"><img src="https://img.shields.io/badge/Notebook-hkimw.github.io-2f80ed?style=flat-square&logo=githubpages&logoColor=white&labelColor=1e2533" alt="technical notebook" /></a>
+<a href="https://hkimw.github.io/hkimw/blog"><img src="https://img.shields.io/badge/Blog-Engineer_Log-2f80ed?style=flat-square&logo=markdown&logoColor=white&labelColor=1e2533" alt="engineer log" /></a>
 
 </div>
 
 ---
 
-## What I work on
-
-| Area | Focus |
-|---|---|
-| **AI Hardware** | FPGA NPU, systolic array datapaths, custom ISA, memory hierarchy |
-| **LLM Inference** | Transformer decode bottlenecks, KV-cache, GEMM/GEMV, quantization |
-| **Systems** | C/C++, Python runtimes, queues, profiling, reproducible benchmarks |
-| **Research Writing** | Paper notes, architecture diagrams, experiment logs, technical reports |
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./static/img/readme/account-dashboard-dark.svg" />
+  <img src="./static/img/readme/account-dashboard.svg" width="100%" alt="hkimw account dashboard" />
+</picture>
 
 ---
 
-## Featured work
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./static/img/readme/pccxai-section-dark.svg" />
+  <img src="./static/img/readme/pccxai-section.svg" width="100%" alt="PCCX AI organization dashboard" />
+</picture>
+
+---
+
+<details>
+<summary><b>PERSONAL_FEATURED_WORK</b></summary>
+
+<br/>
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-#### [pccx-FPGA-NPU-LLM-kv260](https://github.com/hkimw/pccx-FPGA-NPU-LLM-kv260)
+#### [llm-bottleneck-lab](https://github.com/hkimw/llm-bottleneck-lab)
 
-INT4 quantized FPGA NPU for LLM inference on Xilinx KV260.
+Software baseline for LLM inference bottleneck analysis before ideas move into PCCX.
 
-<a href="https://github.com/hkimw/pccx-FPGA-NPU-LLM-kv260/stargazers"><img src="https://img.shields.io/github/stars/hkimw/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=github&logoColor=111827" alt="Stars" /></a>
-<a href="https://github.com/hkimw/pccx-FPGA-NPU-LLM-kv260/network/members"><img src="https://img.shields.io/github/forks/hkimw/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=git&logoColor=111827" alt="Forks" /></a>
-<a href="https://github.com/hkimw/pccx-FPGA-NPU-LLM-kv260/issues"><img src="https://img.shields.io/github/issues/hkimw/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=7c3aed&labelColor=FBF8F3" alt="Issues" /></a>
-<a href="https://github.com/hkimw/pccx-FPGA-NPU-LLM-kv260/commits"><img src="https://img.shields.io/github/last-commit/hkimw/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=374151&labelColor=FBF8F3" alt="Last commit" /></a>
+<a href="https://github.com/hkimw/llm-bottleneck-lab/stargazers"><img src="https://img.shields.io/github/stars/hkimw/llm-bottleneck-lab?style=flat-square&color=2f80ed&labelColor=1e2533&logoColor=white&logo=github" alt="Stars" /></a>
+<a href="https://github.com/hkimw/llm-bottleneck-lab/network/members"><img src="https://img.shields.io/github/forks/hkimw/llm-bottleneck-lab?style=flat-square&color=2f80ed&labelColor=1e2533&logo=git&logoColor=white" alt="Forks" /></a>
+<a href="https://github.com/hkimw/llm-bottleneck-lab/issues"><img src="https://img.shields.io/github/issues/hkimw/llm-bottleneck-lab?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Issues" /></a>
+<a href="https://github.com/hkimw/llm-bottleneck-lab/commits"><img src="https://img.shields.io/github/last-commit/hkimw/llm-bottleneck-lab?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Last commit" /></a>
 
 </td>
 <td width="50%" valign="top">
 
-#### [llm-bottleneck-lab](https://github.com/hkimw/llm-bottleneck-lab)
+#### [hkimw](https://github.com/hkimw/hkimw)
 
-Lightweight LLM inference engine with INT4 / INT16 quantization.
+Docusaurus technical notebook, project portfolio, paper notes, and website source.
 
-<a href="https://github.com/hkimw/llm-bottleneck-lab/stargazers"><img src="https://img.shields.io/github/stars/hkimw/llm-bottleneck-lab?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=github&logoColor=111827" alt="Stars" /></a>
-<a href="https://github.com/hkimw/llm-bottleneck-lab/network/members"><img src="https://img.shields.io/github/forks/hkimw/llm-bottleneck-lab?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=git&logoColor=111827" alt="Forks" /></a>
-<a href="https://github.com/hkimw/llm-bottleneck-lab/issues"><img src="https://img.shields.io/github/issues/hkimw/llm-bottleneck-lab?style=flat-square&color=7c3aed&labelColor=FBF8F3" alt="Issues" /></a>
-<a href="https://github.com/hkimw/llm-bottleneck-lab/commits"><img src="https://img.shields.io/github/last-commit/hkimw/llm-bottleneck-lab?style=flat-square&color=374151&labelColor=FBF8F3" alt="Last commit" /></a>
+<a href="https://github.com/hkimw/hkimw/stargazers"><img src="https://img.shields.io/github/stars/hkimw/hkimw?style=flat-square&color=2f80ed&labelColor=1e2533&logo=github&logoColor=white" alt="Stars" /></a>
+<a href="https://github.com/hkimw/hkimw/network/members"><img src="https://img.shields.io/github/forks/hkimw/hkimw?style=flat-square&color=2f80ed&labelColor=1e2533&logo=git&logoColor=white" alt="Forks" /></a>
+<a href="https://github.com/hkimw/hkimw/issues"><img src="https://img.shields.io/github/issues/hkimw/hkimw?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Issues" /></a>
+<a href="https://github.com/hkimw/hkimw/commits"><img src="https://img.shields.io/github/last-commit/hkimw/hkimw?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Last commit" /></a>
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-#### [pccx-lab](https://github.com/hkimw/pccx-lab)
+#### [Driver-drowsiness-detection](https://github.com/hkimw/Driver-drowsiness-detection)
 
-Tauri + React inference visualization and trace inspector.
+Undergraduate latency-focused computer vision project using facial landmarks and a small model.
 
-<a href="https://github.com/hkimw/pccx-lab/stargazers"><img src="https://img.shields.io/github/stars/hkimw/pccx-lab?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=github&logoColor=111827" alt="Stars" /></a>
-<a href="https://github.com/hkimw/pccx-lab/network/members"><img src="https://img.shields.io/github/forks/hkimw/pccx-lab?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=git&logoColor=111827" alt="Forks" /></a>
-<a href="https://github.com/hkimw/pccx-lab/issues"><img src="https://img.shields.io/github/issues/hkimw/pccx-lab?style=flat-square&color=7c3aed&labelColor=FBF8F3" alt="Issues" /></a>
-<a href="https://github.com/hkimw/pccx-lab/commits"><img src="https://img.shields.io/github/last-commit/hkimw/pccx-lab?style=flat-square&color=374151&labelColor=FBF8F3" alt="Last commit" /></a>
+<a href="https://github.com/hkimw/Driver-drowsiness-detection/stargazers"><img src="https://img.shields.io/github/stars/hkimw/Driver-drowsiness-detection?style=flat-square&color=2f80ed&labelColor=1e2533&logo=github&logoColor=white" alt="Stars" /></a>
+<a href="https://github.com/hkimw/Driver-drowsiness-detection/network/members"><img src="https://img.shields.io/github/forks/hkimw/Driver-drowsiness-detection?style=flat-square&color=2f80ed&labelColor=1e2533&logo=git&logoColor=white" alt="Forks" /></a>
+<a href="https://github.com/hkimw/Driver-drowsiness-detection/issues"><img src="https://img.shields.io/github/issues/hkimw/Driver-drowsiness-detection?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Issues" /></a>
+<a href="https://github.com/hkimw/Driver-drowsiness-detection/commits"><img src="https://img.shields.io/github/last-commit/hkimw/Driver-drowsiness-detection?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Last commit" /></a>
 
 </td>
 <td width="50%" valign="top">
 
-#### [pccx](https://github.com/hkimw/pccx)
+#### [Technical notebook](https://hkimw.github.io/hkimw/)
 
-Research notebook and ISA documentation for the pccx project family.
+Public-facing writing space for architecture notes, experiments, paper reviews, and current work.
 
-<a href="https://github.com/hkimw/pccx/stargazers"><img src="https://img.shields.io/github/stars/hkimw/pccx?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=github&logoColor=111827" alt="Stars" /></a>
-<a href="https://github.com/hkimw/pccx/network/members"><img src="https://img.shields.io/github/forks/hkimw/pccx?style=flat-square&color=0f766e&labelColor=FBF8F3&logo=git&logoColor=111827" alt="Forks" /></a>
-<a href="https://github.com/hkimw/pccx/issues"><img src="https://img.shields.io/github/issues/hkimw/pccx?style=flat-square&color=7c3aed&labelColor=FBF8F3" alt="Issues" /></a>
-<a href="https://github.com/hkimw/pccx/commits"><img src="https://img.shields.io/github/last-commit/hkimw/pccx?style=flat-square&color=374151&labelColor=FBF8F3" alt="Last commit" /></a>
+<a href="https://hkimw.github.io/hkimw/"><img src="https://img.shields.io/badge/SITE-hkimw.github.io-2f80ed?style=flat-square&labelColor=1e2533&logo=githubpages&logoColor=white" alt="Technical site" /></a>
+<a href="https://hkimw.github.io/hkimw/blog"><img src="https://img.shields.io/badge/BLOG-Engineer_Log-2f80ed?style=flat-square&labelColor=1e2533&logo=markdown&logoColor=white" alt="Technical blog" /></a>
 
 </td>
 </tr>
 </table>
 
----
-
-## Current direction
-
-> I am building a research-oriented AI systems portfolio around **edge LLM inference**, where model graphs meet memory bandwidth, runtime queues, quantization, and hardware limits.
-
-- Main stack: **SystemVerilog / FPGA / C++ / Python / TypeScript**
-- Main research theme: **memory-bound Transformer inference**
-- Main project family: **pccx / pccx-lab / llm-bottleneck-lab**
-- Homepage: **technical notebook + project portfolio + paper notes**
-
----
-
-## Tech stack
-
-<p>
-  <img src="https://img.shields.io/badge/SystemVerilog-FPGA%20NPU-3b82f6?style=flat-square&labelColor=FBF8F3" />
-  <img src="https://img.shields.io/badge/C++-Inference%20Runtime-00599C?style=flat-square&labelColor=FBF8F3&logo=cplusplus&logoColor=111827" />
-  <img src="https://img.shields.io/badge/Python-Experiment%20Tools-3776AB?style=flat-square&labelColor=FBF8F3&logo=python&logoColor=111827" />
-  <img src="https://img.shields.io/badge/CUDA%20/%20SIMD-Kernel%20Optimization-76B900?style=flat-square&labelColor=FBF8F3" />
-  <img src="https://img.shields.io/badge/React%20/%20Tauri-Visualization%20Tools-61DAFB?style=flat-square&labelColor=FBF8F3&logo=react&logoColor=111827" />
-  <img src="https://img.shields.io/badge/Docusaurus-Research%20Notebook-3ECC5F?style=flat-square&labelColor=FBF8F3&logo=docusaurus&logoColor=111827" />
-</p>
-
----
+</details>
 
 <details>
-<summary><b>About this website repository</b></summary>
+<summary><b>PCCX_AI_FEATURED_WORK</b></summary>
 
-This repository also contains my personal website and research notebook, built with Docusaurus and customized as a quiet, text-first engineer notebook.
+<br/>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+#### [pccx-FPGA-NPU-LLM-kv260](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260)
+
+Bare-metal FPGA implementation of the PCCX NPU for LLM inference on Kria KV260.
+
+<a href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/stargazers"><img src="https://img.shields.io/github/stars/pccxai/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=2f80ed&labelColor=1e2533&logo=github&logoColor=white" alt="Stars" /></a>
+<a href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/network/members"><img src="https://img.shields.io/github/forks/pccxai/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=2f80ed&labelColor=1e2533&logo=git&logoColor=white" alt="Forks" /></a>
+<a href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues"><img src="https://img.shields.io/github/issues/pccxai/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Issues" /></a>
+<a href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/commits"><img src="https://img.shields.io/github/last-commit/pccxai/pccx-FPGA-NPU-LLM-kv260?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Last commit" /></a>
+
+</td>
+<td width="50%" valign="top">
+
+#### [pccx](https://github.com/pccxai/pccx)
+
+Open NPU architecture for memory-bound Transformer inference on edge FPGAs.
+
+<a href="https://github.com/pccxai/pccx/stargazers"><img src="https://img.shields.io/github/stars/pccxai/pccx?style=flat-square&color=2f80ed&labelColor=1e2533&logo=github&logoColor=white" alt="Stars" /></a>
+<a href="https://github.com/pccxai/pccx/network/members"><img src="https://img.shields.io/github/forks/pccxai/pccx?style=flat-square&color=2f80ed&labelColor=1e2533&logo=git&logoColor=white" alt="Forks" /></a>
+<a href="https://github.com/pccxai/pccx/issues"><img src="https://img.shields.io/github/issues/pccxai/pccx?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Issues" /></a>
+<a href="https://github.com/pccxai/pccx/commits"><img src="https://img.shields.io/github/last-commit/pccxai/pccx?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Last commit" /></a>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### [pccx-lab](https://github.com/pccxai/pccx-lab)
+
+Visual pre-RTL bottleneck profiler, trace reports, and verification tooling for PCCX.
+
+<a href="https://github.com/pccxai/pccx-lab/stargazers"><img src="https://img.shields.io/github/stars/pccxai/pccx-lab?style=flat-square&color=2f80ed&labelColor=1e2533&logo=github&logoColor=white" alt="Stars" /></a>
+<a href="https://github.com/pccxai/pccx-lab/network/members"><img src="https://img.shields.io/github/forks/pccxai/pccx-lab?style=flat-square&color=2f80ed&labelColor=1e2533&logo=git&logoColor=white" alt="Forks" /></a>
+<a href="https://github.com/pccxai/pccx-lab/issues"><img src="https://img.shields.io/github/issues/pccxai/pccx-lab?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Issues" /></a>
+<a href="https://github.com/pccxai/pccx-lab/commits"><img src="https://img.shields.io/github/last-commit/pccxai/pccx-lab?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Last commit" /></a>
+
+</td>
+<td width="50%" valign="top">
+
+#### [pccxai](https://github.com/pccxai/pccxai)
+
+Organization profile and public landing repository for the PCCX AI project family.
+
+<a href="https://github.com/pccxai/pccxai/stargazers"><img src="https://img.shields.io/github/stars/pccxai/pccxai?style=flat-square&color=2f80ed&labelColor=1e2533&logo=github&logoColor=white" alt="Stars" /></a>
+<a href="https://github.com/pccxai/pccxai/network/members"><img src="https://img.shields.io/github/forks/pccxai/pccxai?style=flat-square&color=2f80ed&labelColor=1e2533&logo=git&logoColor=white" alt="Forks" /></a>
+<a href="https://github.com/pccxai/pccxai/issues"><img src="https://img.shields.io/github/issues/pccxai/pccxai?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Issues" /></a>
+<a href="https://github.com/pccxai/pccxai/commits"><img src="https://img.shields.io/github/last-commit/pccxai/pccxai?style=flat-square&color=2f80ed&labelColor=1e2533" alt="Last commit" /></a>
+
+</td>
+</tr>
+</table>
+
+</details>
+
+---
+
+## SYSTEM_NOTES
+
+| FIELD | VALUE |
+|---|---|
+| MAIN_STACK | SystemVerilog / FPGA / C++ / Python / TypeScript / Rust |
+| RESEARCH_THEME | Memory-bound Transformer inference |
+| PROJECT_FAMILY | [pccxai](https://github.com/pccxai) / [pccx](https://github.com/pccxai/pccx) / [pccx-lab](https://github.com/pccxai/pccx-lab) |
+| SITE | [technical notebook + project portfolio](https://hkimw.github.io/hkimw/) |
+
+<details>
+<summary><b>REPOSITORY_COMMANDS</b></summary>
 
 ```bash
 npm run start
 npm run build
+npm run readme:pccx-stats
 ```
-
-The website is used as a technical portfolio for AI systems, FPGA acceleration, LLM inference experiments, research notes, and project documentation.
 
 </details>

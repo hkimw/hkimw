@@ -26,5 +26,9 @@
   "item.label.Chatbot": {
     "message": "챗봇",
     "description": "Navbar item: Chatbot"
+  },
+  "item.label.PCCX AI": {
+    "message": "PCCX AI",
+    "description": "Navbar item: PCCX AI"
   }
 }

@@ -1,0 +1,49 @@
+name: Update PCCX README Stats
+
+on:
+  schedule:
+    # 09:20 Asia/Seoul, expressed in UTC.
+    - cron: '20 0 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - scripts/generate-pccx-readme-stats.mjs
+      - .github/workflows/update-pccx-readme-stats.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-pccx-readme-stats
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate PCCX AI cards
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/generate-pccx-readme-stats.mjs
+
+      - name: Commit generated cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add static/img/readme/pccxai-stats-light.svg static/img/readme/pccxai-stats-dark.svg static/img/readme/pccxai-langs-light.svg static/img/readme/pccxai-langs-dark.svg
+          if git diff --cached --quiet; then
+            echo "PCCX AI README cards are already up to date."
+          else
+            git commit -m "chore(readme): update PCCX AI stats cards"
+            git push
+          fi

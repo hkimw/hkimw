@@ -7,9 +7,12 @@ const T = {
   en: {
     locale: 'en',
     pageTitle: 'Projects',
-    metaDesc: 'hkimw GitHub repositories & releases showcase',
+    metaDesc: 'PCCX AI and hkimw GitHub repositories showcase',
     h1: 'Things I’m building',
-    subtitle: 'A short list. Mostly hardware/software boundary work.',
+    subtitle: 'PCCX repositories now live under the organization; personal baselines stay here.',
+    orgTitle: 'PCCX AI on GitHub',
+    orgBody: 'Start here for the active NPU architecture, FPGA implementation, and verification tooling.',
+    orgLink: 'Open organization',
     allFilter: 'all',
     status: {
       active: 'active',
@@ -20,9 +23,12 @@ const T = {
   ko: {
     locale: 'ko',
     pageTitle: '프로젝트',
-    metaDesc: 'hkimw GitHub 저장소 & 릴리즈 쇼케이스',
+    metaDesc: 'PCCX AI 및 hkimw GitHub 저장소 쇼케이스',
     h1: 'Things I’m building',
-    subtitle: '하드웨어/소프트웨어 경계에서 작업 중인 프로젝트들입니다.',
+    subtitle: 'PCCX 저장소는 조직으로 옮겼고, 개인 베이스라인은 이 계정에 남겨두었습니다.',
+    orgTitle: 'PCCX AI on GitHub',
+    orgBody: '활성 NPU 아키텍처, FPGA 구현, 검증 도구는 이 조직에서 확인할 수 있습니다.',
+    orgLink: '조직 열기',
     allFilter: 'all',
     status: {
       active: 'active',
@@ -44,8 +50,8 @@ const PROJECTS = [
       ko: 'LLM 추론 과정에서 MAC 연산량 외에도 메모리 이동, 커널 형태, 드라이버 오버헤드가 어떤 영향을 주는지 연구하기 위해 만들었습니다.',
     },
     tags: ['FPGA', 'NPU', 'ISA', 'SystemVerilog', 'C/C++', 'LLM'],
-    repo: 'https://github.com/hkimw/pccx',
-    release: 'https://github.com/hkimw/pccx/releases',
+    repo: 'https://github.com/pccxai/pccx',
+    release: 'https://github.com/pccxai/pccx/releases',
     language: 'SystemVerilog / C++ / Python',
     status: 'active',
   },
@@ -60,8 +66,8 @@ const PROJECTS = [
       ko: '하드웨어를 디버깅하려면 좋은 소프트웨어 도구가 필요합니다. Verilog 파형과 고수준 실행 그래프 사이의 간극을 메우기 위한 도구입니다.',
     },
     tags: ['Tauri', 'Rust', 'React', 'Profiler'],
-    repo: 'https://github.com/hkimw/pccx-lab',
-    release: 'https://github.com/hkimw/pccx-lab/releases',
+    repo: 'https://github.com/pccxai/pccx-lab',
+    release: 'https://github.com/pccxai/pccx-lab/releases',
     language: 'Rust / TypeScript',
     status: 'active',
   },
@@ -82,18 +88,18 @@ const PROJECTS = [
     status: 'active',
   },
   {
-    name: 'NPU-FPGA-Transformer-Accelerator-KV260',
+    name: 'pccx-FPGA-NPU-LLM-kv260',
     description: {
-      en: 'Transformer inference IP on AMD Kria KV260: systolic GEMM plus small special-function units for operations around attention and normalization.',
-      ko: 'AMD Kria KV260 기반 Transformer 추론 IP. 시스톨릭 GEMM과 Attention, Normalization을 위한 특수 연산 유닛을 포함합니다.',
+      en: 'Bare-metal FPGA implementation of the pccx NPU for LLM inference on AMD Kria KV260.',
+      ko: 'AMD Kria KV260 기반 pccx NPU의 bare-metal FPGA 구현입니다.',
     },
     why: {
       en: 'It pushed me from "model acceleration" into memory hierarchy, scheduling, and runtime design.',
       ko: '단순한 모델 가속을 넘어 메모리 계층 구조, 스케줄링, 런타임 설계의 중요성을 깨닫게 해준 프로젝트입니다.',
     },
     tags: ['FPGA', 'NPU', 'LLM', 'SystemVerilog', 'Hardware'],
-    repo: 'https://github.com/hkimw/NPU-FPGA-Transformer-Accelerator-KV260',
-    release: 'https://github.com/hkimw/NPU-FPGA-Transformer-Accelerator-KV260/releases',
+    repo: 'https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260',
+    release: 'https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/releases',
     language: 'SystemVerilog',
     status: 'wip',
   },
@@ -139,6 +145,16 @@ export default function Projects() {
           <span className="hk-section__idx"><span className="num">01</span>work</span>
           <h2 className="hk-section__h">{t.h1}</h2>
           <p className="hk-section__sub">{t.subtitle}</p>
+
+          <div className="hk-org-strip">
+            <div>
+              <span className="hk-org-strip__label">{t.orgTitle}</span>
+              <p>{t.orgBody}</p>
+            </div>
+            <a href="https://github.com/pccxai" target="_blank" rel="noopener noreferrer">
+              {t.orgLink}<span className="arrow">↗</span>
+            </a>
+          </div>
 
           <EChartsBlock type="latency" />
 

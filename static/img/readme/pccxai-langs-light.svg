@@ -1,0 +1,50 @@
+<svg width="495" height="165" viewBox="0 0 495 165" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <style>
+    .card { fill: #ffffff; stroke: #d0d7de; }
+    .chrome { fill: #0d1117; }
+    .chrome-text { fill: #ffffff; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; letter-spacing: .7px; }
+    .label { fill: #1f2328; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; font-weight: 600; }
+    .pct   { fill: #636e7b; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; font-weight: 400; }
+    .bar-bg { fill: #e8eef0; }
+  </style>
+  <rect class="card" x="0.5" y="0.5" width="494" height="164" rx="6"/>
+  <rect class="chrome" x="0.5" y="0.5" width="494" height="28" rx="6"/>
+  <rect class="chrome" x="0.5" y="22.5" width="494" height="6"/>
+  <text class="chrome-text" x="14" y="19">PCCX_AI · MOST USED LANGUAGES</text>
+  <!-- TypeScript 33.1% -->
+  <rect fill="#1f2328" x="26" y="50" width="10" height="10"/>
+  <text class="label" x="44" y="60">TypeScript</text>
+  <rect class="bar-bg" x="185" y="48" width="200" height="8"/>
+  <rect fill="#1f2328" x="185" y="48" width="66" height="8"/>
+  <text class="pct" x="393" y="60">33.1%</text>
+  <!-- Rust 29.2% -->
+  <rect fill="#3d444d" x="26" y="69" width="10" height="10"/>
+  <text class="label" x="44" y="79">Rust</text>
+  <rect class="bar-bg" x="185" y="67" width="200" height="8"/>
+  <rect fill="#3d444d" x="185" y="67" width="58" height="8"/>
+  <text class="pct" x="393" y="79">29.2%</text>
+  <!-- SystemVerilog 20.4% -->
+  <rect fill="#636e7b" x="26" y="88" width="10" height="10"/>
+  <text class="label" x="44" y="98">SystemVerilog</text>
+  <rect class="bar-bg" x="185" y="86" width="200" height="8"/>
+  <rect fill="#636e7b" x="185" y="86" width="41" height="8"/>
+  <text class="pct" x="393" y="98">20.4%</text>
+  <!-- TeX 4.7% -->
+  <rect fill="#8c959f" x="26" y="107" width="10" height="10"/>
+  <text class="label" x="44" y="117">TeX</text>
+  <rect class="bar-bg" x="185" y="105" width="200" height="8"/>
+  <rect fill="#8c959f" x="185" y="105" width="9" height="8"/>
+  <text class="pct" x="393" y="117">4.7%</text>
+  <!-- HTML 4.0% -->
+  <rect fill="#afb8c1" x="26" y="126" width="10" height="10"/>
+  <text class="label" x="44" y="136">HTML</text>
+  <rect class="bar-bg" x="185" y="124" width="200" height="8"/>
+  <rect fill="#afb8c1" x="185" y="124" width="8" height="8"/>
+  <text class="pct" x="393" y="136">4.0%</text>
+  <!-- Python 3.2% (below bar line) -->
+  <rect fill="#c9d1d9" x="26" y="145" width="10" height="10"/>
+  <text class="label" x="44" y="155">Python</text>
+  <rect class="bar-bg" x="185" y="143" width="200" height="8"/>
+  <rect fill="#c9d1d9" x="185" y="143" width="6" height="8"/>
+  <text class="pct" x="393" y="155">3.2%</text>
+</svg>

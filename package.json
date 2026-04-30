@@ -7,6 +7,7 @@
     "build": "docusaurus build",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
+    "readme:pccx-stats": "node scripts/generate-pccx-readme-stats.mjs",
     "ai:publish:generate": "node scripts/ai-publish-blog.mjs generate",
     "ai:publish:finalize": "node scripts/ai-publish-blog.mjs finalize",
     "ai:publish:notify-published": "node scripts/ai-publish-blog.mjs notify-published"
