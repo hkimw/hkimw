@@ -1,0 +1,51 @@
+---
+slug: status-update
+title: "[일상] 근황 및 프로젝트 업데이트"
+authors: [hwkim]
+tags: [일상, 잡도리, 소식]
+date: 2026-05-01
+---
+
+요즘 하도 vibe coding 유행이길래 나도 이것저것 찍먹해봤음. 근데 막상 써보니까 확실히 AI가 짜는 code는 아직 아쉬운 부분이 많더라. 특히 모든 logic을 AI한테 전적으로 짬때리는 건 진짜 아닌 거 같음.
+
+<!-- truncate -->
+
+Web(HTML, CSS)이나 파이썬처럼 github에 reference 널려있는 분야는 기가 막히게 뽑아주긴 함. 근데 내가 주로 다루는 low-level 쪽으로 넘어오면 영 힘을 못 쓰는 거 같음. hw dependency, RTL, OS, kernel, ISA 같이 고려할 variable도 엄청나게 많고 reference도 가뭄에 콩 나듯 하는 SystemVerilog code는 AI가 짠 걸 그대로 가져다 쓰는 건 확실히 무리가 있는 듯... 진짜 UI, 프론트엔드는 기가 막히게 잘하더라. 그래서 지금 진행 중인 PCCX 프로젝트에서는 documentation이나 visualization, PM 정도에만 제한적으로 AI를 활용하는 중임.
+
+architecture 설계나 draw.io로 hw architecture 잡는 작업, FPGA NPU core logic 개발은 웬만하면 내가 직접 하는 게 훨씬 빠르고 정확하고. 사실 예전에 local에서 혼자 굴리던 openevolve FPGA 구현 프로젝트를 AI랑 같이 태워보려고 시도한 적 있었는데, 결론부터 말하자면 결국 다 갈아엎었음. hw dependency부터 memory bandwidth, timing error, power consumption 등등 제어해야 할 variable이 거의 무한대에 가깝다 보니, prompt 길이가 무슨 작은 책 한 권 분량 찍길래 그대로 구글 드라이브로 폐기함. 게다가 AI가 꼬아놓은 spaghetti code 읽고 debugging하면서 optimization하려니까, 차라리 내가 바닥부터 짜는 게 나을 정도로 개발 속도가 뚝 떨어져버림.
+
+결국 지금 AI의 가장 큰 bottleneck은 메모리 부족, 좀 더 정확히 말하면 'KV cache' 문제인 거 같음. (요즘 삼전이랑 하이닉스 주가 뛰는 것도 다 이 맥락임.) KV cache가 넉넉해야 AI가 긴 context 유지하고 prompt가 미친 듯이 길어져도 완벽하게 처리할 텐데, 안 그래도 power consumption 심하고 AI 반도체 칩도 비싼 마당에 서비스하는 기업 입장에서 유저들한테 무한정 높은 KV cache를 열어주긴 현실적으로 불가능할 거임. 남는 게 없는 장사니까.
+
+가끔 AI가 곧 모든 개발자 대체할 거라고 맹신하는 사람들도 있는데, 개인적으로는 transformer 구조의 다음 세대(Post-Transformer) 나오기 전까지는 불가능하다고 봄. transformer는 앞서 말한 KV cache라는 너무 명확한 한계가 존재하거든. architecture paradigm 자체가 바뀌지 않는 이상 당분간은 벽이 뚜렷할 거임. 그나마 최근 구글 Alpha Evolve 논문 보니까 AI가 스스로를 개선하는 모델이 있던데, AI가 AI를 진화시키는 pipeline까지 내려간 거 보면 이게 인간 개입 없이 100% 혼자 돌아가는 진짜 AGI의 시작에 가장 가깝지 않나 싶긴 함.
+
+그렇다고 AI가 쓸모없다는 건 절대 아님. 본질적으로 AI는 'data를 극도로 압축하고 복잡한 algorithm이 녹아있는 거대한 multi-dimensional function'이라고 생각함. AI를 algorithm의 일부로 본다면, 현재 transformer가 long context(기억)에 취약할 뿐이지 그 외에 기억력에 크게 의존하지 않는 operation이나 inference는 기가 막히게 잘 쳐냄.
+
+이번 주에 진짜 흥미로운 논문 하나 봤음. 물리 법칙을 아예 모르는 AI가 그저 동영상만 보고 뉴턴처럼 물리 법칙을 스스로 뚫어버렸다는 Nature 지 논문임. 무려 2021년 논문인데, 이런 거 보면 진짜 메모리 문제만 해결되면 AI가 못 할 게 없을 거 같긴 함.
+
+Chen, Z., Liu, Y. & Sun, H. Physics-informed learning of governing equations from scarce data. Nat Commun 12, 6136 (2021). https://doi.org/10.1038/s41467-021-26434-1
+https://www.nature.com/articles/s41467-021-26434-1
+
+딴 얘기지만, 요즘 챗GPT랑 내 github 파이 좀 키워볼 방법 없을까 같이 털어봤음. 개발자라면 다들 자기 github star 박히는 거 은근 신경 쓰잖아. 그러다 github 'Organization' 기능 활용해보면 사이즈 좀 나올 거 같아서 이번에 부계정 하나 새로 팠음.
+
+https://github.com/hkimw-underground
+여기선 vibe coding도 적극적으로 태워보고, 평소에 못 해본 것들 이것저것 빡세게 실험해볼 생각임.
+
+그리고 굵직한 근황 하나 더.
+https://github.com/pccxai
+이쪽으로 기존 개인 repo에 있던 PCCX 관련 내용 싹 다 migration했음. 원래 논문 쓰려고 파던 프로젝트였는데 scale이 생각보다 너무 커져서 이참에 나도 open source로 제대로 각 잡고 굴려보려고 함.
+
+내가 coding은 알아서 쳐도 PM 쪽은 영 잼병인데, 요새 이 부분은 확실히 AI assist 받으니까 꽤 편하더라. 다만 내가 quality control에는 좀 깐깐한 편이라 AI가 뱉는 결과물을 100% 신뢰하진 않음. 그래서 나름대로 pipeline 하나 짰음.
+
+AI가 PM 방향성 결정
+
+AI가 그 방향성 1차 검증
+
+다른 AI 모델로 cross check 및 2차 검증
+
+내가 최종 PM review
+
+시스템 launch
+
+이렇게 5-Step으로 굴리니까 확실히 프로젝트가 예전보다 훨씬 안정적으로 돌아가고. 더 core한 architecture 설계나 ISA 설계에만 resource 집중할 수 있음!
+
+아무튼 오늘 잡도리가 주저리주저리... 이제 밀려있는 PCCX v002 code나 깎으러 가야지ㅜ

@@ -219,19 +219,27 @@ code, kbd {
   position: sticky;
   top: 0;
   z-index: 50;
-  height: var(--hk-navh);
   background: color-mix(in srgb, var(--hk-paper) 91%, transparent);
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--hk-wire-ink);
   box-shadow: var(--hk-shadow-win3);
-  padding: 0;
 }
-.navbar__inner {
-  max-width: 840px;
-  margin: 0 auto;
-  height: 100%;
-  padding: 0 var(--hk-s-6);
+
+@media (min-width: 997px) {
+  .navbar {
+    height: var(--hk-navh);
+    padding: 0;
+  }
 }
+@media (min-width: 997px) {
+  .navbar__inner {
+    max-width: 840px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 var(--hk-s-6);
+  }
+}
+
 .navbar__brand {
   font-family: var(--hk-mono);
   font-size: var(--hk-fs-caption);
@@ -266,14 +274,16 @@ code, kbd {
 .navbar__link:hover, .navbar__link--active {
   color: var(--hk-ink);
 }
-.navbar__link--active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -18px;
-  height: 1px;
-  background: var(--hk-wire-ink);
+@media (min-width: 997px) {
+  .navbar__link--active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -18px;
+    height: 1px;
+    background: var(--hk-wire-ink);
+  }
 }
 @keyframes hk-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
 
@@ -799,16 +809,18 @@ html[lang="ko-KR"] .lang-label-ko { display: inline; }
 [data-theme='dark'] .hk-avatar-img-dark { opacity: 1; }
 
 /* Language Dropdown Animation and Spacing */
-.navbar__items--right {
-  gap: 0 !important;
-  align-items: center;
-}
-.navbar__items--right > * {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.lang-switch {
-  padding-right: 0 !important;
+@media (min-width: 997px) {
+  .navbar__items--right {
+    gap: 0 !important;
+    align-items: center;
+  }
+  .navbar__items--right > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .lang-switch {
+    padding-right: 0 !important;
+  }
 }
 
 .dropdown--hoverable .dropdown__menu {
@@ -826,6 +838,82 @@ html[lang="ko-KR"] .lang-label-ko { display: inline; }
   transform: translateY(0);
   transition: opacity 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0s !important;
   pointer-events: auto;
+}
+
+/* Mobile navbar sidebar */
+@media (max-width: 996px) {
+  .navbar-sidebar {
+    background-color: var(--hk-paper) !important;
+    box-shadow: none !important;
+  }
+
+  .navbar-sidebar__items {
+    display: flex !important;
+    height: calc(100% - var(--ifm-navbar-height));
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .navbar-sidebar__item {
+    display: block !important;
+    flex-shrink: 0;
+    width: var(--ifm-navbar-sidebar-width);
+  }
+
+  .navbar-sidebar .menu__list {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .navbar-sidebar .lang-switch .dropdown__menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    box-shadow: none !important;
+    padding: 0 0 0 1.5rem !important;
+    background: transparent !important;
+  }
+  
+  .navbar-sidebar .lang-switch button.navbar__link {
+    pointer-events: none;
+    font-weight: 700;
+    padding-left: 0;
+    color: var(--hk-ink);
+  }
+
+  .navbar-sidebar .dropdown__link {
+    color: var(--hk-muted) !important;
+    padding: 0.5rem 0 !important;
+  }
+  
+  .navbar-sidebar .dropdown__link:hover {
+    color: var(--hk-link) !important;
+  }
+  
+  .navbar-sidebar .menu__list-item {
+    margin: 8px 0 !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  .navbar-sidebar .menu__link {
+    font-size: 16px !important;
+    color: var(--hk-ink) !important;
+    font-family: var(--hk-sans) !important;
+    font-weight: 500;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .navbar-sidebar .menu__link--active {
+    background: var(--hk-paper-2) !important;
+    font-weight: 600;
+  }
 }
 
 /* Reveal Animations (Apple-like) */

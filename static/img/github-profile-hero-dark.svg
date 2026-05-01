@@ -1,0 +1,25 @@
+<svg width="1200" height="280" viewBox="0 0 1200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect fill="#161b22" width="1200" height="280"/>
+  <rect fill="#21262d" stroke="#30363d" x="20" y="20" width="1160" height="240" rx="6" stroke-width="1"/>
+  <rect fill="#e6edf3" x="20" y="20" width="1160" height="32" rx="6"/>
+  <rect fill="#e6edf3" x="20" y="40" width="1160" height="12"/>
+  <text fill="#21262d" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="1" x="40" y="42">HKIMW · PERSONAL ACCOUNT → PCCX AI ORG</text>
+  <circle cx="1134" cy="36" r="5" fill="#21262d" fill-opacity="0.35"/>
+  <circle cx="1150" cy="36" r="5" fill="#21262d" fill-opacity="0.35"/>
+  <circle cx="1166" cy="36" r="5" fill="#21262d" fill-opacity="0.35"/>
+  <line stroke="#30363d" x1="40" y1="72" x2="1160" y2="72" stroke-width="1"/>
+  <line stroke="#30363d" x1="40" y1="220" x2="1160" y2="220" stroke-width="1"/>
+  <text fill="#e6edf3" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="30" font-weight="700" letter-spacing="0.5" x="52" y="114">hkimw</text>
+  <text fill="#848d97" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="400" x="52" y="140">personal notes · baselines · website source</text>
+  <text fill="#848d97" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="400" x="52" y="162">pccxai org · FPGA NPU · LLM inference · verification tooling</text>
+  <text fill="#848d97" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="500" x="52" y="244">$ open github.com/pccxai</text>
+  <text fill="#848d97" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="500" x="640" y="244">SystemVerilog · C++ · Python · TypeScript · Rust</text>
+  <g transform="translate(900, 80)">
+    <polyline points="22,43 22,22 86,22 86,43" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter" fill="none" stroke="#e6edf3"/>
+    <polyline points="22,69 22,90 86,90 86,69" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter" fill="none" stroke="#e6edf3"/>
+    <rect fill="#2f80ed" x="45" y="0" width="18" height="112"/>
+    <rect fill="#2f80ed" x="37" y="0" width="34" height="10"/>
+    <rect fill="#2f80ed" x="37" y="102" width="34" height="10"/>
+  </g>
+  <text fill="#e6edf3" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="52" font-weight="700" letter-spacing="1" x="1018" y="165">pccx</text>
+</svg>

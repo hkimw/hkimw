@@ -1,7 +1,10 @@
 <div align="center">
 
 <a href="https://github.com/pccxai">
-  <img src="./static/img/github-profile-hero.svg" alt="hkimw · PCCX AI" width="100%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./static/img/github-profile-hero-dark.svg" />
+    <img src="./static/img/github-profile-hero.svg" alt="hkimw · PCCX AI" width="100%" />
+  </picture>
 </a>
 
 <br/><br/>

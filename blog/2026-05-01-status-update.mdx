@@ -1,0 +1,47 @@
+---
+slug: status-update
+title: "[Daily] Recent Updates and Project Status"
+authors: [hwkim]
+tags: [daily, misc, news]
+date: 2026-05-01
+---
+
+Since "vibe coding" is so trendy these days, I've been trying it out here and there. But after actually using it, I definitely feel that AI-generated code still has a lot of shortcomings. Relying entirely on AI for all the logic is definitely not the way to go.
+
+<!-- truncate -->
+
+For fields with abundant references on GitHub like Web (HTML, CSS) or Python, it generates code brilliantly. But when it comes to the low-level domain I usually work in, it loses its power. SystemVerilog code has an overwhelming number of variables to consider—hw dependencies, RTL, OS, kernel, ISA—and references are incredibly scarce. Taking AI-generated code as-is here is definitely a stretch... But it does an amazing job with UI and frontend. Because of this, in my ongoing PCCX project, I am strictly limiting AI usage to documentation, visualization, and some PM tasks.
+
+For things like architecture design, mapping out hw architectures on draw.io, or developing FPGA NPU core logic, it is much faster and more accurate for me to just do it myself. Actually, I once tried integrating AI into an openevolve FPGA implementation project I was running locally by myself. Long story short, I ended up scraping it all. Because there are nearly infinite variables to control—hardware dependencies, memory bandwidth, timing errors, power consumption, etc.—the prompt length became the size of a short book, so I just dumped it in Google Drive. Moreover, reading through the AI's tangled spaghetti code, debugging it, and trying to optimize it slowed my development speed down so much that it was better to write it from scratch myself.
+
+Ultimately, I think AI's biggest bottleneck right now is the lack of memory—more accurately, the 'KV cache' problem. (This is exactly why Samsung and Hynix stocks are jumping lately.) The KV cache needs to be abundant for the AI to maintain a long context and flawlessly handle insanely long prompts. But with severe power consumption and expensive AI chips, it's practically impossible for service providers to open up unlimited KV cache to users. It's not a profitable business.
+
+Sometimes people blindly believe that AI will soon replace all developers, but personally, I think that's impossible until the next generation of architectures (Post-Transformer) arrives. Transformers have a very clear limitation: the aforementioned KV cache. Unless the architecture paradigm itself changes, there will be a distinct wall for the time being. Still, looking at a recent Google Alpha Evolve paper where AI improves itself, seeing AI go down to the pipeline of evolving AI makes me think this is the closest thing to the beginning of true AGI operating 100% autonomously without human intervention.
+
+That doesn't mean AI is useless. Fundamentally, I view AI as a 'massive multi-dimensional function that extremely compresses data and embeds complex algorithms'. If you view AI as part of an algorithm, the current transformer is just weak at long context (memory); it performs operations or inferences that don't heavily rely on memory exceptionally well.
+
+I saw a really fascinating paper this week. It's a Nature paper from 2021 where an AI with no prior knowledge of physics independently discovered physical laws just by watching videos, like Newton. Seeing things like this makes me think that if the memory issue gets solved, there might be nothing AI can't do.
+
+Chen, Z., Liu, Y. & Sun, H. Physics-informed learning of governing equations from scarce data. Nat Commun 12, 6136 (2021). https://doi.org/10.1038/s41467-021-26434-1
+https://www.nature.com/articles/s41467-021-26434-1
+
+On another note, I recently brainstormed ways to grow my GitHub presence using ChatGPT. As developers, we all secretly care about our GitHub stars, right? It seemed like utilizing the GitHub 'Organization' feature would give it some scale, so I recently opened a new secondary account.
+
+https://github.com/hkimw-underground
+I plan to aggressively test vibe coding here and experiment heavily with things I haven't been able to do normally.
+
+And one more major update.
+https://github.com/pccxai
+I migrated all PCCX-related content from my personal repo over here. It originally started as a project for a paper, but the scale grew much larger than expected, so I decided to properly turn it into a full-fledged open-source project.
+
+I can handle coding on my own, but I'm pretty terrible at the PM side of things. Receiving AI assistance for this part lately has been definitely comfortable. However, since I'm somewhat strict about quality control, I don't 100% trust the results AI spits out. So I built my own pipeline.
+
+- AI decides PM direction
+- AI runs a primary verification of that direction
+- Cross-check and secondary verification using a different AI model
+- My final PM review
+- System launch
+
+Running it as a 5-step process like this definitely makes the project run much more stably than before. It also allows me to concentrate my resources strictly on more core architecture and ISA design!
+
+Anyway, just some random rambling today... Time to go chip away at the pending PCCX v002 code T_T
