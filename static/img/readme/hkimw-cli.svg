@@ -79,7 +79,7 @@
       <text class="ui text" x="-7" y="88" font-size="16">Notes Alias</text>
     </g>
 
-    <text class="mono soft" x="24" y="260" font-size="14">Student building AI accelerators for memory-bound transformer inference.</text>
+    <text class="mono soft" x="24" y="260" font-size="14">FPGA NPU / edge LLM inference</text>
   </g>
 
   <g transform="translate(458 248)">
@@ -87,42 +87,42 @@
     <rect x="0" y="0" width="682" height="402" fill="#ffffff" stroke="#000000" stroke-width="2"/>
     <rect x="2" y="2" width="678" height="29" fill="url(#title-stripes)"/>
     <rect x="259" y="3" width="166" height="27" fill="#ffffff"/>
-    <text class="ui text" x="276" y="23" font-size="17" font-weight="700">Build Status</text>
+    <text class="ui text" x="260" y="23" font-size="17" font-weight="700">Repository Stats</text>
     <rect x="12" y="11" width="12" height="12" fill="#ffffff" stroke="#000000" stroke-width="2"/>
     <rect x="654" y="10" width="14" height="14" fill="#ffffff" stroke="#000000" stroke-width="2"/>
 
-    <text class="ui text" x="20" y="62" font-size="17" font-weight="700">5 items</text>
-    <text class="ui text" x="250" y="62" font-size="17">211K in folder</text>
+    <text class="ui text" x="20" y="62" font-size="17" font-weight="700">12 values</text>
+    <text class="ui text" x="250" y="62" font-size="17">hkimw + pccxai</text>
     <text class="ui text" x="518" y="62" font-size="17">173K available</text>
     <line x1="16" y1="72" x2="666" y2="72" stroke="#000000"/>
 
-    <text class="mono text" x="28" y="112" font-size="17">RTL Alpha</text>
+    <text class="mono text" x="28" y="112" font-size="17">Stars Earned</text>
     <rect x="244" y="95" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
-    <rect x="244" y="95" width="214" height="21" fill="#ffffff" stroke="#000000"/>
-    <text class="mono text" x="542" y="112" font-size="17">85%</text>
+    <rect x="244" y="95" width="226" height="21" fill="#ffffff" stroke="#000000"/>
+    <text class="mono text" x="542" y="112" font-size="17">9</text>
 
-    <text class="mono text" x="28" y="154" font-size="17">Verification</text>
+    <text class="mono text" x="28" y="154" font-size="17">Commits</text>
     <rect x="244" y="137" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
-    <rect x="244" y="137" width="176" height="21" fill="#ffffff" stroke="#000000"/>
-    <text class="mono text" x="542" y="154" font-size="17">70%</text>
+    <rect x="244" y="137" width="246" height="21" fill="#ffffff" stroke="#000000"/>
+    <text class="mono text" x="542" y="154" font-size="17">978</text>
 
-    <text class="mono text" x="28" y="196" font-size="17">KV Cache Path</text>
+    <text class="mono text" x="28" y="196" font-size="17">Pull Requests</text>
     <rect x="244" y="179" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
-    <rect x="244" y="179" width="156" height="21" fill="#ffffff" stroke="#000000"/>
-    <text class="mono text" x="542" y="196" font-size="17">62%</text>
+    <rect x="244" y="179" width="221" height="21" fill="#ffffff" stroke="#000000"/>
+    <text class="mono text" x="542" y="196" font-size="17">88</text>
 
-    <text class="mono text" x="28" y="238" font-size="17">Driver Bring-up</text>
+    <text class="mono text" x="28" y="238" font-size="17">Total Issues</text>
     <rect x="244" y="221" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
-    <rect x="244" y="221" width="113" height="21" fill="#ffffff" stroke="#000000"/>
-    <text class="mono text" x="542" y="238" font-size="17">45%</text>
+    <rect x="244" y="221" width="108" height="21" fill="#ffffff" stroke="#000000"/>
+    <text class="mono text" x="542" y="238" font-size="17">43</text>
 
-    <text class="mono text" x="28" y="280" font-size="17">Public Notes</text>
+    <text class="mono text" x="28" y="280" font-size="17">PCCX Org Stars</text>
     <rect x="244" y="263" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
-    <rect x="244" y="263" width="70" height="21" fill="#ffffff" stroke="#000000"/>
-    <text class="mono text" x="542" y="280" font-size="17">28%</text>
+    <rect x="244" y="263" width="164" height="21" fill="#ffffff" stroke="#000000"/>
+    <text class="mono text" x="542" y="280" font-size="17">13</text>
 
     <rect x="28" y="322" width="618" height="48" fill="url(#shade)" stroke="#000000"/>
-    <text class="mono text" x="46" y="351" font-size="15">MAIN_STACK: SystemVerilog / FPGA / C++ / CUDA / Python / Rust</text>
+    <text class="mono text" x="46" y="351" font-size="15">PCCX: 13 stars / 3 forks / 5 public repos / 30 open issues</text>
   </g>
 
   <g transform="translate(78 426)">
@@ -139,6 +139,8 @@
     <text class="mono text" x="112" y="112" font-size="16">pccxai/pccx</text>
     <text class="mono text" x="28" y="142" font-size="16">notes</text>
     <text class="mono text" x="112" y="142" font-size="16">hkimw.github.io/hkimw</text>
+    <text class="mono text" x="28" y="172" font-size="16">blog</text>
+    <text class="mono text" x="112" y="172" font-size="16">engineer log</text>
   </g>
 
   <g transform="translate(862 58)">
