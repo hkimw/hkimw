@@ -9,15 +9,12 @@
   <a href="https://hkimw.github.io/hkimw/blog"><img src="https://img.shields.io/badge/Blog-Engineer_Log-111111?style=flat-square&logo=markdown&logoColor=white&labelColor=555555" alt="engineer log" /></a>
 </p>
 
-| SCOPE | STARS | FORKS / REPOS | PRS / COMMITS | ISSUES |
-|---|---:|---:|---:|---:|
-| [hkimw](https://github.com/hkimw) | 9 earned | 5 repos | 88 PRs / 978 commits | 43 |
-| [pccxai](https://github.com/pccxai) | 13 | 3 forks / 5 repos | project family | 30 open |
+| SCOPE | STATS |
+|---|---|
+| [hkimw](https://github.com/hkimw) | ★ x9 · ▣ x5 repos · ◆ x88 PRs · ↻ x978 commits · ! x43 issues |
+| [pccxai](https://github.com/pccxai) | ★ x13 · ⑂ x3 forks · ▣ x5 repos · ! x30 open issues |
 
-<details>
-<summary><b>PERSONAL_FEATURED_WORK</b></summary>
-
-<br/>
+## PERSONAL_FEATURED_WORK
 
 <table>
 <tr>
@@ -72,12 +69,7 @@ Public-facing writing space for architecture notes, experiments, paper reviews, 
 </tr>
 </table>
 
-</details>
-
-<details>
-<summary><b>PCCX_AI_FEATURED_WORK</b></summary>
-
-<br/>
+## PCCX_AI_FEATURED_WORK
 
 <table>
 <tr>
@@ -133,8 +125,6 @@ Organization profile and public landing repository for the PCCX AI project famil
 </td>
 </tr>
 </table>
-
-</details>
 
 ## SYSTEM_NOTES
 

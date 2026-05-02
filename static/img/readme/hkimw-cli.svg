@@ -96,33 +96,32 @@
     <text class="ui text" x="518" y="62" font-size="17">173K available</text>
     <line x1="16" y1="72" x2="666" y2="72" stroke="#000000"/>
 
-    <text class="mono text" x="28" y="112" font-size="17">Stars Earned</text>
-    <rect x="244" y="95" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
-    <rect x="244" y="95" width="226" height="21" fill="#ffffff" stroke="#000000"/>
-    <text class="mono text" x="542" y="112" font-size="17">9</text>
+    <rect x="28" y="94" width="288" height="208" fill="#ffffff" stroke="#000000"/>
+    <rect x="40" y="108" width="264" height="33" fill="url(#shade)" stroke="#000000"/>
+    <text class="ui text" x="58" y="131" font-size="17" font-weight="700">Personal Account</text>
+    <text class="mono text" x="58" y="169" font-size="20">★ x9</text>
+    <text class="mono soft" x="166" y="169" font-size="15">stars earned</text>
+    <text class="mono text" x="58" y="205" font-size="20">↻ x978</text>
+    <text class="mono soft" x="166" y="205" font-size="15">commits</text>
+    <text class="mono text" x="58" y="241" font-size="20">◆ x88</text>
+    <text class="mono soft" x="166" y="241" font-size="15">pull requests</text>
+    <text class="mono text" x="58" y="277" font-size="20">! x43</text>
+    <text class="mono soft" x="166" y="277" font-size="15">issues</text>
 
-    <text class="mono text" x="28" y="154" font-size="17">Commits</text>
-    <rect x="244" y="137" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
-    <rect x="244" y="137" width="246" height="21" fill="#ffffff" stroke="#000000"/>
-    <text class="mono text" x="542" y="154" font-size="17">978</text>
-
-    <text class="mono text" x="28" y="196" font-size="17">Pull Requests</text>
-    <rect x="244" y="179" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
-    <rect x="244" y="179" width="221" height="21" fill="#ffffff" stroke="#000000"/>
-    <text class="mono text" x="542" y="196" font-size="17">88</text>
-
-    <text class="mono text" x="28" y="238" font-size="17">Total Issues</text>
-    <rect x="244" y="221" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
-    <rect x="244" y="221" width="108" height="21" fill="#ffffff" stroke="#000000"/>
-    <text class="mono text" x="542" y="238" font-size="17">43</text>
-
-    <text class="mono text" x="28" y="280" font-size="17">PCCX Org Stars</text>
-    <rect x="244" y="263" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
-    <rect x="244" y="263" width="164" height="21" fill="#ffffff" stroke="#000000"/>
-    <text class="mono text" x="542" y="280" font-size="17">13</text>
+    <rect x="352" y="94" width="294" height="208" fill="#ffffff" stroke="#000000"/>
+    <rect x="364" y="108" width="270" height="33" fill="url(#shade)" stroke="#000000"/>
+    <text class="ui text" x="382" y="131" font-size="17" font-weight="700">PCCX AI Org</text>
+    <text class="mono text" x="382" y="169" font-size="20">★ x13</text>
+    <text class="mono soft" x="504" y="169" font-size="15">stars</text>
+    <text class="mono text" x="382" y="205" font-size="20">⑂ x3</text>
+    <text class="mono soft" x="504" y="205" font-size="15">forks</text>
+    <text class="mono text" x="382" y="241" font-size="20">▣ x5</text>
+    <text class="mono soft" x="504" y="241" font-size="15">public repos</text>
+    <text class="mono text" x="382" y="277" font-size="20">! x30</text>
+    <text class="mono soft" x="504" y="277" font-size="15">open issues</text>
 
     <rect x="28" y="322" width="618" height="48" fill="url(#shade)" stroke="#000000"/>
-    <text class="mono text" x="46" y="351" font-size="15">PCCX: 13 stars / 3 forks / 5 public repos / 30 open issues</text>
+    <text class="mono text" x="46" y="351" font-size="15">Legend: ★ stars / ⑂ forks / ▣ repos / ◆ PRs / ↻ commits / ! issues</text>
   </g>
 
   <g transform="translate(78 426)">
@@ -154,6 +153,16 @@
     <rect x="5" y="17" width="64" height="44" fill="#ffffff" stroke="#000000" stroke-width="2"/>
     <path d="M5 17H25L32 9H56L69 17" stroke="#000000" stroke-width="2" fill="#ffffff"/>
     <text class="ui text" x="-5" y="91" font-size="16">PCCX Lab</text>
+  </g>
+
+  <g transform="translate(770 78)">
+    <rect x="0" y="0" width="72" height="72" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <polyline points="18,28 18,18 54,18 54,28" stroke="#000000" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="18,44 18,54 54,54 54,44" stroke="#000000" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+    <rect x="32" y="8" width="8" height="56" fill="#000000"/>
+    <rect x="30" y="8" width="12" height="4" fill="#000000"/>
+    <rect x="30" y="60" width="12" height="4" fill="#000000"/>
+    <text class="ui text" x="1" y="100" font-size="16">PCCX AI</text>
   </g>
 
   <g transform="translate(1018 664)">
