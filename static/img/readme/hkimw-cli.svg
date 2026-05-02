@@ -1,119 +1,165 @@
-<svg width="1200" height="780" viewBox="0 0 1200 780" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">hkimw CLI profile</title>
-  <desc id="desc">A colored terminal style GitHub profile for hkimw, showing focus areas, build load bars, workspace repositories, and routes.</desc>
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">hkimw classic system profile</title>
+  <desc id="desc">A monochrome classic Macintosh style profile window for hkimw.</desc>
   <defs>
     <style>
-      .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
-      .label { fill: #f2cc60; font-weight: 700; }
-      .muted { fill: #8b949e; }
-      .fg { fill: #dbe7f3; }
-      .cyan { fill: #58a6ff; }
-      .green { fill: #56d364; }
-      .pink { fill: #ff7bda; }
-      .orange { fill: #ffa657; }
+      .ui { font-family: Chicago, Charcoal, "Geneva", "Helvetica Neue", Arial, sans-serif; }
+      .mono { font-family: Monaco, "Courier New", ui-monospace, monospace; }
+      .text { fill: #000000; }
+      .soft { fill: #444444; }
+      .small { font-size: 17px; }
+      .tiny { font-size: 14px; }
     </style>
-    <pattern id="bar-empty" width="10" height="10" patternUnits="userSpaceOnUse">
-      <rect width="10" height="10" fill="#11161d"/>
-      <path d="M0 10L10 0" stroke="#30363d" stroke-width="1"/>
+    <pattern id="desktop" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#b7b7b7"/>
+      <rect width="4" height="4" fill="#8f8f8f"/>
+      <rect x="4" y="4" width="4" height="4" fill="#8f8f8f"/>
     </pattern>
-    <pattern id="scanline" width="6" height="6" patternUnits="userSpaceOnUse">
-      <rect width="6" height="6" fill="#070a0f"/>
-      <rect width="6" height="1" y="5" fill="#101722" opacity="0.7"/>
+    <pattern id="bar-empty" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#777777"/>
+      <path d="M0 6L6 0" stroke="#000000" stroke-width="1"/>
+    </pattern>
+    <pattern id="title-stripes" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#ffffff"/>
+      <path d="M0 1H6M0 4H6" stroke="#000000" stroke-width="1"/>
+    </pattern>
+    <pattern id="shade" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#d8d8d8"/>
+      <rect width="2" height="2" fill="#ffffff"/>
+      <rect x="2" y="2" width="2" height="2" fill="#ffffff"/>
     </pattern>
   </defs>
 
-  <rect width="1200" height="780" fill="#05070a"/>
-  <rect width="1200" height="780" fill="url(#scanline)" opacity="0.36"/>
+  <rect width="1200" height="760" fill="url(#desktop)"/>
 
-  <rect x="22" y="22" width="1156" height="736" rx="10" fill="#0b0f14" stroke="#30363d" stroke-width="2"/>
-  <rect x="22" y="22" width="1156" height="46" rx="10" fill="#111720"/>
-  <rect x="22" y="56" width="1156" height="12" fill="#111720"/>
-  <circle cx="50" cy="45" r="7" fill="#ff5f56"/>
-  <circle cx="72" cy="45" r="7" fill="#ffbd2e"/>
-  <circle cx="94" cy="45" r="7" fill="#27c93f"/>
-  <text class="mono muted" x="124" y="50" font-size="14">hkimw@github:~/pccx-profile</text>
-  <text class="mono muted" x="1002" y="50" font-size="14">tty0 / 120x32</text>
+  <rect x="0" y="0" width="1200" height="30" fill="#ffffff"/>
+  <line x1="0" y1="30" x2="1200" y2="30" stroke="#000000" stroke-width="2"/>
+  <text class="ui text" x="22" y="21" font-size="17" font-weight="700">hkimw</text>
+  <text class="ui text" x="112" y="21" font-size="17">File</text>
+  <text class="ui text" x="170" y="21" font-size="17">Edit</text>
+  <text class="ui text" x="228" y="21" font-size="17">View</text>
+  <text class="ui text" x="294" y="21" font-size="17">Special</text>
 
-  <text class="mono muted" x="54" y="104" font-size="17">$ cat /proc/profile</text>
-  <text class="mono label" x="72" y="142" font-size="17">user</text>
-  <text class="mono fg" x="190" y="142" font-size="17">hkimw / Hyunwoo Kim</text>
-  <text class="mono label" x="72" y="174" font-size="17">role</text>
-  <text class="mono fg" x="190" y="174" font-size="17">student building AI accelerators</text>
-  <text class="mono label" x="72" y="206" font-size="17">target</text>
-  <text class="mono fg" x="190" y="206" font-size="17">memory-bound transformer inference on edge FPGAs</text>
-  <text class="mono label" x="72" y="238" font-size="17">stack</text>
-  <text class="mono cyan" x="190" y="238" font-size="17">SystemVerilog</text>
-  <text class="mono fg" x="348" y="238" font-size="17">/ C++ / CUDA / Python / TypeScript / Rust</text>
+  <g transform="translate(34 64)">
+    <rect x="10" y="10" width="716" height="284" fill="#000000"/>
+    <rect x="0" y="0" width="716" height="284" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <rect x="2" y="2" width="712" height="29" fill="url(#title-stripes)"/>
+    <rect x="271" y="3" width="174" height="27" fill="#ffffff"/>
+    <text class="ui text" x="288" y="23" font-size="17" font-weight="700">hkimw Profile</text>
+    <rect x="12" y="11" width="12" height="12" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <rect x="688" y="10" width="14" height="14" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <line x1="692" y1="17" x2="698" y2="17" stroke="#000000" stroke-width="2"/>
 
-  <rect x="770" y="94" width="354" height="164" rx="6" fill="#0f141b" stroke="#253040"/>
-  <text class="mono green" x="792" y="128" font-size="16">$ route --list</text>
-  <text class="mono muted" x="812" y="164" font-size="15">org</text>
-  <text class="mono fg" x="904" y="164" font-size="15">github.com/pccxai</text>
-  <text class="mono muted" x="812" y="192" font-size="15">npu</text>
-  <text class="mono fg" x="904" y="192" font-size="15">pccxai/pccx</text>
-  <text class="mono muted" x="812" y="220" font-size="15">notes</text>
-  <text class="mono fg" x="904" y="220" font-size="15">hkimw.github.io/hkimw</text>
-  <text class="mono muted" x="812" y="248" font-size="15">blog</text>
-  <text class="mono fg" x="904" y="248" font-size="15">engineer log</text>
+    <text class="ui text" x="24" y="62" font-size="17" font-weight="700">4 items</text>
+    <text class="ui text" x="270" y="62" font-size="17">227K in profile</text>
+    <text class="ui text" x="548" y="62" font-size="17">173K available</text>
+    <line x1="16" y1="72" x2="700" y2="72" stroke="#000000"/>
 
-  <line x1="54" y1="278" x2="1124" y2="278" stroke="#30363d"/>
-  <text class="mono muted" x="54" y="318" font-size="17">$ ./build-status --load</text>
+    <g transform="translate(48 103)">
+      <rect x="6" y="22" width="42" height="34" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <rect x="14" y="14" width="42" height="34" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text class="ui text" x="-8" y="84" font-size="16">System Folder</text>
+    </g>
 
-  <text class="mono fg" x="72" y="366" font-size="16">PCCX_NPU_RTL</text>
-  <rect x="338" y="348" width="610" height="20" rx="2" fill="url(#bar-empty)" stroke="#30363d"/>
-  <rect x="338" y="348" width="519" height="20" rx="2" fill="#f2cc60"/>
-  <rect x="849" y="348" width="8" height="20" fill="#f0f6fc" opacity="0.95"/>
-  <text class="mono fg" x="982" y="366" font-size="16">85%</text>
-  <text class="mono muted" x="1044" y="366" font-size="16">alpha</text>
+    <g transform="translate(221 102)">
+      <rect x="5" y="17" width="54" height="38" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <path d="M5 17H22L28 10H48L59 17" stroke="#000000" stroke-width="2" fill="#ffffff"/>
+      <text class="ui text" x="1" y="84" font-size="16">pccxai</text>
+    </g>
 
-  <text class="mono fg" x="72" y="410" font-size="16">VERIFICATION</text>
-  <rect x="338" y="392" width="610" height="20" rx="2" fill="url(#bar-empty)" stroke="#30363d"/>
-  <rect x="338" y="392" width="427" height="20" rx="2" fill="#56d364"/>
-  <rect x="757" y="392" width="8" height="20" fill="#f0f6fc" opacity="0.95"/>
-  <text class="mono fg" x="982" y="410" font-size="16">70%</text>
-  <text class="mono muted" x="1044" y="410" font-size="16">active</text>
+    <g transform="translate(370 102)">
+      <rect x="5" y="17" width="54" height="38" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <path d="M5 17H22L28 10H48L59 17" stroke="#000000" stroke-width="2" fill="#ffffff"/>
+      <text class="ui text" x="9" y="84" font-size="16">pccx</text>
+    </g>
 
-  <text class="mono fg" x="72" y="454" font-size="16">KV_CACHE_PATH</text>
-  <rect x="338" y="436" width="610" height="20" rx="2" fill="url(#bar-empty)" stroke="#30363d"/>
-  <rect x="338" y="436" width="378" height="20" rx="2" fill="#58a6ff"/>
-  <rect x="708" y="436" width="8" height="20" fill="#f0f6fc" opacity="0.95"/>
-  <text class="mono fg" x="982" y="454" font-size="16">62%</text>
-  <text class="mono muted" x="1044" y="454" font-size="16">modeling</text>
+    <g transform="translate(511 100)">
+      <path d="M28 6L56 34L28 62L0 34Z" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <path d="M22 28H34V16L48 34L34 52V40H22Z" fill="#000000"/>
+      <text class="ui text" x="-7" y="88" font-size="16">Notes Alias</text>
+    </g>
 
-  <text class="mono fg" x="72" y="498" font-size="16">KV260_BRINGUP</text>
-  <rect x="338" y="480" width="610" height="20" rx="2" fill="url(#bar-empty)" stroke="#30363d"/>
-  <rect x="338" y="480" width="275" height="20" rx="2" fill="#d2a8ff"/>
-  <rect x="605" y="480" width="8" height="20" fill="#f0f6fc" opacity="0.95"/>
-  <text class="mono fg" x="982" y="498" font-size="16">45%</text>
-  <text class="mono muted" x="1044" y="498" font-size="16">lab</text>
+    <text class="mono soft" x="24" y="260" font-size="14">Student building AI accelerators for memory-bound transformer inference.</text>
+  </g>
 
-  <text class="mono fg" x="72" y="542" font-size="16">DRIVER_STACK</text>
-  <rect x="338" y="524" width="610" height="20" rx="2" fill="url(#bar-empty)" stroke="#30363d"/>
-  <rect x="338" y="524" width="232" height="20" rx="2" fill="#ff7b72"/>
-  <rect x="562" y="524" width="8" height="20" fill="#f0f6fc" opacity="0.95"/>
-  <text class="mono fg" x="982" y="542" font-size="16">38%</text>
-  <text class="mono muted" x="1044" y="542" font-size="16">bringup</text>
+  <g transform="translate(458 248)">
+    <rect x="10" y="10" width="682" height="402" fill="#000000"/>
+    <rect x="0" y="0" width="682" height="402" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <rect x="2" y="2" width="678" height="29" fill="url(#title-stripes)"/>
+    <rect x="259" y="3" width="166" height="27" fill="#ffffff"/>
+    <text class="ui text" x="276" y="23" font-size="17" font-weight="700">Build Status</text>
+    <rect x="12" y="11" width="12" height="12" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <rect x="654" y="10" width="14" height="14" fill="#ffffff" stroke="#000000" stroke-width="2"/>
 
-  <text class="mono fg" x="72" y="586" font-size="16">PUBLIC_NOTES</text>
-  <rect x="338" y="568" width="610" height="20" rx="2" fill="url(#bar-empty)" stroke="#30363d"/>
-  <rect x="338" y="568" width="171" height="20" rx="2" fill="#ffa657"/>
-  <rect x="501" y="568" width="8" height="20" fill="#f0f6fc" opacity="0.95"/>
-  <text class="mono fg" x="982" y="586" font-size="16">28%</text>
-  <text class="mono muted" x="1044" y="586" font-size="16">draft</text>
+    <text class="ui text" x="20" y="62" font-size="17" font-weight="700">5 items</text>
+    <text class="ui text" x="250" y="62" font-size="17">211K in folder</text>
+    <text class="ui text" x="518" y="62" font-size="17">173K available</text>
+    <line x1="16" y1="72" x2="666" y2="72" stroke="#000000"/>
 
-  <rect x="54" y="624" width="516" height="96" rx="6" fill="#0f141b" stroke="#253040"/>
-  <text class="mono green" x="76" y="656" font-size="15">~/workspace</text>
-  <text class="mono muted" x="76" y="684" font-size="14">|-- pccxai/pccx</text>
-  <text class="mono fg" x="286" y="684" font-size="14">open NPU architecture</text>
-  <text class="mono muted" x="76" y="710" font-size="14">|-- pccxai/pccx-lab</text>
-  <text class="mono fg" x="286" y="710" font-size="14">pre-RTL profiler</text>
+    <text class="mono text" x="28" y="112" font-size="17">RTL Alpha</text>
+    <rect x="244" y="95" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
+    <rect x="244" y="95" width="214" height="21" fill="#ffffff" stroke="#000000"/>
+    <text class="mono text" x="542" y="112" font-size="17">85%</text>
 
-  <rect x="608" y="624" width="516" height="96" rx="6" fill="#0f141b" stroke="#253040"/>
-  <text class="mono pink" x="630" y="656" font-size="15">~/notes</text>
-  <text class="mono muted" x="630" y="684" font-size="14">|-- hkimw/hkimw</text>
-  <text class="mono fg" x="840" y="684" font-size="14">site source + notebooks</text>
-  <text class="mono muted" x="630" y="710" font-size="14">|-- blog/</text>
-  <text class="mono fg" x="840" y="710" font-size="14">engineering log</text>
+    <text class="mono text" x="28" y="154" font-size="17">Verification</text>
+    <rect x="244" y="137" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
+    <rect x="244" y="137" width="176" height="21" fill="#ffffff" stroke="#000000"/>
+    <text class="mono text" x="542" y="154" font-size="17">70%</text>
 
-  <text class="mono muted" x="54" y="746" font-size="13">$ uptime: FPGA/NPU systems, edge inference, papers, tools</text>
+    <text class="mono text" x="28" y="196" font-size="17">KV Cache Path</text>
+    <rect x="244" y="179" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
+    <rect x="244" y="179" width="156" height="21" fill="#ffffff" stroke="#000000"/>
+    <text class="mono text" x="542" y="196" font-size="17">62%</text>
+
+    <text class="mono text" x="28" y="238" font-size="17">Driver Bring-up</text>
+    <rect x="244" y="221" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
+    <rect x="244" y="221" width="113" height="21" fill="#ffffff" stroke="#000000"/>
+    <text class="mono text" x="542" y="238" font-size="17">45%</text>
+
+    <text class="mono text" x="28" y="280" font-size="17">Public Notes</text>
+    <rect x="244" y="263" width="252" height="21" fill="url(#bar-empty)" stroke="#000000"/>
+    <rect x="244" y="263" width="70" height="21" fill="#ffffff" stroke="#000000"/>
+    <text class="mono text" x="542" y="280" font-size="17">28%</text>
+
+    <rect x="28" y="322" width="618" height="48" fill="url(#shade)" stroke="#000000"/>
+    <text class="mono text" x="46" y="351" font-size="15">MAIN_STACK: SystemVerilog / FPGA / C++ / CUDA / Python / Rust</text>
+  </g>
+
+  <g transform="translate(78 426)">
+    <rect x="8" y="8" width="350" height="182" fill="#000000"/>
+    <rect x="0" y="0" width="350" height="182" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <rect x="2" y="2" width="346" height="29" fill="url(#title-stripes)"/>
+    <rect x="125" y="3" width="102" height="27" fill="#ffffff"/>
+    <text class="ui text" x="140" y="23" font-size="17" font-weight="700">Routes</text>
+    <line x1="16" y1="52" x2="334" y2="52" stroke="#000000"/>
+
+    <text class="mono text" x="28" y="82" font-size="16">org</text>
+    <text class="mono text" x="112" y="82" font-size="16">github.com/pccxai</text>
+    <text class="mono text" x="28" y="112" font-size="16">npu</text>
+    <text class="mono text" x="112" y="112" font-size="16">pccxai/pccx</text>
+    <text class="mono text" x="28" y="142" font-size="16">notes</text>
+    <text class="mono text" x="112" y="142" font-size="16">hkimw.github.io/hkimw</text>
+  </g>
+
+  <g transform="translate(862 58)">
+    <rect x="16" y="22" width="58" height="72" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <rect x="26" y="34" width="38" height="36" fill="url(#shade)" stroke="#000000"/>
+    <line x1="26" y1="79" x2="64" y2="79" stroke="#000000" stroke-width="2"/>
+    <text class="ui text" x="0" y="124" font-size="16">System Notes</text>
+  </g>
+
+  <g transform="translate(1008 58)">
+    <rect x="5" y="17" width="64" height="44" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <path d="M5 17H25L32 9H56L69 17" stroke="#000000" stroke-width="2" fill="#ffffff"/>
+    <text class="ui text" x="-5" y="91" font-size="16">PCCX Lab</text>
+  </g>
+
+  <g transform="translate(1018 664)">
+    <path d="M16 12H62L56 78H22Z" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <path d="M24 12V4H54V12" stroke="#000000" stroke-width="2" fill="none"/>
+    <line x1="28" y1="24" x2="32" y2="68" stroke="#000000"/>
+    <line x1="39" y1="24" x2="39" y2="68" stroke="#000000"/>
+    <line x1="50" y1="24" x2="46" y2="68" stroke="#000000"/>
+    <text class="ui text" x="13" y="104" font-size="16">Trash</text>
+  </g>
 </svg>

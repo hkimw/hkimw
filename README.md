@@ -1,21 +1,6 @@
 <p align="center">
-  <img src="./static/img/readme/hkimw-cli.svg" width="100%" alt="hkimw CLI profile" />
+  <img src="./static/img/readme/hkimw-cli.svg" width="100%" alt="hkimw classic system profile" />
 </p>
-
-<p align="center">
-  <a href="https://github.com/pccxai"><code>open org</code></a>
-  <span> / </span>
-  <a href="https://github.com/pccxai/pccx"><code>open npu</code></a>
-  <span> / </span>
-  <a href="https://hkimw.github.io/hkimw/"><code>open notes</code></a>
-  <span> / </span>
-  <a href="https://hkimw.github.io/hkimw/blog"><code>tail blog</code></a>
-</p>
-
-```bash
-hkimw@github:~$ ./focus
-rtl + verification + driver bring-up for memory-bound transformer inference
-```
 
 <details>
 <summary><code>ls ./work</code></summary>
