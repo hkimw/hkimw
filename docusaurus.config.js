@@ -25,7 +25,8 @@ module.exports = async function createConfig() {
   const {default: math} = await import('remark-math');
   const {default: katex} = await import('rehype-katex');
 
-  const baseUrl = '/hkimw/';
+  const siteUrl = process.env.SITE_URL ?? 'https://hkimw.pages.dev';
+  const baseUrl = process.env.SITE_BASE_URL ?? '/';
 
   const blogCategoriesByLocale = {
     en: collectBlogTags(path.join(__dirname, 'blog')),
@@ -35,7 +36,7 @@ module.exports = async function createConfig() {
   return {
     title: 'hkimw',
     tagline: 'Deep Learning · Parallel Programming · Systems Optimization',
-    url: 'https://hkimw.github.io',
+    url: siteUrl,
     baseUrl,
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',

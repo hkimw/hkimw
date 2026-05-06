@@ -33,7 +33,7 @@ jobs:
       BLOG_AI_PUBLISH_MODE: ${{ github.event.inputs.publish_mode || vars.BLOG_AI_PUBLISH_MODE || 'dry-run' }}
       BLOG_DOCUMENT_ID: ${{ github.event.inputs.document_id || '' }}
       BLOG_POST_TIMEZONE: Asia/Seoul
-      BLOG_BASE_URL: https://hkimw.github.io/hkimw
+      BLOG_BASE_URL: ${{ vars.BLOG_BASE_URL || 'https://hkimw.pages.dev' }}
       BLOG_COMMIT_AUTHOR_NAME: ${{ vars.BLOG_COMMIT_AUTHOR_NAME || 'hkimw' }}
       BLOG_COMMIT_AUTHOR_EMAIL: ${{ secrets.BLOG_COMMIT_AUTHOR_EMAIL }}
       BLOG_MAX_DOCS_PER_RUN: ${{ vars.BLOG_MAX_DOCS_PER_RUN || '1' }}

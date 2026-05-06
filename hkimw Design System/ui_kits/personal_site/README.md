@@ -1,6 +1,6 @@
 # UI Kit — hkimw personal site
 
-High-fidelity recreation of the Docusaurus portfolio at https://hkimw.github.io/hkimw/.
+High-fidelity recreation of the Docusaurus portfolio at https://hkimw.pages.dev/.
 
 - `index.html` — full click-through prototype: Home → Blog → Papers → Projects → Chatbot.
 - `kit.css` — all visual rules, ported from `src/css/custom.css` in the source repo and rewritten against this system's tokens.

@@ -5,8 +5,8 @@
 <p align="center">
   <a href="https://github.com/pccxai"><img src="https://img.shields.io/badge/PCCX_AI-Organization-111111?style=flat-square&logo=github&logoColor=white&labelColor=555555" alt="PCCX AI org" /></a>
   <a href="https://github.com/pccxai/pccx"><img src="https://img.shields.io/badge/PCCX-NPU_Project-111111?style=flat-square&logo=apache&logoColor=white&labelColor=555555" alt="pccx project" /></a>
-  <a href="https://hkimw.github.io/hkimw/"><img src="https://img.shields.io/badge/Notebook-hkimw.github.io-111111?style=flat-square&logo=githubpages&logoColor=white&labelColor=555555" alt="technical notebook" /></a>
-  <a href="https://hkimw.github.io/hkimw/blog"><img src="https://img.shields.io/badge/Blog-Engineer_Log-111111?style=flat-square&logo=markdown&logoColor=white&labelColor=555555" alt="engineer log" /></a>
+  <a href="https://hkimw.pages.dev/"><img src="https://img.shields.io/badge/Notebook-hkimw.pages.dev-111111?style=flat-square&logo=cloudflare&logoColor=white&labelColor=555555" alt="technical notebook" /></a>
+  <a href="https://hkimw.pages.dev/blog"><img src="https://img.shields.io/badge/Blog-Engineer_Log-111111?style=flat-square&logo=markdown&logoColor=white&labelColor=555555" alt="engineer log" /></a>
 </p>
 
 | SCOPE | STATS |
@@ -58,12 +58,12 @@ Undergraduate latency-focused computer vision project using facial landmarks and
 </td>
 <td width="50%" valign="top">
 
-#### [Technical notebook](https://hkimw.github.io/hkimw/)
+#### [Technical notebook](https://hkimw.pages.dev/)
 
 Public-facing writing space for architecture notes, experiments, paper reviews, and current work.
 
-<a href="https://hkimw.github.io/hkimw/"><img src="https://img.shields.io/badge/SITE-hkimw.github.io-111111?style=flat-square&labelColor=555555&logo=githubpages&logoColor=white" alt="Technical site" /></a>
-<a href="https://hkimw.github.io/hkimw/blog"><img src="https://img.shields.io/badge/BLOG-Engineer_Log-111111?style=flat-square&labelColor=555555&logo=markdown&logoColor=white" alt="Technical blog" /></a>
+<a href="https://hkimw.pages.dev/"><img src="https://img.shields.io/badge/SITE-hkimw.pages.dev-111111?style=flat-square&labelColor=555555&logo=cloudflare&logoColor=white" alt="Technical site" /></a>
+<a href="https://hkimw.pages.dev/blog"><img src="https://img.shields.io/badge/BLOG-Engineer_Log-111111?style=flat-square&labelColor=555555&logo=markdown&logoColor=white" alt="Technical blog" /></a>
 
 </td>
 </tr>
@@ -133,7 +133,7 @@ Organization profile and public landing repository for the PCCX AI project famil
 | MAIN_STACK | SystemVerilog / FPGA / C++ / Python / TypeScript / Rust |
 | RESEARCH_THEME | Memory-bound Transformer inference |
 | PROJECT_FAMILY | [pccxai](https://github.com/pccxai) / [pccx](https://github.com/pccxai/pccx) / [pccx-lab](https://github.com/pccxai/pccx-lab) |
-| SITE | [technical notebook + project portfolio](https://hkimw.github.io/hkimw/) |
+| SITE | [technical notebook + project portfolio](https://hkimw.pages.dev/) |
 
 <details>
 <summary><b>REPOSITORY_COMMANDS</b></summary>
