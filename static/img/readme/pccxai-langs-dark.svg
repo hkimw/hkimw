@@ -10,34 +10,34 @@
       <mask id="bar-mask-d">
         <rect x="0" y="0" width="250" height="8" fill="white" rx="5"/>
       </mask>
-      <rect mask="url(#bar-mask-d)" x="0.00" y="0" width="89.75" height="8" fill="#3572a5"/>
-      <rect mask="url(#bar-mask-d)" x="89.75" y="0" width="63.90" height="8" fill="#dea584"/>
-      <rect mask="url(#bar-mask-d)" x="153.65" y="0" width="37.23" height="8" fill="#3178c6"/>
-      <rect mask="url(#bar-mask-d)" x="190.88" y="0" width="32.80" height="8" fill="#f1e05a"/>
-      <rect mask="url(#bar-mask-d)" x="223.68" y="0" width="26.32" height="8" fill="#2d7fbb"/>
+      <rect mask="url(#bar-mask-d)" x="0.00" y="0" width="105.18" height="8" fill="#3572a5"/>
+      <rect mask="url(#bar-mask-d)" x="105.18" y="0" width="59.15" height="8" fill="#dea584"/>
+      <rect mask="url(#bar-mask-d)" x="164.32" y="0" width="33.03" height="8" fill="#3178c6"/>
+      <rect mask="url(#bar-mask-d)" x="197.36" y="0" width="29.22" height="8" fill="#f1e05a"/>
+      <rect mask="url(#bar-mask-d)" x="226.58" y="0" width="23.42" height="8" fill="#2d7fbb"/>
       <g transform="translate(0, 25)">
         <g transform="translate(0, 0)">
           <g transform="translate(0, 0)">
         <circle cx="5" cy="6" r="5" fill="#3572a5"/>
-        <text x="15" y="10" fill="#cdd9e5" font-family="'Segoe UI',Ubuntu,Sans-Serif" font-size="11">Python 35.90%</text>
+        <text x="15" y="10" fill="#cdd9e5" font-family="'Segoe UI',Ubuntu,Sans-Serif" font-size="11">Python 42.07%</text>
       </g>
       <g transform="translate(0, 25)">
         <circle cx="5" cy="6" r="5" fill="#dea584"/>
-        <text x="15" y="10" fill="#cdd9e5" font-family="'Segoe UI',Ubuntu,Sans-Serif" font-size="11">Rust 25.56%</text>
+        <text x="15" y="10" fill="#cdd9e5" font-family="'Segoe UI',Ubuntu,Sans-Serif" font-size="11">Rust 23.66%</text>
       </g>
       <g transform="translate(0, 50)">
         <circle cx="5" cy="6" r="5" fill="#3178c6"/>
-        <text x="15" y="10" fill="#cdd9e5" font-family="'Segoe UI',Ubuntu,Sans-Serif" font-size="11">TypeScript 14.89%</text>
+        <text x="15" y="10" fill="#cdd9e5" font-family="'Segoe UI',Ubuntu,Sans-Serif" font-size="11">TypeScript 13.21%</text>
       </g>
         </g>
         <g transform="translate(150, 0)">
           <g transform="translate(0, 0)">
         <circle cx="5" cy="6" r="5" fill="#f1e05a"/>
-        <text x="15" y="10" fill="#cdd9e5" font-family="'Segoe UI',Ubuntu,Sans-Serif" font-size="11">JavaScript 13.12%</text>
+        <text x="15" y="10" fill="#cdd9e5" font-family="'Segoe UI',Ubuntu,Sans-Serif" font-size="11">JavaScript 11.69%</text>
       </g>
       <g transform="translate(0, 25)">
         <circle cx="5" cy="6" r="5" fill="#2d7fbb"/>
-        <text x="15" y="10" fill="#cdd9e5" font-family="'Segoe UI',Ubuntu,Sans-Serif" font-size="11">SystemVerilog 10.53%</text>
+        <text x="15" y="10" fill="#cdd9e5" font-family="'Segoe UI',Ubuntu,Sans-Serif" font-size="11">SystemVerilog 9.37%</text>
       </g>
         </g>
       </g>
